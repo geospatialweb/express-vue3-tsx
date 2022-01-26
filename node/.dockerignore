@@ -1,5 +1,4 @@
 .dockerignore
-.editorconfig
 .eslintcache
 .eslintrc.js
 .husky
@@ -9,5 +8,4 @@ jest.config.js
 node_modules
 nodemon.json
 package-lock.json
-prettier.config.js
 tsconfig.json
