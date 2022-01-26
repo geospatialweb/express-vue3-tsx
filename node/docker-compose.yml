@@ -1,0 +1,55 @@
+version: '3.5'
+services:
+  # PRODUCTION
+  # nginx:
+  #   container_name: nginx
+  #   image: nginx:stable-alpine
+  #   restart: on-failure
+  #   depends_on:
+  #     - node
+  #   ports:
+  #     - "443:443"
+  #   volumes:
+  #     - /etc/nginx:/etc/nginx:ro
+  #     - /etc/letsencrypt:/etc/letsencrypt:rw
+  #     - /var/log/letsencrypt:/var/log/letsencrypt:rw
+  #     - /var/www/letsencrypt:/var/www/letsencrypt:rw
+  #     - ../vue/static:/var/www/geospatialweb.ca/static:ro
+  #     - ../logs:/var/log/nginx:rw
+  #   networks:
+  #     - app-network
+
+  node:
+    container_name: node
+    # build: .
+    image: geospatialweb/node-vue3-tsx:local
+    command: npm run prod
+    restart: on-failure
+    depends_on:
+      - postgres
+    ports:
+      - '8000:8000'
+    # volumes:
+    #  - /etc/letsencrypt/archive:/etc/letsencrypt/archive:ro
+    #  - /etc/letsencrypt/live:/etc/letsencrypt/live:ro
+    networks:
+      - app-network
+
+  postgres:
+    container_name: postgis
+    image: kartoza/postgis:12.0
+    restart: on-failure
+    ports:
+      - '5432:5432'
+    networks:
+      - app-network
+    volumes:
+      - ../postgres/postgis.sql:/docker-entrypoint-initdb.d/postgis.sql:ro
+    environment:
+      POSTGRES_DBNAME:  ${POSTGRES_DBNAME}
+      POSTGRES_PASS:    ${POSTGRES_PASS}
+      POSTGRES_USER:    ${POSTGRES_USER}
+
+networks:
+  app-network:
+    driver: bridge

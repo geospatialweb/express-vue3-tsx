@@ -1,0 +1,8 @@
+{
+  "css.validate": false,
+  "eslint.validate": ["typescript", "typescriptreact"],
+  "stylelint.enable": true,
+  // does not overwrite default & user settings - make temporary edit in settings.json
+  // Ctrl+Shift+P | Open Settings (JSON)
+  "typescript.tsdk": "vue/node_modules/typescript/lib"
+}

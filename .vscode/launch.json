@@ -1,0 +1,16 @@
+// $cd node && npm run debug
+// note you can also debug node in chrome dev tools in lieu of vscode - otherwise
+// press F5 to attach node debugger to process 'node --require ts-node/register --inspect src/app.ts'
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach Debugger",
+      "type": "pwa-node",
+      "request": "attach",
+      "processId": "${command:PickProcess}",
+      "skipFiles": ["<node_internals>/**"],
+      "restart": true
+    }
+  ]
+}

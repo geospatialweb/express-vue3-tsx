@@ -1,0 +1,13 @@
+.dockerignore
+.editorconfig
+.eslintcache
+.eslintrc.js
+.husky
+docker-compose.yml
+Dockerfile
+jest.config.js
+node_modules
+nodemon.json
+package-lock.json
+prettier.config.js
+tsconfig.json

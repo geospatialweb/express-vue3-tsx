@@ -1,0 +1,16 @@
+.mapbox {
+  bottom: 0;
+  position: absolute;
+  top: 4.5rem;
+  width: 100%;
+}
+
+.outdoors {
+  composes: mapbox;
+  background: var(--light-cream);
+}
+
+.satellite {
+  composes: mapbox;
+  background: var(--black);
+}
