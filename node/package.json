@@ -1,6 +1,6 @@
 {
   "name": "node-vue3-tsx",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "John Campbell <johncampbell@geospatialweb.ca> <http://www.linkedin.com/in/geospatialweb>",
   "private": true,
@@ -15,7 +15,7 @@
     "deploy": "npm test && npm run build",
     "dev": "npx nodemon src/app.ts",
     "debug": "npx nodemon --inspect src/app.ts",
-    "prepare": "cd .. && husky install vue/.husky",
+    "prepare": "cd .. && husky install node/.husky",
     "format": "prettier --write 'src/**/*.ts'",
     "lint": "eslint src --ext .ts --cache",
     "lint:fix": "eslint src --ext .ts,.tsx --cache --fix",
