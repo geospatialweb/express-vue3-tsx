@@ -55,8 +55,6 @@ body {
   font-family: var(--Archivo);
   font-size: 1.6rem;
   line-height: 1.2;
-  margin: 0;
-  padding: 0;
   position: relative;
 }
 
@@ -66,6 +64,8 @@ canvas {
   bottom: 0;
   height: 100%;
   left: 0;
+  margin: 0;
+  padding: 0;
   right: 0;
   top: 0;
   width: 100%;
