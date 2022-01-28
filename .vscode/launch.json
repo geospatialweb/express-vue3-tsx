@@ -10,7 +10,18 @@
       "request": "attach",
       "processId": "${command:PickProcess}",
       "skipFiles": ["<node_internals>/**"],
+      "disableOptimisticBPs": true,
       "restart": true
+    },
+    {
+      "name": "Jest Current File",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": ["${fileBasenameNoExtension}", "--config", "jest.config.ts"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true
     }
   ]
 }
