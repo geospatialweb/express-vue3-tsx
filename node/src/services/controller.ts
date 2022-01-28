@@ -17,16 +17,14 @@ export default class ControllerService {
     /* prettier-ignore */
     const { method, originalUrl, query: { fields, table } } = req
     this.logRequest(method, originalUrl)
-    const apiService: ApiService = Container.get(ApiService)
-    const fc: FeatureCollection = await apiService.getGeoJsonFeatureCollection({ fields, table } as IQueryParams)
+    const fc: FeatureCollection = await this._apiService.getGeoJsonFeatureCollection({ fields, table } as IQueryParams)
     return this.sendResponse(res, fc)
   }
 
   getMapboxAccessToken(req: Request, res: Response): Response {
     const { method, originalUrl } = req
     this.logRequest(method, originalUrl)
-    const apiService: ApiService = Container.get(ApiService)
-    const token = apiService.getMapboxAccessToken()
+    const token = this._apiService.getMapboxAccessToken()
     return this.sendResponse(res, token)
   }
 

@@ -7,6 +7,7 @@ export async function getGeoJsonFeatureCollection(req: Request, res: Response): 
   const controllerService: ControllerService = Container.get(ControllerService)
   return await controllerService.getGeoJsonFeatureCollection(req, res)
 }
+
 export function getMapboxAccessToken(req: Request, res: Response): Response {
   const controllerService: ControllerService = Container.get(ControllerService)
   return controllerService.getMapboxAccessToken(req, res)
