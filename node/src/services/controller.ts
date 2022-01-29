@@ -1,13 +1,14 @@
 import { Request, Response } from 'express'
-import { FeatureCollection } from 'geojson'
 import { Container, Service } from 'typedi'
 
 import { HTTP_CODES } from '../enums'
-import { IQueryParams } from '../interfaces'
+import { IQueryParams, IHttpCodes } from '../interfaces'
 import { ApiService, LogService } from '../services'
 
 @Service()
 export default class ControllerService {
+  private _httpCodes: IHttpCodes = HTTP_CODES
+
   constructor(private _apiService: ApiService, private _logService: LogService) {
     this._apiService = Container.get(ApiService)
     this._logService = Container.get(LogService)
@@ -17,7 +18,7 @@ export default class ControllerService {
     /* prettier-ignore */
     const { method, originalUrl, query: { fields, table } } = req
     this.logRequest(method, originalUrl)
-    const fc: FeatureCollection = await this._apiService.getGeoJsonFeatureCollection({ fields, table } as IQueryParams)
+    const fc = await this._apiService.getGeoJsonFeatureCollection({ fields, table } as IQueryParams)
     return this.sendResponse(res, fc)
   }
 
@@ -32,13 +33,15 @@ export default class ControllerService {
     const white = '\x1b[37m%s\x1b[0m'
     this._logService.consoleLog(`${method} ${url}`, white)
   }
-  private logResponse(): void {
+
+  private logResponse(status: number): void {
     const green = '\x1b[32m%s\x1b[0m'
-    this._logService.consoleLog('JSON response status 200', green)
+    this._logService.consoleLog(`JSON response status ${status}`, green)
   }
-  private sendResponse = (res: Response, response: FeatureCollection | string): Response => {
-    const { OK } = HTTP_CODES
-    this.logResponse()
+
+  private sendResponse(res: Response, response: any): Response {
+    const { OK } = this._httpCodes
+    this.logResponse(OK)
     return res
       .set({
         'Access-Control-Allow-Origin': '*'
