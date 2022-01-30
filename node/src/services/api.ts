@@ -7,7 +7,7 @@ import { GeoJsonService, LogService, PostgresService } from '../services'
 
 @Service()
 export default class ApiService {
-  private _geoJsonService: any = GeoJsonService
+  private _geoJsonService = GeoJsonService
 
   constructor(private _logService: LogService, private _postgresService: PostgresService) {
     this._logService = Container.get(LogService)
