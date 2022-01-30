@@ -19,7 +19,7 @@
     "format": "prettier --write 'src/**/*.ts'",
     "lint": "eslint src --ext .ts --cache",
     "lint:fix": "eslint src --ext .ts,.tsx --cache --fix",
-    "test": "jest src --passWithNoTests"
+    "test": "jest"
   },
   "dependencies": {
     "celebrate": "^15.0.0",
