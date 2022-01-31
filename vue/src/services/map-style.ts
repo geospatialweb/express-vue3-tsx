@@ -6,9 +6,10 @@ import { StoreService } from '@/services'
 
 @Service()
 export default class MapStyleService {
+  private _mapStyle: string = ''
   private _staticStates: Record<string, string> = StaticStates
 
-  constructor(private _mapStyle: string, private _storeService: StoreService) {
+  constructor(private _storeService: StoreService) {
     this._storeService = Container.get(StoreService)
     this.setMapStyle()
   }
