@@ -43,14 +43,12 @@ export default class StoreService {
   private _mapboxSettings: IMapboxSettings = cloneDeep(mapbox.settings)
   private _markerVisibility: IMarkerVisibility = cloneDeep(markerVisibility)
   private _modal: IModal = cloneDeep(modal)
+  private _reactiveState: Record<string, ReactiveState> = {}
   private _reactiveStates: Record<string, string> = ReactiveStates
+  private _staticState: Record<string, StaticState> = {}
   private _staticStates: Record<string, string> = StaticStates
 
-  constructor(
-    private _logService: LogService,
-    private _reactiveState: Record<string, ReactiveState>,
-    private _staticState: Record<string, StaticState>
-  ) {
+  constructor(private _logService: LogService) {
     this._logService = Container.get(LogService)
     this.createReactiveState()
     this.createStaticState()
