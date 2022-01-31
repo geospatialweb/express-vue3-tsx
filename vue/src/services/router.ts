@@ -5,9 +5,7 @@ import router from '@/router'
 
 @Service()
 export default class RouterService {
-  constructor(private _router: Router) {
-    this._router = router
-  }
+  private _router: Router = router
 
   async setRoute(name: string): Promise<void> {
     await this._router.push({ name })
