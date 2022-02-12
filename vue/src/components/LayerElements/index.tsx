@@ -27,7 +27,9 @@ export default defineComponent({
       </li>
     )
     const jsx = (layerElements: Array<ILayerElement>): JSX.Element => (
-      <ul class={layerElement}>{layerElements.map(listItem)}</ul>
+      <ul id="layer-element" class={`${layerElement}`}>
+        {layerElements.map(listItem)}
+      </ul>
     )
     return (): JSX.Element => jsx(getLayerElementsState().value)
   }

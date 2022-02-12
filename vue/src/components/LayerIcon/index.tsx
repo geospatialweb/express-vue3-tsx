@@ -29,14 +29,7 @@ export default defineComponent({
   },
   setup({ height, id, name, src, width }: ILayerIcon) {
     return (): JSX.Element => (
-      <img
-        id={id}
-        class={`layer-element ${LayerElements[id as LayerIcon]}`}
-        alt={name}
-        height={height}
-        src={src}
-        width={width}
-      />
+      <img id={id} class={`${LayerElements[id as LayerIcon]}`} alt={name} height={height} src={src} width={width} />
     )
   }
 })

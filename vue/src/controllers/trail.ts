@@ -10,15 +10,13 @@ export default class TrailController {
   }
 
   addSelectTrailEventListener(): void {
-    for (const el of document.querySelectorAll('select.trails')) {
-      el.addEventListener('change', (evt): void => this.onSelectTrailChangeHandler(evt))
-    }
+    const el = document.getElementById('trail')
+    el && el.addEventListener('change', (evt): void => this.onSelectTrailChangeHandler(evt))
   }
 
   removeSelectTrailEventListener(): void {
-    for (const el of document.querySelectorAll('select.trails')) {
-      el.removeEventListener('change', (evt): void => this.onSelectTrailChangeHandler(evt))
-    }
+    const el = document.getElementById('trail')
+    el && el.removeEventListener('change', (evt): void => this.onSelectTrailChangeHandler(evt))
   }
 
   private onSelectTrailChangeHandler(evt: Event): void {

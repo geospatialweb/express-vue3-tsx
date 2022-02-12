@@ -20,7 +20,7 @@ export default defineComponent({
   },
   setup(props: ILayerElement) {
     const jsx = ({ id, isActive, name }: ILayerElement): JSX.Element => (
-      <div id={id} class={`layer-element ${isActive ? active : inactive}`} aria-label={name}>
+      <div id={id} class={`${isActive ? active : inactive}`} aria-label={name}>
         {name}
       </div>
     )

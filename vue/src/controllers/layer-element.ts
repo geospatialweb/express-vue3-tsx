@@ -10,15 +10,13 @@ export default class LayerElementController {
   }
 
   addLayerElementEventListener(): void {
-    for (const el of document.querySelectorAll('.layer-element')) {
-      el.addEventListener('click', (evt): void => this.onLayerElementClickHandler(evt))
-    }
+    const el = document.getElementById('layer-element')
+    el && el.addEventListener('click', (evt): void => this.onLayerElementClickHandler(evt))
   }
 
   removeLayerElementEventListener(): void {
-    for (const el of document.querySelectorAll('.layer-element')) {
-      el.removeEventListener('click', (evt): void => this.onLayerElementClickHandler(evt))
-    }
+    const el = document.getElementById('layer-element')
+    el && el.removeEventListener('click', (evt): void => this.onLayerElementClickHandler(evt))
   }
 
   private onLayerElementClickHandler(evt: Event): void {
