@@ -15,7 +15,7 @@ export default class HttpService {
 
   async csv(url: string): Promise<any> {
     return this._csv(url)
-      .then((res) => res)
+      .then((data) => data)
       .catch(({ message }) => this._logService.consoleError(<string>message))
   }
 
@@ -23,7 +23,7 @@ export default class HttpService {
     const { httpClient } = this._axiosService
     return httpClient
       .get<Record<string, string>>(url, params)
-      .then((res) => res.data)
+      .then(({ data }) => data)
       .catch(({ message }) => this._logService.consoleError(<string>message))
   }
 }

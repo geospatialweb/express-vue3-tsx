@@ -15,10 +15,10 @@ import { LayerElement } from '@/types'
 @Service()
 export default class LayerElementService {
   private _layerElements: Record<string, string> = LayerElements
+  private _layerElementsHashmap: Record<string, (id: LayerElement) => void | Promise<void>> = {}
   private _reactiveStates: Record<string, string> = ReactiveStates
 
   constructor(
-    private _layerElementsHashmap: Record<string, (id: LayerElement) => void | Promise<void>>,
     private _layerVisibilityService: LayerVisibilityService,
     private _mapService: MapService,
     private _mapStyleService: MapStyleService,

@@ -5,15 +5,14 @@ import { HTTP_CODES } from '../enums'
 import { IHttpCodes, IQueryParams } from '../interfaces'
 import { ApiService, LogService } from '../services'
 
-const apiService: ApiService = Container.get(ApiService)
-const logService: LogService = Container.get(LogService)
-
 const logRequest = (method: string, url: string): void => {
   const white = '\x1b[37m%s\x1b[0m'
+  const logService: LogService = Container.get(LogService)
   logService.consoleLog(`${method} ${url}`, white)
 }
 const logResponse = (status: number): void => {
   const green = '\x1b[32m%s\x1b[0m'
+  const logService: LogService = Container.get(LogService)
   logService.consoleLog(`JSON response status ${status}`, green)
 }
 const sendResponse = (res: Response, response: any): Response<any, Record<string, string>> => {
@@ -31,6 +30,7 @@ export async function getGeoJsonFeatureCollection(req: Request, res: Response): 
   /* prettier-ignore */
   const { method, originalUrl, query: { fields, table } } = req
   logRequest(method, originalUrl)
+  const apiService: ApiService = Container.get(ApiService)
   const fc = await apiService.getGeoJsonFeatureCollection({ fields, table } as IQueryParams)
   return sendResponse(res, fc)
 }
@@ -38,6 +38,7 @@ export async function getGeoJsonFeatureCollection(req: Request, res: Response): 
 export function getMapboxAccessToken(req: Request, res: Response): Response {
   const { method, originalUrl } = req
   logRequest(method, originalUrl)
+  const apiService: ApiService = Container.get(ApiService)
   const token = apiService.getMapboxAccessToken()
   return sendResponse(res, token)
 }

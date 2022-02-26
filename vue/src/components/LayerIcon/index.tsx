@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 
 import { ILayerIcon } from '@/interfaces'
 import { LayerIcon } from '@/types'
-import LayerElements from '../LayerElements/index.module.css'
+import layerElements from '../LayerElements/index.module.css'
 
 export default defineComponent({
   props: {
@@ -29,7 +29,7 @@ export default defineComponent({
   },
   setup({ height, id, name, src, width }: ILayerIcon) {
     return (): JSX.Element => (
-      <img id={id} class={`${LayerElements[id as LayerIcon]}`} alt={name} height={height} src={src} width={width} />
+      <img id={id} class={layerElements[id as LayerIcon]} alt={name} height={height} src={src} width={width} />
     )
   }
 })

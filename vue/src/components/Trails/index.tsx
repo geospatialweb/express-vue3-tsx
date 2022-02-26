@@ -7,7 +7,7 @@ import { trail } from './index.module.css'
 export default defineComponent({
   render(): JSX.Element {
     return (
-      <select id="trail" class={`${trail}`} aria-label={`${trails[0].name}`}>
+      <select id="trail" class={trail} aria-label={`${trails[0].name}`}>
         {trails.map(({ name }: ITrail) => (
           <option key={name} aria-label={name}>
             {name}

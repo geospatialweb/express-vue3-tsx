@@ -5,10 +5,10 @@ import { Urls } from '@/enums'
 
 @Service()
 export default class AxiosService {
+  private _axios: AxiosStatic = axios
   private _urls: Record<string, string> = Urls
 
-  constructor(private _axios: AxiosStatic, private _httpClient: AxiosInstance) {
-    this._axios = axios
+  constructor(private _httpClient: AxiosInstance) {
     this.createHttpClient()
   }
 

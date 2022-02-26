@@ -22,7 +22,7 @@ export default defineComponent({
       const modalService = Container.get(ModalService)
       modalService.showModal()
     }
-    const addEventListeners = (): void => {
+    const addControllerEventListeners = (): void => {
       const hexagonLayerController = Container.get(HexagonLayerController)
       hexagonLayerController.addHexagonLayerEventListeners()
     }
@@ -35,7 +35,7 @@ export default defineComponent({
       const hexagonLayerService = Container.get(HexagonLayerService)
       hexagonLayerService.loadHexagonLayer()
     }
-    const removeEventListeners = (): void => {
+    const removeControllerEventListeners = (): void => {
       const hexagonLayerController = Container.get(HexagonLayerController)
       hexagonLayerController.removeHexagonLayerEventListeners()
     }
@@ -49,11 +49,11 @@ export default defineComponent({
     }
     onBeforeMount((): void => showModal())
     onMounted(async (): Promise<void> => {
-      addEventListeners()
+      addControllerEventListeners()
       await getMapboxAccessToken()
       loadHexagonLayer()
     })
-    onBeforeUnmount((): void => removeEventListeners())
+    onBeforeUnmount((): void => removeControllerEventListeners())
     onUnmounted((): void => {
       removeDeckInstance()
       removeMapInstance()
