@@ -12,6 +12,6 @@ In essence, this implementation is a Proof of Concept and MVP Prototype that emb
 
 * Vue 3: Composition API, ES6 Proxy and reactive local/global state management without Vuex, Pinia or Redux
 
-To that end, this experiment has been an overwhelming success. Everything coalesces perfectly. You be the judge...
+To that end, this experiment has been an overwhelming success. Everything coalesces. Vite is amazing. You be the judge...
 
 NOTE: .env file is available upon request at johncampbell@geospatialweb.ca
