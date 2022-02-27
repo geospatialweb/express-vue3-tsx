@@ -1,4 +1,4 @@
-export enum EndPoints {
+export enum Endpoints {
   GEOJSON_ENDPOINT = '/geojson',
   MAPBOX_ACCESS_TOKEN_ENDPOINT = '/mapbox-access-token'
 }
