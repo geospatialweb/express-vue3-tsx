@@ -5,14 +5,14 @@ import mapboxgl from 'mapbox-gl'
 import { Container, Service } from 'typedi'
 
 import { layers, layerParams, markerParams } from '@/configuration'
-import { EndPoints, Urls } from '@/enums'
+import { Endpoints, Urls } from '@/enums'
 import { IHttpParams, ILayer, IQueryParams } from '@/interfaces'
 import { GeoJsonLayerService, HttpService, LogService, MarkerService } from '@/services'
-import { HttpGetResponse } from '@/types'
+import { HttpCsvResponse, HttpGetResponse } from '@/types'
 
 @Service()
 export default class DataService {
-  private _endPoints: Record<string, string> = EndPoints
+  private _endpoints: Record<string, string> = Endpoints
   private _hexagonLayerData: Array<Array<number>> = []
   private _layers: Array<ILayer> = layers
   private _layerParams: Array<IQueryParams> = layerParams
@@ -51,7 +51,7 @@ export default class DataService {
   }
 
   async getMapboxAccessToken(): Promise<void> {
-    const { MAPBOX_ACCESS_TOKEN_ENDPOINT } = this._endPoints
+    const { MAPBOX_ACCESS_TOKEN_ENDPOINT } = this._endpoints
     const token = await this.httpGetRequest(MAPBOX_ACCESS_TOKEN_ENDPOINT)
     this.setMapboxAccessToken(<string>token)
   }
@@ -64,7 +64,7 @@ export default class DataService {
 
   private async getHexagonLayerData(): Promise<void> {
     const { HEXAGON_LAYER_DATA_URL } = this._urls
-    const data = await this._httpService.csv(HEXAGON_LAYER_DATA_URL)
+    const data = await this.httpCsvRequest(HEXAGON_LAYER_DATA_URL)
     this.setHexagonLayerData(data as DSVRowArray<string>)
   }
 
@@ -102,13 +102,17 @@ export default class DataService {
   }
 
   private async getGeoJsonFeatureCollection({ id, fields }: IQueryParams): Promise<FeatureCollection> {
-    const { GEOJSON_ENDPOINT } = this._endPoints
+    const { GEOJSON_ENDPOINT } = this._endpoints
     const params: IHttpParams = { fields, table: (id.includes('-') && id.split('-')[0]) || id }
     const fc = await this.httpGetRequest(GEOJSON_ENDPOINT, params)
     return <FeatureCollection>fc
   }
 
-  private async httpGetRequest(url: string, params?: IHttpParams): Promise<HttpGetResponse> {
-    return await this._httpService.get(url, { params })
+  private async httpGetRequest(endpoint: string, params?: IHttpParams): Promise<HttpGetResponse> {
+    return await this._httpService.get(endpoint, { params })
+  }
+
+  private async httpCsvRequest(url: string): Promise<HttpCsvResponse> {
+    return await this._httpService.csv(url)
   }
 }
