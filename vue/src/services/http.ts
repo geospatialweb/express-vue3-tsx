@@ -20,10 +20,10 @@ export default class HttpService {
       .catch(({ message }) => this._logService.consoleError(<string>message))
   }
 
-  async get(url: string, params?: AxiosRequestConfig): Promise<HttpGetResponse> {
+  async get(endpoint: string, params?: AxiosRequestConfig): Promise<HttpGetResponse> {
     const { httpClient } = this._axiosService
     return httpClient
-      .get<HttpGetResponse>(url, params)
+      .get<HttpGetResponse>(endpoint, params)
       .then(({ data }) => data)
       .catch(({ message }) => this._logService.consoleError(<string>message))
   }
