@@ -24,7 +24,7 @@ export type LayerIcon =
   | 'places-icon'
   | 'satellite-icon'
   | 'trails-icon'
-export type LogData = Array<ILayerElement> | ReactiveState | StaticState | string
+export type LogData = ReactiveState | StaticState | string
 export type NavigationControlPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
 export type ReactiveState = Array<ILayerElement> | IHexagonLayerProps | IHexagonUILabelElement | IModal
 export type StaticState =
