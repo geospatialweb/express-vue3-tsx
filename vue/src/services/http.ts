@@ -3,6 +3,7 @@ import { csv } from 'd3-fetch'
 import { Container, Service } from 'typedi'
 
 import { AxiosService, LogService } from '@/services'
+import { HttpCsvResponse, HttpGetResponse } from '@/types'
 
 @Service()
 export default class HttpService {
@@ -13,16 +14,16 @@ export default class HttpService {
     this._logService = Container.get(LogService)
   }
 
-  async csv(url: string): Promise<any> {
+  async csv(url: string): Promise<HttpCsvResponse> {
     return this._csv(url)
-      .then((data) => data)
+      .then((data: HttpCsvResponse) => data)
       .catch(({ message }) => this._logService.consoleError(<string>message))
   }
 
-  async get(url: string, params?: AxiosRequestConfig): Promise<any> {
+  async get(url: string, params?: AxiosRequestConfig): Promise<HttpGetResponse> {
     const { httpClient } = this._axiosService
     return httpClient
-      .get<Record<string, string>>(url, params)
+      .get<HttpGetResponse>(url, params)
       .then(({ data }) => data)
       .catch(({ message }) => this._logService.consoleError(<string>message))
   }

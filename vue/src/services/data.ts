@@ -8,6 +8,7 @@ import { layers, layerParams, markerParams } from '@/configuration'
 import { EndPoints, Urls } from '@/enums'
 import { IHttpParams, ILayer, IQueryParams } from '@/interfaces'
 import { GeoJsonLayerService, HttpService, LogService, MarkerService } from '@/services'
+import { HttpGetResponse } from '@/types'
 
 @Service()
 export default class DataService {
@@ -51,8 +52,8 @@ export default class DataService {
 
   async getMapboxAccessToken(): Promise<void> {
     const { MAPBOX_ACCESS_TOKEN_ENDPOINT } = this._endPoints
-    const token: string = await this.httpGetRequest(MAPBOX_ACCESS_TOKEN_ENDPOINT)
-    this.setMapboxAccessToken(token)
+    const token = await this.httpGetRequest(MAPBOX_ACCESS_TOKEN_ENDPOINT)
+    this.setMapboxAccessToken(<string>token)
   }
 
   private setMapboxAccessToken(token: string): void {
@@ -63,8 +64,8 @@ export default class DataService {
 
   private async getHexagonLayerData(): Promise<void> {
     const { HEXAGON_LAYER_DATA_URL } = this._urls
-    const data: DSVRowArray<string> = await this._httpService.csv(HEXAGON_LAYER_DATA_URL)
-    this.setHexagonLayerData(data)
+    const data = await this._httpService.csv(HEXAGON_LAYER_DATA_URL)
+    this.setHexagonLayerData(data as DSVRowArray<string>)
   }
 
   private setHexagonLayerData(data: DSVRowArray<string>): void {
@@ -103,11 +104,11 @@ export default class DataService {
   private async getGeoJsonFeatureCollection({ id, fields }: IQueryParams): Promise<FeatureCollection> {
     const { GEOJSON_ENDPOINT } = this._endPoints
     const params: IHttpParams = { fields, table: (id.includes('-') && id.split('-')[0]) || id }
-    const fc: FeatureCollection = await this.httpGetRequest(GEOJSON_ENDPOINT, params)
-    return fc
+    const fc = await this.httpGetRequest(GEOJSON_ENDPOINT, params)
+    return <FeatureCollection>fc
   }
 
-  private async httpGetRequest(url: string, params?: IHttpParams): Promise<any> {
+  private async httpGetRequest(url: string, params?: IHttpParams): Promise<HttpGetResponse> {
     return await this._httpService.get(url, { params })
   }
 }
