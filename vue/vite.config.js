@@ -4,7 +4,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   build: {
-    chunkSizeWarningLimit: 900,
+    chunkSizeWarningLimit: 1000,
     emptyOutDir: true,
     outDir: 'static',
     rollupOptions: {
