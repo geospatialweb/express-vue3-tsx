@@ -57,9 +57,7 @@ export default class DataService {
   }
 
   private setMapboxAccessToken(token: string): void {
-    token
-      ? (this._mapboxAccessToken = token)
-      : this._logService.consoleWarning(`No ${this.getMapboxAccessToken.name} Found`)
+    token ? (this._mapboxAccessToken = token) : this.consoleWarning(`No ${this.getMapboxAccessToken.name} Found`)
   }
 
   private async getHexagonLayerData(): Promise<void> {
@@ -71,7 +69,7 @@ export default class DataService {
   private setHexagonLayerData(data: DSVRowArray<string>): void {
     data?.length
       ? (this._hexagonLayerData = data.map((d): Array<number> => [Number(d.lng), Number(d.lat)]))
-      : this._logService.consoleWarning(`No ${this.getHexagonLayerData.name} Found`)
+      : this.consoleWarning(`No ${this.getHexagonLayerData.name} Found`)
   }
 
   private async getGeoJsonLayerData(): Promise<void> {
@@ -84,7 +82,7 @@ export default class DataService {
   private setGeoJsonLayer(layer: ILayer, fc: FeatureCollection): void {
     fc?.features?.length
       ? this._geoJsonLayerService.setLayer(layer, cloneDeep(fc))
-      : this._logService.consoleWarning(`No ${this.getGeoJsonLayerData.name} Features Found`)
+      : this.consoleWarning(`No ${this.getGeoJsonLayerData.name} Features Found`)
   }
 
   private async getGeoJsonMarkerData(): Promise<void> {
@@ -98,7 +96,7 @@ export default class DataService {
   private setGeoJsonMarkers(id: string, features: Array<Feature>): void {
     features?.length
       ? this._markerService.setMarkers(id, cloneDeep(features))
-      : this._logService.consoleWarning(`No ${this.getGeoJsonMarkerData.name} Features Found`)
+      : this.consoleWarning(`No ${this.getGeoJsonMarkerData.name} Features Found`)
   }
 
   private async getGeoJsonFeatureCollection({ id, fields }: IQueryParams): Promise<FeatureCollection> {
@@ -114,5 +112,9 @@ export default class DataService {
 
   private async httpCsvRequest(url: string): Promise<HttpCsvResponse> {
     return await this._httpService.csv(url)
+  }
+
+  private consoleWarning(message: string): void {
+    this._logService.consoleWarning(message)
   }
 }
