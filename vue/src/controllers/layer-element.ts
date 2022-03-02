@@ -1,6 +1,5 @@
 import { Container, Service } from 'typedi'
 
-import { IEventTarget } from '@/interfaces'
 import { LayerElementService } from '@/services'
 
 @Service()
@@ -21,8 +20,7 @@ export default class LayerElementController {
 
   private onLayerElementClickHandler(evt: Event): void {
     evt.stopPropagation()
-    /* prettier-ignore */
-    const { target: { id } }: IEventTarget = <any>evt
+    const { id } = <HTMLDivElement>evt.target
     id && this._layerElementService.displayLayerElement(id)
   }
 }

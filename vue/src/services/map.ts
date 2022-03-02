@@ -1,7 +1,8 @@
-import { FillLayer, LineLayer, Map, MapLayerMouseEvent, SkyLayer } from 'mapbox-gl'
+import { FillLayer, LineLayer, Map, SkyLayer } from 'mapbox-gl'
 import { Container, Service } from 'typedi'
 
 import { mapbox } from '@/configuration'
+import { MapController } from '@/controllers'
 import { LayerElements } from '@/enums'
 import { ILayerVisibility, ITrail } from '@/interfaces'
 import {
@@ -11,8 +12,7 @@ import {
   MapStyleService,
   MapboxService,
   MarkerService,
-  ModalService,
-  PopupService
+  ModalService
 } from '@/services'
 
 @Service()
@@ -22,15 +22,16 @@ export default class MapService {
 
   constructor(
     private _map: Map,
+    private _mapController: MapController,
     private _appService: AppService,
     private _geoJsonLayerService: GeoJsonLayerService,
     private _layerVisibilityService: LayerVisibilityService,
     private _mapStyleService: MapStyleService,
     private _mapboxService: MapboxService,
     private _markerService: MarkerService,
-    private _modalService: ModalService,
-    private _popupService: PopupService
+    private _modalService: ModalService
   ) {
+    this._mapController = Container.get(MapController)
     this._appService = Container.get(AppService)
     this._geoJsonLayerService = Container.get(GeoJsonLayerService)
     this._layerVisibilityService = Container.get(LayerVisibilityService)
@@ -38,12 +39,11 @@ export default class MapService {
     this._mapboxService = Container.get(MapboxService)
     this._markerService = Container.get(MarkerService)
     this._modalService = Container.get(ModalService)
-    this._popupService = Container.get(PopupService)
   }
 
   loadMapLayer(): void {
     this._mapboxService.loadMapbox()
-    this._map = this._mapboxService.map.on('load', (): void => this.onMapLoadHandler())
+    this.setMapInstance()
   }
 
   mapFlyTo({ center, zoom }: ITrail): void {
@@ -57,10 +57,10 @@ export default class MapService {
     const { BIOSPHERE } = this._layerElements
     if (layers[id as keyof ILayerVisibility].isActive) {
       this._map.setLayoutProperty(id, 'visibility', 'visible')
-      id === BIOSPHERE && !isMobile && this.addLayerVisibilityEventListeners(id)
+      id === BIOSPHERE && !isMobile && this._mapController.addLayerVisibilityEventListeners(id)
     } else {
       this._map.setLayoutProperty(id, 'visibility', 'none')
-      id === BIOSPHERE && !isMobile && this.removeLayerVisibilityEventListeners(id)
+      id === BIOSPHERE && !isMobile && this._mapController.removeLayerVisibilityEventListeners(id)
     }
   }
 
@@ -68,6 +68,11 @@ export default class MapService {
     const { mapStyle } = this._mapStyleService
     this._map.setStyle(mapStyle)
     this.resetMapFeatures()
+  }
+
+  private setMapInstance(): void {
+    const { map } = this._mapboxService
+    this._map = map.on('load', (): void => this.onMapLoadHandler())
   }
 
   private onMapLoadHandler(): void {
@@ -113,32 +118,5 @@ export default class MapService {
     mapStyle.includes('outdoors')
       ? setTimeout((): void => this._markerService.setHiddenMarkersVisibility(), 1000)
       : setTimeout((): void => this._markerService.setHiddenMarkersVisibility(), 200)
-  }
-
-  private addLayerVisibilityEventListeners(id: string): void {
-    this._map
-      .on('click', id, (evt: MapLayerMouseEvent): void => this.onMapClickHandler(evt))
-      .on('mouseenter', id, (): void => this.onMapMouseEnterHandler())
-      .on('mouseleave', id, (): void => this.onMapMouseLeaveHandler())
-  }
-
-  private removeLayerVisibilityEventListeners(id: string): void {
-    this._map
-      .off('click', id, (evt: MapLayerMouseEvent): void => this.onMapClickHandler(evt))
-      .off('mouseenter', id, (): void => this.onMapMouseEnterHandler())
-      .off('mouseleave', id, (): void => this.onMapMouseLeaveHandler())
-  }
-
-  private onMapClickHandler(evt: MapLayerMouseEvent): void {
-    this._popupService.addLayerPopup(evt)
-  }
-
-  private onMapMouseEnterHandler(): void {
-    this._map.getCanvas().style.cursor = 'pointer'
-  }
-
-  private onMapMouseLeaveHandler(): void {
-    this._map.getCanvas().style.cursor = ''
-    this._popupService.removePopup()
   }
 }

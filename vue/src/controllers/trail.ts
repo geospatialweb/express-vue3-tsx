@@ -1,6 +1,5 @@
 import { Container, Service } from 'typedi'
 
-import { IEventTarget } from '@/interfaces'
 import { TrailService } from '@/services'
 
 @Service()
@@ -21,8 +20,7 @@ export default class TrailController {
 
   private onSelectTrailChangeHandler(evt: Event): void {
     evt.stopPropagation()
-    /* prettier-ignore */
-    const { target: { value: trailName } }: IEventTarget = <any>evt
+    const { value: trailName } = <HTMLSelectElement>evt.target
     trailName && this._trailService.selectTrail(trailName)
   }
 }
