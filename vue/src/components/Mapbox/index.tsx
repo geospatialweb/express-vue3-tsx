@@ -1,7 +1,8 @@
 import { Container } from 'typedi'
 import { defineComponent, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted } from 'vue'
 
-import { LayerElementController, TrailController } from '@/controllers'
+import { LayerElementController, MapController, TrailController } from '@/controllers'
+import { LayerElements } from '@/enums'
 import { IMapboxProps } from '@/interfaces'
 import { DataService, MapService, MapStyleService, MapboxService, MarkerService, ModalService } from '@/services'
 import { outdoors, satellite } from './index.module.css'
@@ -25,7 +26,7 @@ export default defineComponent({
         ? setTimeout((): void => markerService.setHiddenMarkersVisibility(), 2000)
         : setTimeout((): void => markerService.setHiddenMarkersVisibility(), 250)
     }
-    const addControllerEventListeners = (): void => {
+    const addEventListeners = (): void => {
       const layerElementController = Container.get(LayerElementController)
       const trailController = Container.get(TrailController)
       layerElementController.addLayerElementEventListener()
@@ -40,10 +41,13 @@ export default defineComponent({
       const mapService = Container.get(MapService)
       mapService.loadMapLayer()
     }
-    const removeControllerEventListeners = (): void => {
+    const removeEventListeners = (): void => {
+      const { BIOSPHERE } = LayerElements
       const layerElementController = Container.get(LayerElementController)
+      const mapController = Container.get(MapController)
       const trailController = Container.get(TrailController)
       layerElementController.removeLayerElementEventListener()
+      mapController.removeLayerVisibilityEventListeners(BIOSPHERE)
       trailController.removeSelectTrailEventListener()
     }
     const removeMapInstance = (): void => {
@@ -55,12 +59,12 @@ export default defineComponent({
       setHiddenMarkersVisibility()
     })
     onMounted(async (): Promise<void> => {
-      addControllerEventListeners()
+      addEventListeners()
       await getMapboxAccessToken()
       loadMapLayer()
     })
     onBeforeUnmount((): void => {
-      removeControllerEventListeners()
+      removeEventListeners()
       setHiddenMarkersVisibility()
     })
     onUnmounted((): void => removeMapInstance())
