@@ -24,12 +24,11 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'jest'],
   rules: {
-    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
-    '@typescript-eslint/no-unsafe-return': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
     // following rules apply to unavailability of non-React Deck.GL typings - resulting in 'any' types
     '@typescript-eslint/no-unsafe-call': 'off',
-    '@typescript-eslint/no-unsafe-member-access': 'off'
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off'
   }
 }
