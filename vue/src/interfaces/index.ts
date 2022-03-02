@@ -29,13 +29,6 @@ export interface IDeckglViewSettings {
   zoom: number
 }
 
-export interface IEventTarget {
-  target: {
-    id: string
-    value: string
-  }
-}
-
 export interface IHexagonLayerProps {
   coverage: number
   elevationScale: number
