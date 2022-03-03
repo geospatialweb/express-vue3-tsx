@@ -19,7 +19,5 @@ module.exports = {
     tsconfigRootDir: __dirname
   },
   plugins: ['@typescript-eslint', 'jest'],
-  rules: {
-    '@typescript-eslint/no-explicit-any': 'off'
-  }
+  rules: {}
 }
