@@ -26,7 +26,7 @@ export default class ApiService {
       .query(query)
       .then(({ rows: features }) => {
         this.logQuerySuccess()
-        const geoJsonService: GeoJsonService = new this._geoJsonService(features as Array<QueryResultRow>)
+        const geoJsonService = new this._geoJsonService(features as Array<QueryResultRow>)
         return geoJsonService.createGeoJsonFeatureCollection()
       })
       .catch(({ message }) => this._logService.consoleError(<string>message))
