@@ -2,14 +2,12 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es2021: true,
-    jest: true
+    es2021: true
   },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:jest/recommended',
     'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
@@ -22,7 +20,7 @@ module.exports = {
     sourceType: 'module',
     tsconfigRootDir: __dirname
   },
-  plugins: ['@typescript-eslint', 'jest'],
+  plugins: ['@typescript-eslint'],
   rules: {
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
