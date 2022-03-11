@@ -13,12 +13,12 @@
     "removeComments": true,
     "strict": true,
     "target": "esnext",
-    "types": ["vite/client", "jest"],
+    "types": ["vite/client", "vitest", "vitest/globals"],
     "typeRoots": ["node_modules/@types"],
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts*"],
+  "include": ["src/**/*.ts*", "src/**/*.test.ts"],
   "exclude": ["node_modules"]
 }

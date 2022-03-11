@@ -11,6 +11,7 @@
     "removeComments": true,
     "strict": true,
     "target": "esnext",
+    "types": ["vitest", "vitest/globals"],
     "typeRoots": ["node_modules/@types"]
   },
   "include": ["src/**/*.ts"],
