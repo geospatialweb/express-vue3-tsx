@@ -16,7 +16,7 @@ import {
 
 export type HttpCsvResponse = DSVRowArray<string> | void
 export type HttpGetResponse = FeatureCollection | string | void
-export type LayerElement = 'biosphere' | 'biosphere-border' | 'deckgl' | 'office' | 'places' | 'satellite' | 'trails'
+export type LayerElement = 'biosphere' | 'deckgl' | 'office' | 'places' | 'satellite' | 'trails'
 export type LayerIcon =
   | 'biosphere-icon'
   | 'deckgl-icon'

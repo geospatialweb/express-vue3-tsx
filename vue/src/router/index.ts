@@ -1,22 +1,23 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
-const Deckgl = () => import('@/views/Deckgl')
-const Mapbox = () => import('@/views/Mapbox')
-const history = createWebHistory()
+import { Mapbox, Deckgl } from '@/views'
+
+const baseUrl = import.meta.env.BASE_URL
+const history = createWebHistory(baseUrl)
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
+    path: baseUrl,
     name: 'mapbox',
     component: Mapbox
   },
   {
-    path: '/deckgl',
+    path: `${baseUrl}deckgl`,
     name: 'deckgl',
     component: Deckgl
   },
   {
-    path: '/:pathMatch(.*)*',
-    component: Mapbox
+    path: `${baseUrl}:catchAll(.*)`,
+    redirect: baseUrl
   }
 ]
 

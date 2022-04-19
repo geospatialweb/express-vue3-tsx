@@ -29,7 +29,7 @@ export default class MapStyleService {
 
   setMapStyle(): void {
     const mapStyles = this._state
-    const isActive = (mapStyle: IMapStyle): boolean => mapStyle.isActive
+    const isActive = ({ isActive }: IMapStyle): boolean => isActive
     const mapStyle = mapStyles.find(isActive)
     mapStyle && (this._mapStyle = mapStyle.url)
   }

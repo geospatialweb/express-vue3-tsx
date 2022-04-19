@@ -52,8 +52,8 @@ export default class PopupService {
     if (properties) {
       const { description, name } = properties
       this._popup.setHTML(
-        `<div class="bold">${name}</div>
-         <div>${description}</div>`
+        `<div class="bold">${<string>name}</div>
+         <div>${<string>description}</div>`
       )
     }
   }

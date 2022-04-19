@@ -45,9 +45,8 @@ export default class LayerElementService {
     this._storeService.setReactiveState(LAYER_ELEMENTS, layerElements)
   }
 
-  async displayLayerElement(id: string): Promise<void> {
-    id.endsWith('-icon') && (id = id.split('-icon')[0])
-    await this._layerElementsHashmap[id](<LayerElement>id)
+  displayLayerElement(id: string): void {
+    void this._layerElementsHashmap[id](<LayerElement>id)
   }
 
   private createLayerElementsHashmap(): void {
@@ -93,6 +92,7 @@ export default class LayerElementService {
     const i = state.findIndex(layerElement)
     if (i >= 0) {
       state[i].isActive = !state[i].isActive
+      state[i].isActive ? (state[i].className = 'active') : (state[i].className = 'inactive')
       this._state = state
     }
   }

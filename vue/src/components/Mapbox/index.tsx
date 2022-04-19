@@ -1,11 +1,10 @@
 import { Container } from 'typedi'
 import { defineComponent, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted } from 'vue'
 
-import { LayerElementController, MapController, TrailController } from '@/controllers'
 import { LayerElements } from '@/enums'
 import { IMapboxProps } from '@/interfaces'
 import { DataService, MapService, MapStyleService, MapboxService, MarkerService, ModalService } from '@/services'
-import { outdoors, satellite } from './index.module.css'
+import styles from './index.module.css'
 
 export default defineComponent({
   props: {
@@ -15,6 +14,7 @@ export default defineComponent({
     }
   },
   setup({ container }: IMapboxProps) {
+    const { outdoors, satellite } = styles
     const { mapStyle } = Container.get(MapStyleService)
     const showModal = (): void => {
       const modalService = Container.get(ModalService)
@@ -26,12 +26,6 @@ export default defineComponent({
         ? setTimeout((): void => markerService.setHiddenMarkersVisibility(), 2000)
         : setTimeout((): void => markerService.setHiddenMarkersVisibility(), 250)
     }
-    const addEventListeners = (): void => {
-      const layerElementController = Container.get(LayerElementController)
-      const trailController = Container.get(TrailController)
-      layerElementController.addLayerElementEventListener()
-      trailController.addSelectTrailEventListener()
-    }
     const getMapboxAccessToken = async (): Promise<void> => {
       const dataService = Container.get(DataService)
       const { mapboxAccessToken } = dataService
@@ -41,14 +35,10 @@ export default defineComponent({
       const mapService = Container.get(MapService)
       mapService.loadMapLayer()
     }
-    const removeEventListeners = (): void => {
+    const removeLayerVisibilityEventListeners = (): void => {
       const { BIOSPHERE } = LayerElements
-      const layerElementController = Container.get(LayerElementController)
-      const mapController = Container.get(MapController)
-      const trailController = Container.get(TrailController)
-      layerElementController.removeLayerElementEventListener()
-      mapController.removeLayerVisibilityEventListeners(BIOSPHERE)
-      trailController.removeSelectTrailEventListener()
+      const mapService = Container.get(MapService)
+      mapService.removeLayerVisibilityEventListeners(BIOSPHERE)
     }
     const removeMapInstance = (): void => {
       const mapboxService = Container.get(MapboxService)
@@ -59,15 +49,16 @@ export default defineComponent({
       setHiddenMarkersVisibility()
     })
     onMounted(async (): Promise<void> => {
-      addEventListeners()
       await getMapboxAccessToken()
       loadMapLayer()
     })
     onBeforeUnmount((): void => {
-      removeEventListeners()
+      removeLayerVisibilityEventListeners()
       setHiddenMarkersVisibility()
     })
     onUnmounted((): void => removeMapInstance())
-    return (): JSX.Element => <div id={container} class={mapStyle.includes('outdoors') ? outdoors : satellite}></div>
+    return (): JSX.Element => (
+      <div id={container} class={mapStyle.includes('outdoors') ? outdoors : satellite} role="presentation"></div>
+    )
   }
 })

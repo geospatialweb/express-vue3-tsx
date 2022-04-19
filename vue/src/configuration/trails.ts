@@ -1,10 +1,5 @@
 export default [
   {
-    name: 'Select Trail',
-    center: undefined,
-    zoom: undefined
-  },
-  {
     name: 'Blue Mountain',
     center: { lng: -76.04, lat: 44.508 },
     zoom: 13

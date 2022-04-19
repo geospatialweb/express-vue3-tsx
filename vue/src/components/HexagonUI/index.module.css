@@ -17,8 +17,8 @@
 .hexagonUI button {
   background: var(--white);
   border: var(--thick-grey-border);
-  height: 4rem;
-  margin-top: 1rem;
+  height: 4.2rem;
+  margin-top: 0.9rem;
   text-align: center;
   width: 100%;
 }
@@ -29,9 +29,10 @@
   text-shadow: var(--black-text-shadow);
 }
 
-.hexagonUI header {
-  font-size: 2.2rem;
+.hexagonUI h1 {
+  font-size: 2.25rem;
   font-weight: bold;
+  margin: 0;
   text-align: center;
   text-shadow: var(--cream-text-shadow);
 }
@@ -51,7 +52,7 @@
   text-shadow: var(--cream-text-shadow);
 }
 
-.hexagonUI span {
+.hexagonUI output {
   color: var(--white);
   text-shadow: var(--black-text-shadow);
 }

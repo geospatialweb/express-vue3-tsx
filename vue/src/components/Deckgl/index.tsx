@@ -1,10 +1,9 @@
 import { Container } from 'typedi'
-import { defineComponent, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted } from 'vue'
+import { defineComponent, onBeforeMount, onMounted, onUnmounted } from 'vue'
 
-import { HexagonLayerController } from '@/controllers'
 import { IDeckglProps } from '@/interfaces'
 import { DataService, DeckglService, HexagonLayerService, ModalService } from '@/services'
-import { deckgl, hexagonLayer } from './index.module.css'
+import styles from './index.module.css'
 
 export default defineComponent({
   props: {
@@ -18,13 +17,10 @@ export default defineComponent({
     }
   },
   setup({ canvas, container }: IDeckglProps) {
+    const { deckgl, hexagonLayer } = styles
     const showModal = (): void => {
       const modalService = Container.get(ModalService)
       modalService.showModal()
-    }
-    const addEventListeners = (): void => {
-      const hexagonLayerController = Container.get(HexagonLayerController)
-      hexagonLayerController.addHexagonLayerEventListeners()
     }
     const getMapboxAccessToken = async (): Promise<void> => {
       const dataService = Container.get(DataService)
@@ -34,10 +30,6 @@ export default defineComponent({
     const loadHexagonLayer = (): void => {
       const hexagonLayerService = Container.get(HexagonLayerService)
       hexagonLayerService.loadHexagonLayer()
-    }
-    const removeEventListeners = (): void => {
-      const hexagonLayerController = Container.get(HexagonLayerController)
-      hexagonLayerController.removeHexagonLayerEventListeners()
     }
     const removeDeckInstance = (): void => {
       const deckglService = Container.get(DeckglService)
@@ -49,20 +41,18 @@ export default defineComponent({
     }
     onBeforeMount((): void => showModal())
     onMounted(async (): Promise<void> => {
-      addEventListeners()
       await getMapboxAccessToken()
       loadHexagonLayer()
     })
-    onBeforeUnmount((): void => removeEventListeners())
     onUnmounted((): void => {
       removeDeckInstance()
       removeMapInstance()
     })
     return (): JSX.Element => (
-      <>
-        <div id={container} class={deckgl}></div>
-        <canvas id={canvas} class={hexagonLayer}></canvas>
-      </>
+      <div role="presentation">
+        <div id={container} class={deckgl} role="presentation"></div>
+        <canvas id={canvas} class={hexagonLayer} role="presentation"></canvas>
+      </div>
     )
   }
 })

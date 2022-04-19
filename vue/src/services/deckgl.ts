@@ -1,4 +1,4 @@
-/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+/* eslint-disable */
 /* @ts-ignore */
 import { Deck, DeckglOptions, ViewState } from '@deck.gl/core'
 import { LngLatLike, Map, MapboxOptions } from 'mapbox-gl'
@@ -73,11 +73,11 @@ export default class DeckglService {
   }
 
   removeDeckInstance(): void {
-    this._deck.finalize()
+    ;() => this._deck.finalize()
   }
 
   removeMapInstance(): void {
-    this._map.remove()
+    ;() => this._map.remove()
   }
 
   private mapJumpTo(): void {

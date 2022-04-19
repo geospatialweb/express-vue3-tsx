@@ -48,7 +48,9 @@ export default class MarkerService {
 
   toggleMarkerVisibility(id: string): void {
     this.setMarkerVisibilityState(id)
-    for (const marker of this._markers[<number>this._markersHashmap.get(id)]) {
+    const index = <number>this._markersHashmap.get(id)
+    const markers = this._markers[index]
+    for (const marker of markers) {
       this.addRemoveMarkers(id, marker)
     }
   }

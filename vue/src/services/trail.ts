@@ -13,10 +13,10 @@ export default class TrailService {
     this._mapService = Container.get(MapService)
   }
 
-  selectTrail(trailName: string): void {
-    const isSelected = (trail: ITrail): boolean => trail.name === trailName
+  selectTrail(name: string): void {
+    const isSelected = (trail: ITrail): boolean => trail.name === name
     const trail = this._trails.find(isSelected)
-    trail?.center && this._mapService.mapFlyTo(trail)
+    trail && this._mapService.mapFlyTo(trail)
   }
 
   setInitialZoom(factor: number): void {

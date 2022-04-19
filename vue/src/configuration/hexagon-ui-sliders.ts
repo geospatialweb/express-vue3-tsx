@@ -1,30 +1,30 @@
 export default [
   {
     id: 'coverage',
-    label: 'Coverage',
     min: '0',
     max: '1',
-    step: '0.1'
+    step: '0.1',
+    text: 'Coverage'
   },
   {
     id: 'elevationScale',
-    label: 'Elevation Scale',
     min: '0',
     max: '100',
-    step: '20'
+    step: '20',
+    text: 'Elevation Scale'
   },
   {
     id: 'radius',
-    label: 'Radius',
     min: '1000',
     max: '5000',
-    step: '500'
+    step: '500',
+    text: 'Radius'
   },
   {
     id: 'upperPercentile',
-    label: 'Upper Percentile',
     min: '80',
     max: '100',
-    step: '1'
+    step: '1',
+    text: 'Upper Percentile'
   }
 ]

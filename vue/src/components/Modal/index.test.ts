@@ -1,9 +1,11 @@
-import { mount } from '@vue/test-utils'
+import { render, screen } from '@testing-library/vue'
+
 import { Modal } from '@/components'
 
-describe('Modal component test suite', () => {
-  it('will mount and unmount successfully', () => {
-    const wrapper = mount(Modal)
-    wrapper.unmount()
+describe('Modal view test suite', () => {
+  test('dynamic class set correctly', () => {
+    render(Modal)
+    const modal = screen.getByRole('presentation')
+    expect(modal.className).toMatch(/inactive/)
   })
 })

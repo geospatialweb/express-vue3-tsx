@@ -1,11 +1,9 @@
 /*
- * URL: https://deck.gl/gallery/hexagon-layer
- * Title: deck.gl HexagonLayer Example
+ * Example URL: https://deck.gl/gallery/hexagon-layer
  * Data URL: https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/3d-heatmap/heatmap-data.csv
  * Data Source: https://data.gov.uk
  */
-
-/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+/* eslint-disable */
 /* @ts-ignore */
 import { HexagonLayer } from '@deck.gl/aggregation-layers'
 import { Map, SkyLayer } from 'mapbox-gl'

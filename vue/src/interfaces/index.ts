@@ -54,16 +54,16 @@ export interface IHexagonLayerStaticProps {
   }
 }
 
-export interface IHexagonUIButton {
-  id: string
-  text: string
-}
-
 export interface IHexagonUILabelElement {
   coverage: boolean
   elevationScale: boolean
   radius: boolean
   upperPercentile: boolean
+}
+
+export interface IHexagonUIProps {
+  label: IHexagonUILabelElement
+  props: IHexagonLayerProps
 }
 
 export interface IHttpParams {
@@ -91,17 +91,18 @@ export interface ILayer {
 }
 
 export interface ILayerElement {
+  className?: string
   id: string
   isActive: boolean
   name: string
 }
 
 export interface ILayerIcon {
-  height: number
+  height: string
   id: string
   name: string
   src: string
-  width: number
+  width: string
 }
 
 export interface ILayerVisibility {
