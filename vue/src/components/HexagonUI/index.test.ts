@@ -12,8 +12,9 @@ describe('HexagonUI component test suite', () => {
 
   test('heading text set correctly', () => {
     setup()
+    const { text } = hexagonUIHeading
     const heading = screen.getByRole('heading')
-    expect(heading).toHaveTextContent(hexagonUIHeading.text)
+    expect(heading).toHaveTextContent(text)
   })
 
   test('label element text set correctly for each parameter', () => {
