@@ -15,8 +15,9 @@
       name="keywords"
       content="Geospatial Web Map, Node, Express, Vue 3, Typescript, .tsx, Vite, Mapbox GL, Deck.GL, PostGIS, Docker"
     />
-    <title>Geospatial Web</title>
+    <title>Geospatial Web Mapping</title>
     <link rel="icon" href="/favicon.ico" media="screen" />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" media="screen" />
     <link
       rel="preload"
       as="font"
@@ -33,13 +34,12 @@
       crossorigin
       media="screen"
     />
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" media="screen" />
   </head>
   <body>
     <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
     <noscript>
       We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue...
     </noscript>
-    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
