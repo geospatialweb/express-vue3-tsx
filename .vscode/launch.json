@@ -1,11 +1,11 @@
-// $cd node && npm run debug
-// note you can also debug node in chrome dev tools in lieu of vscode - otherwise
-// press F5 to attach node debugger to process 'node --require ts-node/register --inspect src/app.ts'
+// $ cd node && npm run debug
+// note you can debug node in chrome dev tools in lieu of vs code - otherwise
+// press F5 to 'Attach Node Debugger' to process 'node --require ts-node/register --inspect src/app.ts'
 {
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Attach Debugger",
+      "name": "Attach Node Debugger",
       "type": "pwa-node",
       "request": "attach",
       "processId": "${command:PickProcess}",
@@ -14,14 +14,28 @@
       "restart": true
     },
     {
-      "name": "Jest Current File",
-      "type": "node",
+      "name": "Debug Jest Current File",
+      "type": "pwa-node",
       "request": "launch",
-      "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["${fileBasenameNoExtension}", "--config", "jest.config.ts"],
+      "cwd": "${workspaceRoot}/node",
+      "program": "node_modules/.bin/jest",
+      "args": ["${relativeFile}", "--runInBand"],
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "disableOptimisticBPs": true
+    },
+    {
+      "name": "Debug Vitest Current File",
+      "type": "pwa-node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/vue",
+      "program": "node_modules/vitest/vitest.mjs",
+      "args": ["run", "${relativeFile}"],
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "console": "integratedTerminal",
+      "autoAttachChildProcesses": true,
+      "smartStep": true
     }
   ]
 }

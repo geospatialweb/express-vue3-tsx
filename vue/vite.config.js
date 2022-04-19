@@ -20,15 +20,17 @@ export default defineConfig({
   plugins: [vueJsx()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src')
+      '@': resolve(__dirname, 'src')
     }
   },
   test: {
     globals: true,
     environment: 'jsdom',
-    include: ['src/**/*.test.ts'],
+    include: ['src/**/index.test.ts'],
+    reporters: 'verbose',
+    setupFiles: 'src/test/setup.ts',
     transformMode: {
-      web: [/.tsx$/]
+      web: [/\.tsx$/]
     }
   }
 })

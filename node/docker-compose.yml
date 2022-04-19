@@ -14,15 +14,14 @@ services:
   #     - /etc/letsencrypt:/etc/letsencrypt:rw
   #     - /var/log/letsencrypt:/var/log/letsencrypt:rw
   #     - /var/www/letsencrypt:/var/www/letsencrypt:rw
-  #     - ../vue/static:/var/www/geospatialweb.ca/static:ro
+  #     - ../static:/var/www/geospatialweb.ca/static:ro
   #     - ../logs:/var/log/nginx:rw
   #   networks:
   #     - app-network
 
   node:
     container_name: node
-    # build: .
-    image: geospatialweb/node-vue3-tsx:local
+    build: .
     command: npm run prod
     restart: on-failure
     depends_on:
@@ -30,8 +29,7 @@ services:
     ports:
       - '8000:8000'
     # volumes:
-    #  - /etc/letsencrypt/archive:/etc/letsencrypt/archive:ro
-    #  - /etc/letsencrypt/live:/etc/letsencrypt/live:ro
+    #  - /etc/letsencrypt:/etc/letsencrypt:rw
     networks:
       - app-network
 

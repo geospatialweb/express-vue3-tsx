@@ -8,6 +8,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:jest-dom/recommended',
     'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
@@ -20,13 +21,15 @@ module.exports = {
     sourceType: 'module',
     tsconfigRootDir: __dirname
   },
-  plugins: ['@typescript-eslint'],
-  rules: {
-    '@typescript-eslint/no-unsafe-assignment': 'off',
-    '@typescript-eslint/restrict-template-expressions': 'off',
-    // following rules apply to unavailability of non-React Deck.GL typings - resulting in 'any' types
-    '@typescript-eslint/no-unsafe-call': 'off',
-    '@typescript-eslint/no-unsafe-member-access': 'off',
-    '@typescript-eslint/no-unsafe-return': 'off'
-  }
+  plugins: ['@typescript-eslint', 'jest-dom', 'testing-library'],
+  overrides: [
+    {
+      extends: ['plugin:testing-library/vue'],
+      files: ['src/**/index.test.ts'],
+      rules: {
+        '@typescript-eslint/unbound-method': 'off'
+      }
+    }
+  ],
+  rules: {}
 }

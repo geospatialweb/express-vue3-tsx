@@ -14,11 +14,10 @@
     "strict": true,
     "target": "esnext",
     "types": ["vite/client", "vitest", "vitest/globals"],
-    "typeRoots": ["node_modules/@types"],
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts*", "src/**/*.test.ts"],
+  "include": ["src/**/*.ts*"],
   "exclude": ["node_modules"]
 }
