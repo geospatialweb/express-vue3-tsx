@@ -4,20 +4,28 @@ import { Deckgl } from '@/components'
 import { deckgl } from '@/configuration'
 
 describe('Deckgl component test suite', () => {
-  test('attributes set correctly', () => {
-    /* prettier-ignore */
-    const { options: { canvas, container } } = deckgl
+  /* prettier-ignore */
+  const { options: { canvas, container } } = deckgl
+  const setup = () => {
     render(Deckgl, {
       props: {
         canvas,
         container
       }
     })
-    const deckglContainer = screen.getAllByRole('presentation')[1]
-    expect(deckglContainer.id).toBe(container)
-    expect(deckglContainer.className).toMatch(new RegExp(container))
-    const deckglCanvas = screen.getAllByRole('presentation')[2]
-    expect(deckglCanvas.id).toBe(canvas)
-    expect(deckglCanvas.className).toMatch(/hexagonLayer/)
+  }
+
+  test('container attributes set correctly', () => {
+    setup()
+    const el = screen.getAllByRole('presentation')[1]
+    expect(el.id).toBe(container)
+    expect(el.className).toMatch(new RegExp(container))
+  })
+
+  test('canvas attributes set correctly', () => {
+    setup()
+    const el = screen.getAllByRole('presentation')[2]
+    expect(el.id).toBe(canvas)
+    expect(el.className).toMatch(/hexagonLayer/)
   })
 })

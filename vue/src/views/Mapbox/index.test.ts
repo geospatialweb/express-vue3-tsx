@@ -6,9 +6,6 @@ import { mapbox } from '@/configuration'
 import { Mapbox as MapboxView } from '@/views'
 
 describe('Mapbox view test suite', () => {
-  /* prettier-ignore */
-  const { options: { container } } = mapbox
-
   it('should render successfully', () => {
     render(MapboxView)
     const mapboxView = screen.getAllByRole('presentation')[0]
@@ -16,13 +13,15 @@ describe('Mapbox view test suite', () => {
   })
 
   test('Mapbox component renders successfully', () => {
+    /* prettier-ignore */
+    const { options: { container } } = mapbox
     render(Mapbox, {
       props: {
         container
       }
     })
-    const mapbox = screen.getByRole('presentation')
-    expect(mapbox).toBeInTheDocument()
+    const mapboxComponent = screen.getByRole('presentation')
+    expect(mapboxComponent).toBeInTheDocument()
   })
 
   test('LayerElements component renders successfully', () => {

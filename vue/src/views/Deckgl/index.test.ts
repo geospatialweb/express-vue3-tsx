@@ -6,9 +6,6 @@ import { deckgl } from '@/configuration'
 import { Deckgl as DeckglView } from '@/views'
 
 describe('Deckgl view test suite', () => {
-  /* prettier-ignore */
-  const { options: { canvas, container } } = deckgl
-
   it('should render successfully', () => {
     render(DeckglView)
     const deckglView = screen.getAllByRole('presentation')[0]
@@ -16,14 +13,16 @@ describe('Deckgl view test suite', () => {
   })
 
   test('Deckgl component renders successfully', () => {
+    /* prettier-ignore */
+    const { options: { canvas, container } } = deckgl
     render(Deckgl, {
       props: {
         canvas,
         container
       }
     })
-    const deckgl = screen.getAllByRole('presentation')[0]
-    expect(deckgl).toBeInTheDocument()
+    const deckglComponent = screen.getAllByRole('presentation')[0]
+    expect(deckglComponent).toBeInTheDocument()
   })
 
   test('HexagonUI component renders successfully', () => {
