@@ -26,22 +26,22 @@ describe('LayerElements component static test suite', () => {
 
   it('should render list of layers with icon class set correctly for each layer icon', () => {
     setup()
-    const children = listItems.map(({ firstChild }) => <HTMLElement>firstChild)
-    for (const [i, child] of children.entries()) {
-      expect(child.className).toMatch(new RegExp(`_${layerElements[i].id}-icon`))
+    const layers = listItems.map(({ firstChild }) => <HTMLElement>firstChild)
+    for (const [i, layer] of layers.entries()) {
+      expect(layer.className).toMatch(new RegExp(`_${layerElements[i].id}-icon`))
     }
   })
 
   it("should render list of layers with an initial class 'active' or 'inactive') for each layer", () => {
     setup()
-    const children = listItems.map(({ lastChild }) => <HTMLElement>lastChild)
-    for (const [i, child] of children.entries()) {
-      expect(child.className).toMatch(new RegExp(`_${layerElements[i].className}`))
+    const layers = listItems.map(({ lastChild }) => <HTMLElement>lastChild)
+    for (const [i, layer] of layers.entries()) {
+      expect(layer.className).toMatch(new RegExp(`_${layerElements[i].className}`))
     }
   })
 })
 
-describe('LayerElements component event test suite', () => {
+describe('LayerElements component click event test suite', () => {
   const user = userEvent.setup()
 
   test("Deck.GL layer class remains 'inactive' when clicked", async () => {
