@@ -27,7 +27,8 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     include: ['src/**/index.test.ts'],
-    reporters: 'verbose',
+    outputFile: 'src/test/output.json',
+    reporters: 'json',
     setupFiles: 'src/test/setup.ts',
     transformMode: {
       web: [/\.tsx$/]
