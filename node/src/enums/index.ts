@@ -1,3 +1,3 @@
-export enum HTTP_CODES {
+export enum HTTP_CODE {
   OK = 200
 }

@@ -1,8 +1,8 @@
-export interface IHttpCodes {
+export interface IHttpCode {
   OK: number
 }
 
-export interface IQueryParams {
+export interface IQueryParam {
   fields: string
   table: string
 }

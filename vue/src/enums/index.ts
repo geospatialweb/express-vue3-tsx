@@ -1,9 +1,9 @@
-export enum Endpoints {
+export enum Endpoint {
   GEOJSON_ENDPOINT = '/geojson',
   MAPBOX_ACCESS_TOKEN_ENDPOINT = '/mapbox-access-token'
 }
 
-export enum LayerElements {
+export enum LayerElement {
   BIOSPHERE = 'biosphere',
   BIOSPHERE_BORDER = 'biosphere-border',
   DECKGL = 'deckgl',
@@ -13,7 +13,7 @@ export enum LayerElements {
   TRAILS = 'trails'
 }
 
-export enum LogStates {
+export enum LogState {
   REACTIVE = 'reactive',
   STATIC = 'static'
 }
@@ -23,14 +23,14 @@ export enum LogStatus {
   OLD = 'OLD'
 }
 
-export enum ReactiveStates {
+export enum ReactiveState {
   HEXAGON_LAYER_PROPS = 'hexagonLayerProps',
   HEXAGON_UI_LABEL_ELEMENT = 'hexagonUILabelElement',
   LAYER_ELEMENTS = 'layerElements',
   MODAL = 'modal'
 }
 
-export enum StaticStates {
+export enum StaticState {
   APP = 'app',
   DECKGL_VIEW_SETTINGS = 'deckglViewSettings',
   LAYER_VISIBILITY = 'layerVisibilty',
@@ -39,7 +39,7 @@ export enum StaticStates {
   MARKER_VISIBILITY = 'markerVisibilty'
 }
 
-export enum Urls {
+export enum Url {
   API_BASE_URL_DEV = 'http://localhost:8000/api/',
   API_BASE_URL_PROD = 'https://geospatialweb.ca:8000/api/',
   HEXAGON_LAYER_DATA_URL = 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/3d-heatmap/heatmap-data.csv'
