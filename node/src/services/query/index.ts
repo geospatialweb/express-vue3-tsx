@@ -2,19 +2,22 @@ import { FeatureCollection } from 'geojson'
 import { QueryResultRow } from 'pg'
 import { Container, Service } from 'typedi'
 
-import { IQueryParams } from '../interfaces'
-import { GeoJsonService, LogService, PostgresService } from '../services'
+import { IQueryParam } from '../../interfaces'
+import { GeoJsonService, LogService, PostgresService } from '../'
 
 @Service()
-export default class ApiService {
-  private _geoJsonService = GeoJsonService
+export default class QueryService {
+  private _geoJsonService: GeoJsonService
+  private _logService: LogService
+  private _postgresService: PostgresService
 
-  constructor(private _logService: LogService, private _postgresService: PostgresService) {
+  constructor() {
+    this._geoJsonService = new GeoJsonService([])
     this._logService = Container.get(LogService)
     this._postgresService = Container.get(PostgresService)
   }
 
-  async getGeoJsonFeatureCollection({ fields, table }: IQueryParams): Promise<FeatureCollection | void> {
+  async getGeoJsonFeatureCollection({ fields, table }: IQueryParam): Promise<FeatureCollection | void> {
     const { pool } = this._postgresService
     const query = `
       SELECT ST_AsGeoJSON(feature.*) AS geojson
@@ -25,9 +28,9 @@ export default class ApiService {
     return await pool
       .query(query)
       .then(({ rows: features }) => {
-        this.logQuerySuccess()
-        const geoJsonService = new this._geoJsonService(features as Array<QueryResultRow>)
-        return geoJsonService.createGeoJsonFeatureCollection()
+        this._logQuerySuccess('GeoJSON SQL')
+        this._geoJsonService = new GeoJsonService(<QueryResultRow[]>features)
+        return this._geoJsonService.createGeoJsonFeatureCollection()
       })
       .catch(({ message }) => this._logService.consoleError(<string>message))
   }
@@ -35,11 +38,12 @@ export default class ApiService {
   getMapboxAccessToken(): string {
     /* prettier-ignore */
     const { env: { MAPBOX_ACCESS_TOKEN } } = process
+    this._logQuerySuccess('Mapbox Access Token')
     return <string>MAPBOX_ACCESS_TOKEN
   }
 
-  private logQuerySuccess(): void {
+  private _logQuerySuccess(query: string): void {
     const cyan = '\x1b[36m%s\x1b[0m'
-    this._logService.consoleLog('SQL query successful', cyan)
+    this._logService.consoleLog(`${query} query successful`, cyan)
   }
 }

@@ -1,13 +1,15 @@
 import { Pool } from 'pg'
 import { Container, Service } from 'typedi'
 
-import { LogService } from '../services'
+import { LogService } from '../'
 
 @Service()
 export default class PostgresService {
-  private _pool: Pool = new Pool()
+  private _pool: Pool
+  private _logService: LogService
 
-  constructor(private _logService: LogService) {
+  constructor() {
+    this._pool = new Pool()
     this._logService = Container.get(LogService)
   }
 
@@ -22,10 +24,10 @@ export default class PostgresService {
       this._logService.consoleError(message)
       process.exit(-1)
     })
-    this.logPoolConnection()
+    this._logPoolConnection()
   }
 
-  private logPoolConnection(): void {
+  private _logPoolConnection(): void {
     const cyan = '\x1b[36m%s\x1b[0m'
     this._logService.consoleLog('PostgreSQL pool connected', cyan)
   }
