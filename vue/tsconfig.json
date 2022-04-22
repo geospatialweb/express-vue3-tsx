@@ -12,6 +12,7 @@
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "removeComments": true,
     "strict": true,
+    "strictPropertyInitialization": false,
     "target": "esnext",
     "types": ["vite/client", "vitest", "vitest/globals"],
     "paths": {
