@@ -3,5 +3,6 @@ module.exports = {
     'stylelint-config-recommended',
     'stylelint-config-css-modules',
     'stylelint-prettier/recommended'
-  ]
+  ],
+  rules: {}
 }
