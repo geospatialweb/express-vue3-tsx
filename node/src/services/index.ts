@@ -1,4 +1,5 @@
-export { default as ApiService } from './api'
 export { default as GeoJsonService } from './geojson'
 export { default as LogService } from './log'
 export { default as PostgresService } from './postgres'
+export { default as QueryService } from './query'
+export { default as ResponseService } from './response'
