@@ -3,7 +3,7 @@ import { render, screen, within } from '@testing-library/vue'
 
 import { LayerElements } from '@/components'
 import { layerElements } from '@/configuration'
-import { LayerElements as Layers } from '@/enums'
+import { LayerElement } from '@/enums'
 
 describe('LayerElements component static test suite', () => {
   let listItems: HTMLElement[]
@@ -63,7 +63,7 @@ describe('LayerElements component click event test suite', () => {
   test("Remaining layers class changes to 'active' when clicked and 'inactive' when clicked again", async () => {
     render(LayerElements)
     for (const { id, name } of layerElements) {
-      const { BIOSPHERE, DECKGL } = Layers
+      const { BIOSPHERE, DECKGL } = LayerElement
       if (id !== BIOSPHERE && id !== DECKGL) {
         const layer = screen.getByText(name)
         await user.click(layer)

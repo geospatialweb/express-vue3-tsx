@@ -4,7 +4,7 @@ import { Container } from 'typedi'
 
 import { HexagonUI } from '@/components'
 import { hexagonUIButtons as buttons, hexagonUISliders as sliders, hexagonUIHeading } from '@/configuration'
-import { IHexagonLayerProps } from '@/interfaces'
+import { IHexagonLayerProp } from '@/interfaces'
 import { HexagonLayerService } from '@/services'
 
 describe('HexagonUI component test suite', () => {
@@ -69,7 +69,7 @@ describe('HexagonUI component test suite', () => {
     const { state } = Container.get(HexagonLayerService)
     for (const [i, { id }] of sliders.entries()) {
       const slider = screen.getAllByRole('slider')[i]
-      expect(slider).toHaveDisplayValue(String(state[id as keyof IHexagonLayerProps]))
+      expect(slider).toHaveDisplayValue(String(state[id as keyof IHexagonLayerProp]))
     }
   })
 

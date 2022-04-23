@@ -1,7 +1,7 @@
 import { Container } from 'typedi'
 import { defineComponent, onBeforeMount, onMounted, onUnmounted } from 'vue'
 
-import { IDeckglProps } from '@/interfaces'
+import { IDeckglProp } from '@/interfaces'
 import { DataService, DeckglService, HexagonLayerService, ModalService } from '@/services'
 import styles from './index.module.css'
 
@@ -16,7 +16,7 @@ export default defineComponent({
       required: true
     }
   },
-  setup({ canvas, container }: IDeckglProps) {
+  setup({ canvas, container }: IDeckglProp) {
     const { deckgl, hexagonLayer } = styles
     const showModal = (): void => {
       const modalService = Container.get(ModalService)

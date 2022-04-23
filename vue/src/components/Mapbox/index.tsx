@@ -1,8 +1,7 @@
 import { Container } from 'typedi'
-import { defineComponent, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted } from 'vue'
+import { defineComponent, onBeforeMount, onMounted, onUnmounted } from 'vue'
 
-import { LayerElements } from '@/enums'
-import { IMapboxProps } from '@/interfaces'
+import { IMapboxProp } from '@/interfaces'
 import { DataService, MapService, MapStyleService, MapboxService, MarkerService, ModalService } from '@/services'
 import styles from './index.module.css'
 
@@ -13,7 +12,7 @@ export default defineComponent({
       required: true
     }
   },
-  setup({ container }: IMapboxProps) {
+  setup({ container }: IMapboxProp) {
     const { outdoors, satellite } = styles
     const { mapStyle } = Container.get(MapStyleService)
     const showModal = (): void => {
@@ -35,28 +34,20 @@ export default defineComponent({
       const mapService = Container.get(MapService)
       mapService.loadMapLayer()
     }
-    const removeLayerVisibilityEventListeners = (): void => {
-      const { BIOSPHERE } = LayerElements
-      const mapService = Container.get(MapService)
-      mapService.removeLayerVisibilityEventListeners(BIOSPHERE)
-    }
     const removeMapInstance = (): void => {
       const mapboxService = Container.get(MapboxService)
       mapboxService.removeMapInstance()
     }
-    onBeforeMount((): void => {
-      showModal()
-      setHiddenMarkersVisibility()
-    })
+    onBeforeMount((): void => showModal())
     onMounted(async (): Promise<void> => {
+      setHiddenMarkersVisibility()
       await getMapboxAccessToken()
       loadMapLayer()
     })
-    onBeforeUnmount((): void => {
-      removeLayerVisibilityEventListeners()
+    onUnmounted((): void => {
       setHiddenMarkersVisibility()
+      removeMapInstance()
     })
-    onUnmounted((): void => removeMapInstance())
     return (): JSX.Element => (
       <div id={container} class={mapStyle.includes('outdoors') ? outdoors : satellite} role="presentation"></div>
     )

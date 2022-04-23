@@ -2,7 +2,7 @@ import { Container } from 'typedi'
 import { defineComponent, PropType } from 'vue'
 
 import { hexagonUISliders as sliders } from '@/configuration'
-import { IHexagonLayerProps, IHexagonUILabelElement, IHexagonUIProps } from '@/interfaces'
+import { IHexagonLayerProp, IHexagonUILabelElement, IHexagonUIProp } from '@/interfaces'
 import { HexagonLayerService, HexagonUIService } from '@/services'
 import styles from '../index.module.css'
 
@@ -13,11 +13,11 @@ export default defineComponent({
       required: true
     },
     props: {
-      type: Object as PropType<IHexagonLayerProps>,
+      type: Object as PropType<IHexagonLayerProp>,
       required: true
     }
   },
-  setup(props: IHexagonUIProps) {
+  setup(props: IHexagonUIProp) {
     const { mouseover, mouseout } = styles
     const onInputHandler = (evt: Event): void => {
       evt.stopPropagation()
@@ -31,7 +31,7 @@ export default defineComponent({
       const hexagonUIService = Container.get(HexagonUIService)
       hexagonUIService.setHexagonUILabelElementState(id)
     }
-    const jsx = ({ props, label }: IHexagonUIProps): JSX.Element => (
+    const jsx = ({ props, label }: IHexagonUIProp): JSX.Element => (
       <>
         <hr />
         {Object.values(props).map((value: string, i: number) => (
