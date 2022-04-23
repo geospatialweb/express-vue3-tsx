@@ -3,20 +3,20 @@ import { FeatureCollection } from 'geojson'
 
 import {
   IApp,
-  IDeckglViewSettings,
-  IHexagonLayerProps,
+  IDeckglViewSetting,
+  IHexagonLayerProp,
   IHexagonUILabelElement,
   ILayerElement,
   ILayerVisibility,
   IMapStyle,
-  IMapboxSettings,
+  IMapboxSetting,
   IMarkerVisibility,
   IModal
 } from '@/interfaces'
 
 export type HttpCsvResponse = DSVRowArray<string> | void
 export type HttpGetResponse = FeatureCollection | string | void
-export type LayerElement = 'biosphere' | 'deckgl' | 'office' | 'places' | 'satellite' | 'trails'
+export type LayerElement = 'biosphere' | 'biosphere-border' | 'deckgl' | 'office' | 'places' | 'satellite' | 'trails'
 export type LayerIcon =
   | 'biosphere-icon'
   | 'deckgl-icon'
@@ -26,11 +26,11 @@ export type LayerIcon =
   | 'trails-icon'
 export type LogData = ReactiveState | StaticState | string
 export type NavigationControlPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
-export type ReactiveState = Array<ILayerElement> | IHexagonLayerProps | IHexagonUILabelElement | IModal
+export type ReactiveState = IHexagonLayerProp | IHexagonUILabelElement | ILayerElement[] | IModal
 export type StaticState =
-  | Array<IMapStyle>
   | IApp
-  | IDeckglViewSettings
+  | IDeckglViewSetting
   | ILayerVisibility
-  | IMapboxSettings
+  | IMapboxSetting
+  | IMapStyle[]
   | IMarkerVisibility
