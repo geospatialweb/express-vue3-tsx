@@ -8,8 +8,10 @@ import { HttpCsvResponse, HttpGetResponse } from '@/types'
 @Service()
 export default class HttpService {
   private _csv = csv
+  private _axiosService: AxiosService
+  private _logService: LogService
 
-  constructor(private _axiosService: AxiosService, private _logService: LogService) {
+  constructor() {
     this._axiosService = Container.get(AxiosService)
     this._logService = Container.get(LogService)
   }

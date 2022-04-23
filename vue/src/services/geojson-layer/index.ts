@@ -6,17 +6,21 @@ import { ILayer } from '@/interfaces'
 
 @Service()
 export default class GeoJsonLayerService {
-  private _layers: Array<ILayer> = []
+  private _layers: ILayer[]
 
-  get layers(): Array<ILayer> {
+  constructor() {
+    this._layers = []
+  }
+
+  get layers(): ILayer[] {
     return this._layers
   }
 
   setLayer(layer: ILayer, fc: FeatureCollection): void {
-    this._layers = [...this._layers, this.setLayerSourceData(layer, fc)]
+    this._layers = [...this._layers, this._setLayerSourceData(layer, fc)]
   }
 
-  private setLayerSourceData(layer: ILayer, fc: FeatureCollection): ILayer {
+  private _setLayerSourceData(layer: ILayer, fc: FeatureCollection): ILayer {
     layer.source.data = fc
     return cloneDeep(layer)
   }

@@ -1,14 +1,16 @@
 import { Container, Service } from 'typedi'
 
-import { ReactiveStates } from '@/enums'
-import { IModal } from '@/interfaces'
+import { ReactiveState } from '@/enums'
+import { IModal, IReactiveState } from '@/interfaces'
 import { StoreService } from '@/services'
 
 @Service()
 export default class ModalService {
-  private _reactiveStates: Record<string, string> = ReactiveStates
+  private _reactiveStates: IReactiveState
+  private _storeService: StoreService
 
-  constructor(private _storeService: StoreService) {
+  constructor() {
+    this._reactiveStates = ReactiveState
     this._storeService = Container.get(StoreService)
   }
 
@@ -23,14 +25,14 @@ export default class ModalService {
   }
 
   hideModal(): void {
-    this.state.isActive && this.setModalState()
+    this.state.isActive && this._setModalState()
   }
 
   showModal(): void {
-    !this.state.isActive && this.setModalState()
+    !this.state.isActive && this._setModalState()
   }
 
-  private setModalState(): void {
+  private _setModalState(): void {
     const state = this.state
     state.isActive = !state.isActive
     this._state = state

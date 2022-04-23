@@ -1,14 +1,18 @@
 import { Container, Service } from 'typedi'
 
-import { StaticStates } from '@/enums'
-import { IMapStyle } from '@/interfaces'
+import { StaticState } from '@/enums'
+import { IMapStyle, IStaticState } from '@/interfaces'
 import { StoreService } from '@/services'
 
 @Service()
 export default class MapStyleService {
-  private _staticStates: Record<string, string> = StaticStates
+  private _mapStyle: string
+  private _staticStates: IStaticState
+  private _storeService: StoreService
 
-  constructor(private _mapStyle: string, private _storeService: StoreService) {
+  constructor() {
+    this._mapStyle = ''
+    this._staticStates = StaticState
     this._storeService = Container.get(StoreService)
     this.setMapStyle()
   }
@@ -17,12 +21,12 @@ export default class MapStyleService {
     return this._mapStyle
   }
 
-  private get _state(): Array<IMapStyle> {
+  private get _state(): IMapStyle[] {
     const { MAP_STYLES } = this._staticStates
-    return <Array<IMapStyle>>this._storeService.getStaticState(MAP_STYLES)
+    return <IMapStyle[]>this._storeService.getStaticState(MAP_STYLES)
   }
 
-  private set _state(mapStyles: Array<IMapStyle>) {
+  private set _state(mapStyles: IMapStyle[]) {
     const { MAP_STYLES } = this._staticStates
     this._storeService.setStaticState(MAP_STYLES, mapStyles)
   }

@@ -2,18 +2,24 @@ import { Map, MapboxOptions, NavigationControl } from 'mapbox-gl'
 import { Container, Service } from 'typedi'
 
 import { mapbox } from '@/configuration'
-import { StaticStates } from '@/enums'
-import { IMapboxOptions, IMapboxSettings } from '@/interfaces'
+import { StaticState } from '@/enums'
+import { IMapboxOption, IMapboxSetting, IStaticState, ITrail } from '@/interfaces'
 import { MapStyleService, StoreService } from '@/services'
 import { NavigationControlPosition } from '@/types'
 
 @Service()
 export default class MapboxService {
-  private _navigationControl = mapbox.navigationControl
-  private _options: IMapboxOptions = mapbox.options
-  private _staticStates: Record<string, string> = StaticStates
+  private _map: Map
+  private _navigationControl
+  private _options: IMapboxOption
+  private _staticStates: IStaticState
+  private _mapStyleService: MapStyleService
+  private _storeService: StoreService
 
-  constructor(private _map: Map, private _mapStyleService: MapStyleService, private _storeService: StoreService) {
+  constructor() {
+    this._navigationControl = mapbox.navigationControl
+    this._options = mapbox.options
+    this._staticStates = StaticState
     this._mapStyleService = Container.get(MapStyleService)
     this._storeService = Container.get(StoreService)
   }
@@ -22,12 +28,12 @@ export default class MapboxService {
     return this._map
   }
 
-  private get _state(): IMapboxSettings {
+  private get _state(): IMapboxSetting {
     const { MAPBOX_SETTINGS } = this._staticStates
-    return <IMapboxSettings>this._storeService.getStaticState(MAPBOX_SETTINGS)
+    return <IMapboxSetting>this._storeService.getStaticState(MAPBOX_SETTINGS)
   }
 
-  private set _state(settings: IMapboxSettings) {
+  private set _state(settings: IMapboxSetting) {
     const { MAPBOX_SETTINGS } = this._staticStates
     this._storeService.setStaticState(MAPBOX_SETTINGS, settings)
   }
@@ -37,7 +43,15 @@ export default class MapboxService {
     const options: MapboxOptions = { ...this._options, ...this._state }
     this._map = new Map(options)
       .addControl(new NavigationControl({ visualizePitch }), <NavigationControlPosition>position)
-      .on('idle', (): void => this.onMapIdleHandler())
+      .on('idle', (): void => this._onMapIdleHandler())
+  }
+
+  mapFlyTo({ center, zoom }: ITrail): void {
+    this._map.flyTo({ center, zoom })
+  }
+
+  removeMapInstance(): void {
+    ;() => this._map.remove()
   }
 
   setInitialZoomState(zoom: number) {
@@ -46,15 +60,11 @@ export default class MapboxService {
     this._state = state
   }
 
-  removeMapInstance(): void {
-    this._map.remove()
+  private _onMapIdleHandler(): void {
+    this._setMapboxSettingsState()
   }
 
-  private onMapIdleHandler(): void {
-    this.setMapboxSettingsState()
-  }
-
-  private setMapboxSettingsState(): void {
+  private _setMapboxSettingsState(): void {
     const { mapStyle: style } = this._mapStyleService
     this._state = {
       bearing: this._map.getBearing(),

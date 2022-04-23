@@ -3,20 +3,22 @@ import { Container, Service } from 'typedi'
 
 import { trails } from '@/configuration'
 import { ITrail } from '@/interfaces'
-import { MapService } from '@/services'
+import { MapboxService } from '@/services'
 
 @Service()
 export default class TrailService {
-  private _trails: Array<ITrail> = cloneDeep(trails)
+  private _trails: ITrail[]
+  private _mapboxService: MapboxService
 
-  constructor(private _mapService: MapService) {
-    this._mapService = Container.get(MapService)
+  constructor() {
+    this._trails = cloneDeep(trails)
+    this._mapboxService = Container.get(MapboxService)
   }
 
   selectTrail(name: string): void {
     const isSelected = (trail: ITrail): boolean => trail.name === name
     const trail = this._trails.find(isSelected)
-    trail && this._mapService.mapFlyTo(trail)
+    trail && this._mapboxService.mapFlyTo(trail)
   }
 
   setInitialZoom(factor: number): void {

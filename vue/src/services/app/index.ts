@@ -1,18 +1,27 @@
 import { Container, Service } from 'typedi'
 
 import { mediaQueryCollection } from '@/configuration'
-import { StaticStates } from '@/enums'
-import { IApp } from '@/interfaces'
+import { StaticState } from '@/enums'
+import { IApp, IStaticState } from '@/interfaces'
 import { DeckglService, MapboxService, StoreService, TrailService } from '@/services'
 
 @Service()
 export default class AppService {
-  private _mediaQueryCollection: Record<string, Record<string, number>> = mediaQueryCollection
-  private _staticStates: Record<string, string> = StaticStates
+  private _mediaQueryCollection: Record<string, Record<string, number>>
+  private _staticStates: IStaticState
+  private _deckglService: DeckglService
+  private _mapboxService: MapboxService
+  private _storeService: StoreService
+  private _trailService: TrailService
 
-  constructor(private _storeService: StoreService) {
+  constructor() {
+    this._mediaQueryCollection = mediaQueryCollection
+    this._staticStates = StaticState
+    this._deckglService = Container.get(DeckglService)
+    this._mapboxService = Container.get(MapboxService)
     this._storeService = Container.get(StoreService)
-    this.setAppState()
+    this._trailService = Container.get(TrailService)
+    this._setAppState()
   }
 
   get state(): IApp {
@@ -29,29 +38,26 @@ export default class AppService {
     const { initialZoom } = this.state
     if (initialZoom) {
       const { deckgl, mapbox, trail } = initialZoom
-      const deckglService = Container.get(DeckglService)
-      const mapboxService = Container.get(MapboxService)
-      const trailService = Container.get(TrailService)
-      deckglService.setInitialZoomState(deckgl)
-      mapboxService.setInitialZoomState(mapbox)
-      trailService.setInitialZoom(trail)
+      this._deckglService.setInitialZoomState(deckgl)
+      this._mapboxService.setInitialZoomState(mapbox)
+      this._trailService.setInitialZoom(trail)
     }
   }
 
-  private setAppState(): void {
+  private _setAppState(): void {
     const state = this.state
-    state.initialZoom = this.getInitialZoom()
-    state.isMobile = this.getIsMobile()
+    state.initialZoom = this._getInitialZoom()
+    state.isMobile = this._getIsMobile()
     this._state = state
   }
 
-  private getInitialZoom(): Record<string, number> | undefined {
+  private _getInitialZoom(): Record<string, number> | undefined {
     const isMatch = ([mediaQuery]: [string, Record<string, number>]): boolean => window.matchMedia(mediaQuery).matches
     const mediaQuery = Object.entries(this._mediaQueryCollection).find(isMatch)
     return mediaQuery && mediaQuery[1]
   }
 
-  private getIsMobile(): boolean {
+  private _getIsMobile(): boolean {
     const mobile = /Android|BB|iPad|iPhone|iPod|Nokia/i
     return !!navigator.userAgent.match(mobile)
   }

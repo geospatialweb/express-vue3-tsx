@@ -1,14 +1,16 @@
 import { Container, Service } from 'typedi'
 
-import { ReactiveStates } from '@/enums'
-import { IHexagonUILabelElement } from '@/interfaces'
+import { ReactiveState } from '@/enums'
+import { IHexagonUILabelElement, IReactiveState } from '@/interfaces'
 import { StoreService } from '@/services'
 
 @Service()
 export default class HexagonUIService {
-  private _reactiveStates: Record<string, string> = ReactiveStates
+  private _reactiveStates: IReactiveState
+  private _storeService: StoreService
 
-  constructor(private _storeService: StoreService) {
+  constructor() {
+    this._reactiveStates = ReactiveState
     this._storeService = Container.get(StoreService)
   }
 

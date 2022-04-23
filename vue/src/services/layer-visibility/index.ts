@@ -1,15 +1,18 @@
 import { Container, Service } from 'typedi'
 
-import { LayerElements, StaticStates } from '@/enums'
-import { ILayerVisibility } from '@/interfaces'
+import { LayerElement, StaticState } from '@/enums'
+import { ILayerElements, ILayerVisibility, IStaticState } from '@/interfaces'
 import { StoreService } from '@/services'
 
 @Service()
 export default class LayerVisibilityService {
-  private _layerElements: Record<string, string> = LayerElements
-  private _staticStates: Record<string, string> = StaticStates
+  private _layerElements: ILayerElements
+  private _staticStates: IStaticState
+  private _storeService: StoreService
 
-  constructor(private _storeService: StoreService) {
+  constructor() {
+    this._layerElements = LayerElement
+    this._staticStates = StaticState
     this._storeService = Container.get(StoreService)
   }
 

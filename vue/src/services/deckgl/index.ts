@@ -5,16 +5,21 @@ import { LngLatLike, Map, MapboxOptions } from 'mapbox-gl'
 import { Container, Service } from 'typedi'
 
 import { deckgl } from '@/configuration'
-import { StaticStates } from '@/enums'
-import { IDeckglOptions, IDeckglViewSettings } from '@/interfaces'
+import { StaticState } from '@/enums'
+import { IDeckglOption, IDeckglViewSetting, IStaticState } from '@/interfaces'
 import { StoreService } from '@/services'
 
 @Service()
 export default class DeckglService {
-  private _options: IDeckglOptions = deckgl.options
-  private _staticStates: Record<string, string> = StaticStates
+  private _deck: Deck
+  private _map: Map
+  private _options: IDeckglOption
+  private _staticStates: IStaticState
+  private _storeService: StoreService
 
-  constructor(private _deck: Deck, private _map: Map, private _storeService: StoreService) {
+  constructor() {
+    this._options = deckgl.options
+    this._staticStates = StaticState
     this._storeService = Container.get(StoreService)
   }
 
@@ -26,12 +31,12 @@ export default class DeckglService {
     return this._map
   }
 
-  private get _state(): IDeckglViewSettings {
+  private get _state(): IDeckglViewSetting {
     const { DECKGL_VIEW_SETTINGS } = this._staticStates
-    return <IDeckglViewSettings>this._storeService.getStaticState(DECKGL_VIEW_SETTINGS)
+    return <IDeckglViewSetting>this._storeService.getStaticState(DECKGL_VIEW_SETTINGS)
   }
 
-  private set _state(settings: IDeckglViewSettings) {
+  private set _state(settings: IDeckglViewSetting) {
     const { DECKGL_VIEW_SETTINGS } = this._staticStates
     this._storeService.setStaticState(DECKGL_VIEW_SETTINGS, settings)
   }
@@ -48,13 +53,13 @@ export default class DeckglService {
       ...options,
       onViewStateChange: ({ viewState: { bearing, latitude, longitude, pitch, zoom } }: ViewState): void => {
         const center: LngLatLike = { lng: longitude, lat: latitude }
-        const state: IDeckglViewSettings = { bearing, center, latitude, longitude, pitch, zoom }
-        this.setDeckglViewSettingsState(state)
-        this.mapJumpTo()
+        const state: IDeckglViewSetting = { bearing, center, latitude, longitude, pitch, zoom }
+        this._setDeckglViewSettingsState(state)
+        this._mapJumpTo()
       },
-      getTooltip: ({ object }: Record<string, Record<string, Array<number>>>): string | null => {
+      getTooltip: ({ object }: Record<string, Record<string, number[]>>): string | null => {
         if (!object) return null
-        const { points }: Record<string, Array<number>> = object
+        const { points }: Record<string, number[]> = object
         return `${points.length} Accidents`
       }
     })
@@ -66,12 +71,6 @@ export default class DeckglService {
     this._map = new Map(options)
   }
 
-  setInitialZoomState(zoom: number) {
-    const state = this._state
-    state.zoom = zoom
-    this._state = state
-  }
-
   removeDeckInstance(): void {
     ;() => this._deck.finalize()
   }
@@ -80,11 +79,17 @@ export default class DeckglService {
     ;() => this._map.remove()
   }
 
-  private mapJumpTo(): void {
+  setInitialZoomState(zoom: number) {
+    const state = this._state
+    state.zoom = zoom
+    this._state = state
+  }
+
+  private _mapJumpTo(): void {
     this._map.jumpTo(this._state)
   }
 
-  private setDeckglViewSettingsState(state: IDeckglViewSettings): void {
+  private _setDeckglViewSettingsState(state: IDeckglViewSetting): void {
     this._state = state
   }
 }
