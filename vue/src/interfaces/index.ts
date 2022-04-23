@@ -6,7 +6,7 @@ export interface IApp {
   isMobile: boolean
 }
 
-export interface IDeckglOptions extends IDeckglProps {
+export interface IDeckglOption extends IDeckglProp {
   controller: boolean
   id: string
   interactive: boolean
@@ -16,11 +16,11 @@ export interface IDeckglOptions extends IDeckglProps {
   style: string
 }
 
-export interface IDeckglProps extends IMapboxProps {
+export interface IDeckglProp extends IMapboxProp {
   canvas: string
 }
 
-export interface IDeckglViewSettings {
+export interface IDeckglViewSetting {
   bearing: number
   center: LngLatLike
   latitude: number
@@ -29,23 +29,28 @@ export interface IDeckglViewSettings {
   zoom: number
 }
 
-export interface IHexagonLayerProps {
+export interface IEndpoint {
+  GEOJSON_ENDPOINT: string
+  MAPBOX_ACCESS_TOKEN_ENDPOINT: string
+}
+
+export interface IHexagonLayerProp {
   coverage: number
   elevationScale: number
   radius: number
   upperPercentile: number
 }
 
-export interface IHexagonLayerStaticProps {
-  colorRange: Array<Array<number>>
-  elevationRange: Array<number>
+export interface IHexagonLayerStaticProp {
+  colorRange: number[][]
+  elevationRange: number[]
   extruded: boolean
   id: string
   material: {
     ambient: number
     diffuse: number
     shininess: number
-    specularColor: Array<number>
+    specularColor: number[]
   }
   pickable: boolean
   transitions: {
@@ -61,12 +66,12 @@ export interface IHexagonUILabelElement {
   upperPercentile: boolean
 }
 
-export interface IHexagonUIProps {
+export interface IHexagonUIProp {
   label: IHexagonUILabelElement
-  props: IHexagonLayerProps
+  props: IHexagonLayerProp
 }
 
-export interface IHttpParams {
+export interface IHttpParam {
   fields: string
   table: string
 }
@@ -97,6 +102,16 @@ export interface ILayerElement {
   name: string
 }
 
+export interface ILayerElements {
+  BIOSPHERE: string
+  BIOSPHERE_BORDER: string
+  DECKGL: string
+  OFFICE: string
+  PLACES: string
+  SATELLITE: string
+  TRAILS: string
+}
+
 export interface ILayerIcon {
   height: string
   id: string
@@ -117,22 +132,37 @@ export interface ILayerVisibility {
   }
 }
 
+export interface ILngLat {
+  lat: number
+  lng: number
+}
+
+export interface ILogState {
+  REACTIVE: string
+  STATIC: string
+}
+
+export interface ILogStatus {
+  NEW: string
+  OLD: string
+}
+
 export interface IMapStyle {
   isActive: boolean
   url: string
 }
 
-export interface IMapboxOptions extends IMapboxProps {
+export interface IMapboxOption extends IMapboxProp {
   doubleClickZoom: boolean
   maxZoom: number
   minZoom: number
 }
 
-export interface IMapboxProps {
+export interface IMapboxProp {
   container: string
 }
 
-export interface IMapboxSettings {
+export interface IMapboxSetting {
   bearing: number
   center: LngLatLike
   pitch: number
@@ -159,13 +189,35 @@ export interface IModal {
   isActive: boolean
 }
 
-export interface IQueryParams {
+export interface IQueryParam {
   fields: string
   id: string
 }
 
+export interface IReactiveState {
+  HEXAGON_LAYER_PROPS: string
+  HEXAGON_UI_LABEL_ELEMENT: string
+  LAYER_ELEMENTS: string
+  MODAL: string
+}
+
+export interface IStaticState {
+  APP: string
+  DECKGL_VIEW_SETTINGS: string
+  LAYER_VISIBILITY: string
+  MAP_STYLES: string
+  MAPBOX_SETTINGS: string
+  MARKER_VISIBILITY: string
+}
+
 export interface ITrail {
-  center: LngLatLike | undefined
+  center: LngLatLike
   name: string
-  zoom: number | undefined
+  zoom: number
+}
+
+export interface IUrl {
+  API_BASE_URL_DEV: string
+  API_BASE_URL_PROD: string
+  HEXAGON_LAYER_DATA_URL: string
 }
