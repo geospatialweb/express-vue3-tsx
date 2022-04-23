@@ -4,7 +4,7 @@ import { Mapbox, Deckgl } from '@/views'
 
 const baseUrl = import.meta.env.BASE_URL
 const history = createWebHistory(baseUrl)
-const routes: Array<RouteRecordRaw> = [
+const routes: RouteRecordRaw[] = [
   {
     path: baseUrl,
     name: 'mapbox',

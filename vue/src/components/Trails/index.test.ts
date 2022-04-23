@@ -10,7 +10,7 @@ describe('Trails component test suite', () => {
 
   it('should display the correct number of options', () => {
     setup()
-    const options: Array<HTMLOptionElement> = screen.getAllByRole('option')
+    const options: HTMLOptionElement[] = screen.getAllByRole('option')
     expect(options.length).toBe(trails.length + 1)
   })
 

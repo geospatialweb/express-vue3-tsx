@@ -10,9 +10,9 @@ import styles from './index.module.css'
 export default defineComponent({
   setup() {
     const { layerElement } = styles
-    const getLayerElementsState = (): ComputedRef<Array<ILayerElement>> => {
+    const getLayerElementsState = (): ComputedRef<ILayerElement[]> => {
       const { state } = Container.get(LayerElementService)
-      return computed((): Array<ILayerElement> => state)
+      return computed((): ILayerElement[] => state)
     }
     const onClickHandler = (evt: MouseEvent): void => {
       evt.stopPropagation()
@@ -33,7 +33,7 @@ export default defineComponent({
         <LayerElement id={id} key={id} name={name} isActive={isActive} />
       </li>
     )
-    const jsx = (layerElements: Array<ILayerElement>): JSX.Element => (
+    const jsx = (layerElements: ILayerElement[]): JSX.Element => (
       <ul class={layerElement} title="layers" onClick={(evt): void => onClickHandler(evt)}>
         {layerElements.map(listItem)}
       </ul>
