@@ -16,7 +16,7 @@ export async function getGeoJsonFeatureCollection(req: Request, res: Response): 
   /* prettier-ignore */
   const { method, originalUrl, query: { fields, table } } = req
   logRequest(method, originalUrl)
-  const fc = await queryService.getGeoJsonFeatureCollection({ fields, table } as IQueryParam)
+  const fc = await queryService.getGeoJsonFeatureCollection(<IQueryParam>{ fields, table })
   return responseService.sendResponse(res, fc)
 }
 

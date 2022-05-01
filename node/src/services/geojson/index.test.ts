@@ -1,9 +1,20 @@
 import { FeatureCollection } from 'geojson'
 import { QueryResultRow } from 'pg'
+import { Container } from 'typedi'
 
 import { GeoJsonService } from '../'
 
 describe('GeoJsonService test suite', () => {
+  let geoJsonService: GeoJsonService
+  let spy: jest.SpyInstance
+
+  beforeEach(() => {
+    geoJsonService = Container.get(GeoJsonService)
+    spy = jest.spyOn(geoJsonService, 'createGeoJsonFeatureCollection')
+  })
+
+  afterEach(() => spy.mockRestore())
+
   test('createGeoJsonFeatureCollection returns valid GeoJSON FeatureCollection object with features', () => {
     const features: QueryResultRow[] = [
       {
@@ -27,10 +38,11 @@ describe('GeoJsonService test suite', () => {
         }
       ]
     }
-    const geoJsonService = new GeoJsonService(features)
-    const fc = geoJsonService.createGeoJsonFeatureCollection()
-    expect(fc).toEqual(expectedGeoJsonFeatureCollection)
-    expect(expectedGeoJsonFeatureCollection).toBe(expectedGeoJsonFeatureCollection)
+    geoJsonService.createGeoJsonFeatureCollection(features)
+    expect(spy).toHaveBeenCalledTimes(1)
+    expect(spy).toHaveBeenCalledWith(features)
+    expect(spy).toHaveReturnedTimes(1)
+    expect(spy).toHaveReturnedWith(expectedGeoJsonFeatureCollection)
   })
 
   test('createGeoJsonFeatureCollection returns valid GeoJSON FeatureCollection object with no features', () => {
@@ -39,9 +51,10 @@ describe('GeoJsonService test suite', () => {
       type: 'FeatureCollection',
       features: []
     }
-    const geoJsonService = new GeoJsonService(features)
-    const fc = geoJsonService.createGeoJsonFeatureCollection()
-    expect(fc).toEqual(expectedGeoJsonFeatureCollection)
-    expect(expectedGeoJsonFeatureCollection).toBe(expectedGeoJsonFeatureCollection)
+    geoJsonService.createGeoJsonFeatureCollection(features)
+    expect(spy).toHaveBeenCalledTimes(1)
+    expect(spy).toHaveBeenCalledWith(features)
+    expect(spy).toHaveReturnedTimes(1)
+    expect(spy).toHaveReturnedWith(expectedGeoJsonFeatureCollection)
   })
 })

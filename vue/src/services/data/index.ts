@@ -62,7 +62,9 @@ export default class DataService {
   }
 
   private _setMapboxAccessToken(token: string): void {
-    token ? (this._mapboxAccessToken = token) : this._consoleWarning(`No ${this.getMapboxAccessToken.name} Found`)
+    token
+      ? (this._mapboxAccessToken = token)
+      : this._consoleWarning(`No ${this.getMapboxAccessToken.name.slice(3)} Found`)
   }
 
   private async _getHexagonLayerData(): Promise<void> {
@@ -74,7 +76,7 @@ export default class DataService {
   private _setHexagonLayerData(data: DSVRowArray<string>): void {
     data?.length
       ? (this._hexagonLayerData = data.map((d): number[] => [Number(d.lng), Number(d.lat)]))
-      : this._consoleWarning(`No ${this._getHexagonLayerData.name} Found`)
+      : this._consoleWarning(`No ${this._getHexagonLayerData.name.slice(4)} Found`)
   }
 
   private async _getGeoJsonLayerData(): Promise<void> {
@@ -87,7 +89,7 @@ export default class DataService {
   private _setGeoJsonLayer(layer: ILayer, fc: FeatureCollection): void {
     fc?.features?.length
       ? this._geoJsonLayerService.setLayer(layer, cloneDeep(fc))
-      : this._consoleWarning(`No ${this._getGeoJsonLayerData.name} Features Found`)
+      : this._consoleWarning(`No ${this._getGeoJsonLayerData.name.slice(4)} Features Found`)
   }
 
   private async _getGeoJsonMarkerData(): Promise<void> {
@@ -101,7 +103,7 @@ export default class DataService {
   private _setGeoJsonMarkers(id: string, features: Feature[]): void {
     features?.length
       ? this._markerService.setMarkers(id, cloneDeep(features))
-      : this._consoleWarning(`No ${this._getGeoJsonMarkerData.name} Features Found`)
+      : this._consoleWarning(`No ${this._getGeoJsonMarkerData.name.slice(4)} Features Found`)
   }
 
   private async _getGeoJsonFeatureCollection({ id, fields }: IQueryParam): Promise<FeatureCollection> {

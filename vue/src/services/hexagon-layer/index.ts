@@ -17,7 +17,6 @@ import { DataService, DeckglService, ModalService, StoreService } from '@/servic
 @Service()
 export default class HexagonLayerService {
   private _hexagonLayerData: number[][]
-  private _map: Map
   private _reactiveProps: IHexagonLayerProp
   private _reactiveStates: IReactiveState
   private _skyLayer: SkyLayer
@@ -27,7 +26,7 @@ export default class HexagonLayerService {
   private _modalService: ModalService
   private _storeService: StoreService
 
-  constructor() {
+  constructor(private _map: Map) {
     this._hexagonLayerData = []
     this._reactiveProps = hexagonLayer.reactiveProps
     this._reactiveStates = ReactiveState

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
-import { Mapbox, Deckgl } from '@/views'
+import { Deck, Mapbox } from '@/views'
 
 const baseUrl = import.meta.env.BASE_URL
 const history = createWebHistory(baseUrl)
@@ -13,7 +13,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: `${baseUrl}deckgl`,
     name: 'deckgl',
-    component: Deckgl
+    component: Deck
   },
   {
     path: `${baseUrl}:catchAll(.*)`,

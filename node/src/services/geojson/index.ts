@@ -1,21 +1,15 @@
 import { Feature, FeatureCollection } from 'geojson'
 import { QueryResultRow } from 'pg'
+import { Service } from 'typedi'
 
+@Service()
 export default class GeoJsonService {
-  private _features: QueryResultRow[]
-
-  constructor(features: QueryResultRow[]) {
-    this._features = features
-  }
-
-  createGeoJsonFeatureCollection(): FeatureCollection {
+  createGeoJsonFeatureCollection(features: QueryResultRow[]): FeatureCollection {
     const fc: FeatureCollection = {
       type: 'FeatureCollection',
       features: []
     }
-    if (this._features.length) {
-      fc.features = this._features.map(({ geojson }): Feature => <Feature>JSON.parse(<string>geojson))
-    }
+    features.length && (fc.features = features.map(({ geojson }): Feature => <Feature>JSON.parse(<string>geojson)))
     return fc
   }
 }

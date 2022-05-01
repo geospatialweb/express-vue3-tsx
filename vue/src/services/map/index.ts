@@ -2,8 +2,8 @@ import { FillLayer, LineLayer, Map, MapLayerMouseEvent, SkyLayer } from 'mapbox-
 import { Container, Service } from 'typedi'
 
 import { mapbox } from '@/configuration'
-import { LayerElement, StaticState } from '@/enums'
-import { ILayerElements, ILayerVisibility, IMapboxSetting, IStaticState } from '@/interfaces'
+import { LayerElement } from '@/enums'
+import { ILayerElements, ILayerVisibility } from '@/interfaces'
 import {
   AppService,
   GeoJsonLayerService,
@@ -12,16 +12,13 @@ import {
   MapboxService,
   MarkerService,
   ModalService,
-  PopupService,
-  StoreService
+  PopupService
 } from '@/services'
 
 @Service()
 export default class MapService {
   private _layerElements: ILayerElements
-  private _map: Map
   private _skyLayer: SkyLayer
-  private _staticStates: IStaticState
   private _appService: AppService
   private _geoJsonLayerService: GeoJsonLayerService
   private _layerVisibilityService: LayerVisibilityService
@@ -30,12 +27,10 @@ export default class MapService {
   private _markerService: MarkerService
   private _modalService: ModalService
   private _popupService: PopupService
-  private _storeService: StoreService
 
-  constructor() {
+  constructor(private _map: Map) {
     this._layerElements = LayerElement
     this._skyLayer = <SkyLayer>mapbox.skyLayer
-    this._staticStates = StaticState
     this._appService = Container.get(AppService)
     this._geoJsonLayerService = Container.get(GeoJsonLayerService)
     this._layerVisibilityService = Container.get(LayerVisibilityService)
@@ -44,28 +39,11 @@ export default class MapService {
     this._markerService = Container.get(MarkerService)
     this._modalService = Container.get(ModalService)
     this._popupService = Container.get(PopupService)
-    this._storeService = Container.get(StoreService)
-  }
-
-  private get _state(): IMapboxSetting {
-    const { MAPBOX_SETTINGS } = this._staticStates
-    return <IMapboxSetting>this._storeService.getStaticState(MAPBOX_SETTINGS)
-  }
-
-  private set _state(settings: IMapboxSetting) {
-    const { MAPBOX_SETTINGS } = this._staticStates
-    this._storeService.setStaticState(MAPBOX_SETTINGS, settings)
   }
 
   loadMapLayer(): void {
     this._mapboxService.loadMapbox()
     this._setMapInstance()
-  }
-
-  setInitialZoomState(zoom: number) {
-    const state = this._state
-    state.zoom = zoom
-    this._state = state
   }
 
   setLayerVisibility(id: string): void {
@@ -152,8 +130,8 @@ export default class MapService {
       .off('mouseleave', id, (): void => this._onMapMouseLeaveHandler())
   }
 
-  private _onMapClickHandler(evt: MapLayerMouseEvent): void {
-    this._popupService.addLayerPopup(evt)
+  private _onMapClickHandler({ features, lngLat }: MapLayerMouseEvent): void {
+    features?.length && this._popupService.addLayerPopup(features[0], lngLat)
   }
 
   private _onMapMouseEnterHandler(): void {

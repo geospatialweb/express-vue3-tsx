@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/vue'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
-import { Mapbox, Deckgl } from '@/views'
+import { Deck, Mapbox } from '@/views'
 
 describe('router test suite', () => {
   const baseUrl = import.meta.env.BASE_URL
@@ -14,7 +14,7 @@ describe('router test suite', () => {
     },
     {
       path: `${baseUrl}deckgl`,
-      component: Deckgl
+      component: Deck
     },
     {
       path: `${baseUrl}:catchAll(.*)`,
@@ -35,7 +35,7 @@ describe('router test suite', () => {
   })
 
   test('set deckgl route', async () => {
-    render(Deckgl, {
+    render(Deck, {
       global: {
         plugins: [router]
       }

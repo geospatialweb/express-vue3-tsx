@@ -3,13 +3,13 @@ import { render, screen } from '@testing-library/vue'
 
 import { Deckgl, Footer, HexagonUI, Modal } from '@/components'
 import { deckgl } from '@/configuration'
-import { Deckgl as DeckglView } from '@/views'
+import { Deck as DeckView } from '@/views'
 
-describe('Deckgl view test suite', () => {
+describe('Deck view test suite', () => {
   it('should render successfully', () => {
-    render(DeckglView)
-    const deckglView = screen.getAllByRole('presentation')[0]
-    expect(deckglView).toBeInTheDocument()
+    render(DeckView)
+    const deckView = screen.getAllByRole('presentation')[0]
+    expect(deckView).toBeInTheDocument()
   })
 
   test('Deckgl component renders successfully', () => {

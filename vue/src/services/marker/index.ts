@@ -1,9 +1,9 @@
 import { Feature, Point } from 'geojson'
-import { LngLatLike, Marker } from 'mapbox-gl'
+import { LngLat, LngLatLike, Marker } from 'mapbox-gl'
 import { Container, Service } from 'typedi'
 
 import { StaticState } from '@/enums'
-import { ILngLat, IMarkerVisibility, IStaticState } from '@/interfaces'
+import { IMarkerVisibility, IStaticState } from '@/interfaces'
 import { MapboxService, PopupService, StoreService } from '@/services'
 
 @Service()
@@ -51,9 +51,7 @@ export default class MarkerService {
 
   toggleMarkerVisibility(id: string): void {
     this._setMarkerVisibilityState(id)
-    const index = <number>this._markersHashmap.get(id)
-    const markers = this._markers[index]
-    for (const marker of markers) {
+    for (const marker of this._markers[<number>this._markersHashmap.get(id)]) {
       this._addRemoveMarkers(id, marker)
     }
   }
@@ -85,7 +83,7 @@ export default class MarkerService {
 
   private _createMarker(el: HTMLDivElement, feature: Feature): Marker {
     const { geometry, properties } = feature
-    const { lat, lng } = <ILngLat>properties
+    const { lat, lng } = <LngLat>properties
     if (lat && lng) return new Marker(el).setLngLat([lng, lat])
     return new Marker(el).setLngLat(<LngLatLike>(<Point>geometry).coordinates)
   }

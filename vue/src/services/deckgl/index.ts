@@ -11,13 +11,11 @@ import { StoreService } from '@/services'
 
 @Service()
 export default class DeckglService {
-  private _deck: Deck
-  private _map: Map
   private _options: IDeckglOption
   private _staticStates: IStaticState
   private _storeService: StoreService
 
-  constructor() {
+  constructor(private _deck: Deck, private _map: Map) {
     this._options = deckgl.options
     this._staticStates = StaticState
     this._storeService = Container.get(StoreService)
@@ -72,11 +70,11 @@ export default class DeckglService {
   }
 
   removeDeckInstance(): void {
-    ;() => this._deck.finalize()
+    () => this._deck.finalize()
   }
 
   removeMapInstance(): void {
-    ;() => this._map.remove()
+    () => this._map.remove()
   }
 
   setInitialZoomState(zoom: number) {

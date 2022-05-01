@@ -14,7 +14,7 @@ export default defineComponent({
       const { state } = Container.get(LayerElementService)
       return computed((): ILayerElement[] => state)
     }
-    const onClickHandler = (evt: MouseEvent): void => {
+    const onClickController = (evt: MouseEvent): void => {
       evt.stopPropagation()
       const { id } = evt.target as HTMLDivElement
       const layerElementService = Container.get(LayerElementService)
@@ -34,7 +34,7 @@ export default defineComponent({
       </li>
     )
     const jsx = (layerElements: ILayerElement[]): JSX.Element => (
-      <ul class={layerElement} title="layers" onClick={(evt): void => onClickHandler(evt)}>
+      <ul class={layerElement} title="layers" onClick={(evt): void => onClickController(evt)}>
         {layerElements.map(listItem)}
       </ul>
     )

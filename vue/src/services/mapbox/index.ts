@@ -9,14 +9,13 @@ import { NavigationControlPosition } from '@/types'
 
 @Service()
 export default class MapboxService {
-  private _map: Map
   private _navigationControl
   private _options: IMapboxOption
   private _staticStates: IStaticState
   private _mapStyleService: MapStyleService
   private _storeService: StoreService
 
-  constructor() {
+  constructor(private _map: Map) {
     this._navigationControl = mapbox.navigationControl
     this._options = mapbox.options
     this._staticStates = StaticState
@@ -51,7 +50,7 @@ export default class MapboxService {
   }
 
   removeMapInstance(): void {
-    ;() => this._map.remove()
+    this._map.remove()
   }
 
   setInitialZoomState(zoom: number) {

@@ -1,5 +1,5 @@
 import { Container } from 'typedi'
-import { defineComponent, onBeforeMount, onMounted, onUnmounted } from 'vue'
+import { defineComponent, onMounted, onUnmounted } from 'vue'
 
 import { IDeckglProp } from '@/interfaces'
 import { DataService, DeckglService, HexagonLayerService, ModalService } from '@/services'
@@ -39,8 +39,8 @@ export default defineComponent({
       const deckglService = Container.get(DeckglService)
       deckglService.removeMapInstance()
     }
-    onBeforeMount((): void => showModal())
     onMounted(async (): Promise<void> => {
+      showModal()
       await getMapboxAccessToken()
       loadHexagonLayer()
     })

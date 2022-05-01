@@ -1,5 +1,5 @@
 import { Container } from 'typedi'
-import { defineComponent, onBeforeMount, onMounted, onUnmounted } from 'vue'
+import { defineComponent, onMounted, onUnmounted } from 'vue'
 
 import { IMapboxProp } from '@/interfaces'
 import { DataService, MapService, MapStyleService, MapboxService, MarkerService, ModalService } from '@/services'
@@ -38,8 +38,8 @@ export default defineComponent({
       const mapboxService = Container.get(MapboxService)
       mapboxService.removeMapInstance()
     }
-    onBeforeMount((): void => showModal())
     onMounted(async (): Promise<void> => {
+      showModal()
       setHiddenMarkersVisibility()
       await getMapboxAccessToken()
       loadMapLayer()

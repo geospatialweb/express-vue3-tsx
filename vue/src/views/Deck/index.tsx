@@ -9,7 +9,7 @@ export default defineComponent({
     /* prettier-ignore */
     const { options: { canvas, container } } = deckgl
     return (): JSX.Element => (
-      <div class={styles.deckgl} role="presentation">
+      <div class={styles.deck} role="presentation">
         <Deckgl canvas={canvas} container={container} />
         <HexagonUI />
         <Footer />

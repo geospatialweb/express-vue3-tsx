@@ -12,7 +12,7 @@ export default class QueryService {
   private _postgresService: PostgresService
 
   constructor() {
-    this._geoJsonService = new GeoJsonService([])
+    this._geoJsonService = Container.get(GeoJsonService)
     this._logService = Container.get(LogService)
     this._postgresService = Container.get(PostgresService)
   }
@@ -29,8 +29,7 @@ export default class QueryService {
       .query(query)
       .then(({ rows: features }) => {
         this._logQuerySuccess('GeoJSON SQL')
-        this._geoJsonService = new GeoJsonService(<QueryResultRow[]>features)
-        return this._geoJsonService.createGeoJsonFeatureCollection()
+        return this._geoJsonService.createGeoJsonFeatureCollection(<QueryResultRow[]>features)
       })
       .catch(({ message }) => this._logService.consoleError(<string>message))
   }

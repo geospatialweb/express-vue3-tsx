@@ -7,6 +7,7 @@ import { trails } from '@/configuration'
 
 describe('Trails component test suite', () => {
   const setup = () => render(Trails)
+  const names = <string[]>trails.map((trail) => Object.values(trail)[0])
 
   it('should display the correct number of options', () => {
     setup()
@@ -20,14 +21,12 @@ describe('Trails component test suite', () => {
     expect(option.selected).toBe(true)
   })
 
-  for (const { name } of trails) {
-    it(`should allow user to select "${name}"`, async () => {
-      setup()
-      const select: HTMLSelectElement = screen.getByLabelText('Select Trail')
-      const option: HTMLOptionElement = screen.getByRole('option', { name })
-      expect(option).toHaveValue(name)
-      await userEvent.selectOptions(select, option)
-      expect(option.selected).toBe(true)
-    })
-  }
+  it.each(names)("should allow user to select '%s' trail", async (name) => {
+    setup()
+    const select: HTMLSelectElement = screen.getByLabelText('Select Trail')
+    const option: HTMLOptionElement = screen.getByRole('option', { name })
+    expect(option).toHaveValue(name)
+    await userEvent.selectOptions(select, option)
+    expect(option.selected).toBe(true)
+  })
 })

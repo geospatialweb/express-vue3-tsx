@@ -34,6 +34,11 @@ export interface IEndpoint {
   MAPBOX_ACCESS_TOKEN_ENDPOINT: string
 }
 
+export interface IGeoJsonProperties {
+  description: string
+  name: string
+}
+
 export interface IHexagonLayerProp {
   coverage: number
   elevationScale: number
@@ -132,11 +137,6 @@ export interface ILayerVisibility {
   }
 }
 
-export interface ILngLat {
-  lat: number
-  lng: number
-}
-
 export interface ILogState {
   REACTIVE: string
   STATIC: string
@@ -212,7 +212,7 @@ export interface IStaticState {
 
 export interface ITrail {
   center: LngLatLike
-  name: string
+  name?: string
   zoom: number
 }
 
