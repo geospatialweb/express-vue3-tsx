@@ -12,6 +12,6 @@ In essence, this implementation is a Proof of Concept and MVP Prototype that emb
 
 * Vue 3: Composition API, ES6 Proxy and reactive local/global state management without Vuex, Pinia or Redux
 
-To that end, this experiment has been an overwhelming success. Everything coalesces nicely. Further, Vite is super fast for development compilation and Jest-compatible Vitest looks promising indeed. You be the judge...
+To that end, this experiment has been an overwhelming success. Everything coalesces nicely. Further, Vite is super fast for HMR development re-compilation (without Webpack) and Jest-compatible Vitest test runner performs to expectations. You be the judge...
 
 NOTE: .env file is available upon request at johncampbell@geospatialweb.ca
