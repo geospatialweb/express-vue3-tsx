@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/vue'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 import { App, Header } from '@/components'
-import { Mapbox, Deckgl } from '@/views'
+import { Deck, Mapbox } from '@/views'
 
 describe('App component test suite', () => {
   const baseUrl = import.meta.env.BASE_URL
@@ -15,7 +15,7 @@ describe('App component test suite', () => {
     },
     {
       path: `${baseUrl}deckgl`,
-      component: Deckgl
+      component: Deck
     },
     {
       path: `${baseUrl}:catchAll(.*)`,

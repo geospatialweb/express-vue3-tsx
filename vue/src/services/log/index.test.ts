@@ -4,7 +4,7 @@ import { modal } from '@/configuration'
 import { IModal } from '@/interfaces'
 import { LogService } from '@/services'
 
-describe('logService test suite', () => {
+describe('LogService test suite', () => {
   let logService: LogService
 
   beforeEach(() => {

@@ -5,7 +5,7 @@ import { LayerElement } from '@/enums'
 import { MarkerService } from '@/services'
 import { mockMapImplementation, testData } from '@/test'
 
-describe('Marker test suite', () => {
+describe('MarkerService test suite', () => {
   let markerService: MarkerService
 
   beforeEach(() => {

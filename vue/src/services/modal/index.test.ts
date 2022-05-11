@@ -5,7 +5,7 @@ import { ReactiveState } from '@/enums'
 import { IModal } from '@/interfaces'
 import { ModalService, StoreService } from '@/services'
 
-describe('Modal test suite', () => {
+describe('ModalService test suite', () => {
   test('state getter should equal modal configuration object ', () => {
     const modalService = Container.get(ModalService)
     const { state } = modalService
