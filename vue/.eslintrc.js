@@ -21,7 +21,7 @@ module.exports = {
     sourceType: 'module',
     tsconfigRootDir: __dirname
   },
-  plugins: ['@typescript-eslint', 'jest-dom', 'testing-library'],
+  plugins: ['@typescript-eslint', 'compat', 'jest-dom', 'testing-library'],
   overrides: [
     {
       extends: ['plugin:testing-library/vue'],
@@ -31,5 +31,7 @@ module.exports = {
       }
     }
   ],
-  rules: {}
+  rules: {
+    'compat/compat': 'warn'
+  }
 }
