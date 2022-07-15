@@ -50,7 +50,7 @@ html {
 }
 
 body {
-  background: var(--light-taupe);
+  background-color: var(--light-taupe);
   color: var(--black);
   font-family: var(--Archivo);
   font-size: 1.6rem;

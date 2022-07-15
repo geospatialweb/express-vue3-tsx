@@ -7,10 +7,10 @@
 
 .outdoors {
   composes: mapbox;
-  background: var(--light-cream);
+  background-color: var(--light-cream);
 }
 
 .satellite {
   composes: mapbox;
-  background: var(--black);
+  background-color: var(--black);
 }

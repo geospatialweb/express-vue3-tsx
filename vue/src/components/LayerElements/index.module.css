@@ -17,19 +17,19 @@
 }
 
 .layerElement > li > div.active {
-  background: var(--dark-taupe);
+  background-color: var(--dark-taupe);
   color: var(--white);
   text-shadow: var(--black-text-shadow);
 }
 
 .layerElement > li > div.inactive {
-  background: var(--light-taupe);
+  background-color: var(--light-taupe);
   text-shadow: var(--cream-text-shadow);
 }
 
 .layerElement > li > div.inactive:hover,
 .layerElement > li > img:hover + div.inactive {
-  background: var(--taupe);
+  background-color: var(--taupe);
   color: var(--white);
   text-shadow: var(--black-text-shadow);
 }
