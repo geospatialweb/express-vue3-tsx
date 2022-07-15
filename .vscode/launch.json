@@ -6,28 +6,26 @@
   "configurations": [
     {
       "name": "Attach Node Debugger",
-      "type": "pwa-node",
+      "type": "node",
       "request": "attach",
       "processId": "${command:PickProcess}",
       "skipFiles": ["<node_internals>/**"],
-      "disableOptimisticBPs": true,
       "restart": true
     },
     {
       "name": "Debug Jest Current File",
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "cwd": "${workspaceRoot}/node",
       "program": "node_modules/.bin/jest",
       "args": ["${relativeFile}", "--runInBand"],
       "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
       "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true
+      "internalConsoleOptions": "neverOpen"
     },
     {
       "name": "Debug Vitest Current File",
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "cwd": "${workspaceRoot}/vue",
       "program": "node_modules/vitest/vitest.mjs",
