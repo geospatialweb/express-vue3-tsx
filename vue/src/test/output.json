@@ -7,187 +7,10 @@
   "numPassedTests": 111,
   "numFailedTests": 0,
   "numPendingTests": 0,
-  "numTodoTests": 2,
-  "startTime": 1651374448721,
+  "numTodoTests": 3,
+  "startTime": 1662239708501,
   "success": true,
   "testResults": [
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "Deckgl component test suite"
-          ],
-          "fullName": " Deckgl component test suite container attributes set correctly",
-          "status": "passed",
-          "title": "container attributes set correctly",
-          "duration": 111,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Deckgl component test suite"
-          ],
-          "fullName": " Deckgl component test suite canvas attributes set correctly",
-          "status": "passed",
-          "title": "canvas attributes set correctly",
-          "duration": 29,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374453718,
-      "endTime": 1651374453858,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/Deckgl/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "App component test suite"
-          ],
-          "fullName": " App component test suite App should render successfully",
-          "status": "passed",
-          "title": "App should render successfully",
-          "duration": 117,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "App component test suite"
-          ],
-          "fullName": " App component test suite Header should render successfully",
-          "status": "passed",
-          "title": "Header should render successfully",
-          "duration": 30,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374453722,
-      "endTime": 1651374453869,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/App/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "router test suite"
-          ],
-          "fullName": " router test suite set baseUrl route",
-          "status": "passed",
-          "title": "set baseUrl route",
-          "duration": 180,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "router test suite"
-          ],
-          "fullName": " router test suite set deckgl route",
-          "status": "passed",
-          "title": "set deckgl route",
-          "duration": 92,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "router test suite"
-          ],
-          "fullName": " router test suite set redirect route",
-          "status": "passed",
-          "title": "set redirect route",
-          "duration": 30,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374453724,
-      "endTime": 1651374454027,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/router/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "Footer component test suite"
-          ],
-          "fullName": " Footer component test suite should render successfully",
-          "status": "passed",
-          "title": "should render successfully",
-          "duration": 108,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Footer component test suite"
-          ],
-          "fullName": " Footer component test suite class set correctly to \"active\"",
-          "status": "passed",
-          "title": "class set correctly to \"active\"",
-          "duration": 25,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Footer component test suite"
-          ],
-          "fullName": " Footer component test suite text displays correctly",
-          "status": "passed",
-          "title": "text displays correctly",
-          "duration": 21,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374455758,
-      "endTime": 1651374455912,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/Footer/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "Header component test suite"
-          ],
-          "fullName": " Header component test suite should render logo & text",
-          "status": "passed",
-          "title": "should render logo & text",
-          "duration": 154,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Header component test suite"
-          ],
-          "fullName": " Header component test suite repo link works correctly",
-          "status": "passed",
-          "title": "repo link works correctly",
-          "duration": 24,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374455854,
-      "endTime": 1651374456032,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/Header/index.test.ts"
-    },
     {
       "assertionResults": [
         {
@@ -198,7 +21,7 @@
           "fullName": " HexagonUI component test suite heading text set correctly",
           "status": "passed",
           "title": "heading text set correctly",
-          "duration": 160,
+          "duration": 113,
           "failureMessages": []
         },
         {
@@ -209,7 +32,7 @@
           "fullName": " HexagonUI component test suite label element text set correctly for each parameter",
           "status": "passed",
           "title": "label element text set correctly for each parameter",
-          "duration": 24,
+          "duration": 13,
           "failureMessages": []
         },
         {
@@ -220,7 +43,7 @@
           "fullName": " HexagonUI component test suite label element class initially set to 'mouseout' for each parameter",
           "status": "passed",
           "title": "label element class initially set to 'mouseout' for each parameter",
-          "duration": 40,
+          "duration": 16,
           "failureMessages": []
         },
         {
@@ -231,7 +54,7 @@
           "fullName": " HexagonUI component test suite label element class set correctly during mouseover on input element for each parameter",
           "status": "passed",
           "title": "label element class set correctly during mouseover on input element for each parameter",
-          "duration": 215,
+          "duration": 218,
           "failureMessages": []
         },
         {
@@ -242,7 +65,7 @@
           "fullName": " HexagonUI component test suite label element class set correctly during mouseout on input element for each parameter",
           "status": "passed",
           "title": "label element class set correctly during mouseout on input element for each parameter",
-          "duration": 152,
+          "duration": 159,
           "failureMessages": []
         },
         {
@@ -253,7 +76,7 @@
           "fullName": " HexagonUI component test suite input element attributes set correctly for each parameter",
           "status": "passed",
           "title": "input element attributes set correctly for each parameter",
-          "duration": 133,
+          "duration": 144,
           "failureMessages": []
         },
         {
@@ -264,7 +87,7 @@
           "fullName": " HexagonUI component test suite input element initial display value set correctly for each parameter",
           "status": "passed",
           "title": "input element initial display value set correctly for each parameter",
-          "duration": 136,
+          "duration": 162,
           "failureMessages": []
         },
         {
@@ -275,7 +98,7 @@
           "fullName": " HexagonUI component test suite should display correct input element display value when slider value changes",
           "status": "passed",
           "title": "should display correct input element display value when slider value changes",
-          "duration": 182,
+          "duration": 158,
           "failureMessages": []
         },
         {
@@ -286,7 +109,7 @@
           "fullName": " HexagonUI component test suite button id attribute set correctly",
           "status": "passed",
           "title": "button id attribute set correctly",
-          "duration": 72,
+          "duration": 29,
           "failureMessages": []
         },
         {
@@ -297,141 +120,15 @@
           "fullName": " HexagonUI component test suite button text set correctly",
           "status": "passed",
           "title": "button text set correctly",
-          "duration": 54,
+          "duration": 27,
           "failureMessages": []
         }
       ],
-      "startTime": 1651374456035,
-      "endTime": 1651374457203,
+      "startTime": 1662239711939,
+      "endTime": 1662239712978,
       "status": "passed",
       "message": "",
       "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/HexagonUI/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "LayerElements component static test suite"
-          ],
-          "fullName": " LayerElements component static test suite should render list of 6 layers",
-          "status": "passed",
-          "title": "should render list of 6 layers",
-          "duration": 171,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "LayerElements component static test suite"
-          ],
-          "fullName": " LayerElements component static test suite should render list of layers in a specific order",
-          "status": "passed",
-          "title": "should render list of layers in a specific order",
-          "duration": 41,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "LayerElements component static test suite"
-          ],
-          "fullName": " LayerElements component static test suite should render list of layers with icon class set correctly for each layer icon",
-          "status": "passed",
-          "title": "should render list of layers with icon class set correctly for each layer icon",
-          "duration": 39,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "LayerElements component static test suite"
-          ],
-          "fullName": " LayerElements component static test suite should render list of layers with an initial class 'active' or 'inactive') for each layer",
-          "status": "passed",
-          "title": "should render list of layers with an initial class 'active' or 'inactive') for each layer",
-          "duration": 31,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "LayerElements component click event test suite"
-          ],
-          "fullName": " LayerElements component click event test suite Deck.GL layer class remains 'inactive' when clicked",
-          "status": "passed",
-          "title": "Deck.GL layer class remains 'inactive' when clicked",
-          "duration": 47,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "LayerElements component click event test suite"
-          ],
-          "fullName": " LayerElements component click event test suite Biosphere layer class changes to 'inactive' when clicked and 'active' when clicked again",
-          "status": "passed",
-          "title": "Biosphere layer class changes to 'inactive' when clicked and 'active' when clicked again",
-          "duration": 52,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "LayerElements component click event test suite"
-          ],
-          "fullName": " LayerElements component click event test suite Remaining layers class changes to 'active' when clicked and 'inactive' when clicked again",
-          "status": "passed",
-          "title": "Remaining layers class changes to 'active' when clicked and 'inactive' when clicked again",
-          "duration": 146,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374458326,
-      "endTime": 1651374458853,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/LayerElements/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "Mapbox component test suite"
-          ],
-          "fullName": " Mapbox component test suite attributes set correctly",
-          "status": "passed",
-          "title": "attributes set correctly",
-          "duration": 116,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374458501,
-      "endTime": 1651374458617,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/Mapbox/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "Modal view test suite"
-          ],
-          "fullName": " Modal view test suite dynamic class set correctly",
-          "status": "passed",
-          "title": "dynamic class set correctly",
-          "duration": 98,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374459482,
-      "endTime": 1651374459580,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/Modal/index.test.ts"
     },
     {
       "assertionResults": [
@@ -454,7 +151,7 @@
           "fullName": " Trails component test suite should set default option correctly",
           "status": "passed",
           "title": "should set default option correctly",
-          "duration": 53,
+          "duration": 41,
           "failureMessages": []
         },
         {
@@ -465,7 +162,7 @@
           "fullName": " Trails component test suite should allow user to select 'Blue Mountain' trail",
           "status": "passed",
           "title": "should allow user to select 'Blue Mountain' trail",
-          "duration": 82,
+          "duration": 87,
           "failureMessages": []
         },
         {
@@ -476,7 +173,7 @@
           "fullName": " Trails component test suite should allow user to select 'Charleston Lake' trail",
           "status": "passed",
           "title": "should allow user to select 'Charleston Lake' trail",
-          "duration": 69,
+          "duration": 56,
           "failureMessages": []
         },
         {
@@ -487,7 +184,7 @@
           "fullName": " Trails component test suite should allow user to select 'Lemoine Point' trail",
           "status": "passed",
           "title": "should allow user to select 'Lemoine Point' trail",
-          "duration": 63,
+          "duration": 67,
           "failureMessages": []
         },
         {
@@ -498,7 +195,7 @@
           "fullName": " Trails component test suite should allow user to select 'Lyn Valley' trail",
           "status": "passed",
           "title": "should allow user to select 'Lyn Valley' trail",
-          "duration": 51,
+          "duration": 61,
           "failureMessages": []
         },
         {
@@ -509,7 +206,7 @@
           "fullName": " Trails component test suite should allow user to select 'Mac Johnson' trail",
           "status": "passed",
           "title": "should allow user to select 'Mac Johnson' trail",
-          "duration": 49,
+          "duration": 48,
           "failureMessages": []
         },
         {
@@ -520,12 +217,12 @@
           "fullName": " Trails component test suite should allow user to select 'Seeley's Bay' trail",
           "status": "passed",
           "title": "should allow user to select 'Seeley's Bay' trail",
-          "duration": 46,
+          "duration": 52,
           "failureMessages": []
         }
       ],
-      "startTime": 1651374460952,
-      "endTime": 1651374461520,
+      "startTime": 1662239711939,
+      "endTime": 1662239712506,
       "status": "passed",
       "message": "",
       "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/Trails/index.test.ts"
@@ -535,42 +232,433 @@
         {
           "ancestorTitles": [
             "",
-            "AppService test suite"
+            "LayerElements component static test suite"
           ],
-          "fullName": " AppService test suite state getter should equal app configuration object ",
+          "fullName": " LayerElements component static test suite should render list of 6 layers",
           "status": "passed",
-          "title": "state getter should equal app configuration object ",
-          "duration": 13,
+          "title": "should render list of 6 layers",
+          "duration": 154,
           "failureMessages": []
         },
         {
           "ancestorTitles": [
             "",
-            "AppService test suite"
+            "LayerElements component static test suite"
           ],
-          "fullName": " AppService test suite state getter should return StoreService APP initial static state",
+          "fullName": " LayerElements component static test suite should render list of layers in a specific order",
           "status": "passed",
-          "title": "state getter should return StoreService APP initial static state",
-          "duration": 3,
+          "title": "should render list of layers in a specific order",
+          "duration": 48,
           "failureMessages": []
         },
         {
           "ancestorTitles": [
             "",
-            "AppService test suite"
+            "LayerElements component static test suite"
           ],
-          "fullName": " AppService test suite setInitialZoom method should be called",
+          "fullName": " LayerElements component static test suite should render list of layers with icon class set correctly for each layer icon",
           "status": "passed",
-          "title": "setInitialZoom method should be called",
-          "duration": 0,
+          "title": "should render list of layers with icon class set correctly for each layer icon",
+          "duration": 34,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "LayerElements component static test suite"
+          ],
+          "fullName": " LayerElements component static test suite should render list of layers with an initial class 'active' or 'inactive') for each layer",
+          "status": "passed",
+          "title": "should render list of layers with an initial class 'active' or 'inactive') for each layer",
+          "duration": 43,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "LayerElements component click event test suite"
+          ],
+          "fullName": " LayerElements component click event test suite Deck.GL layer class remains 'inactive' when clicked",
+          "status": "passed",
+          "title": "Deck.GL layer class remains 'inactive' when clicked",
+          "duration": 39,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "LayerElements component click event test suite"
+          ],
+          "fullName": " LayerElements component click event test suite Biosphere layer class changes to 'inactive' when clicked and 'active' when clicked again",
+          "status": "passed",
+          "title": "Biosphere layer class changes to 'inactive' when clicked and 'active' when clicked again",
+          "duration": 58,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "LayerElements component click event test suite"
+          ],
+          "fullName": " LayerElements component click event test suite Remaining layers class changes to 'active' when clicked and 'inactive' when clicked again",
+          "status": "passed",
+          "title": "Remaining layers class changes to 'active' when clicked and 'inactive' when clicked again",
+          "duration": 166,
           "failureMessages": []
         }
       ],
-      "startTime": 1651374461021,
-      "endTime": 1651374461037,
+      "startTime": 1662239711940,
+      "endTime": 1662239712483,
       "status": "passed",
       "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/app/index.test.ts"
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/LayerElements/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "Mapbox view test suite"
+          ],
+          "fullName": " Mapbox view test suite should render successfully",
+          "status": "passed",
+          "title": "should render successfully",
+          "duration": 144,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Mapbox view test suite"
+          ],
+          "fullName": " Mapbox view test suite Mapbox component renders successfully",
+          "status": "passed",
+          "title": "Mapbox component renders successfully",
+          "duration": 32,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Mapbox view test suite"
+          ],
+          "fullName": " Mapbox view test suite LayerElements component renders successfully",
+          "status": "passed",
+          "title": "LayerElements component renders successfully",
+          "duration": 26,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Mapbox view test suite"
+          ],
+          "fullName": " Mapbox view test suite Trails component renders successfully",
+          "status": "passed",
+          "title": "Trails component renders successfully",
+          "duration": 16,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Mapbox view test suite"
+          ],
+          "fullName": " Mapbox view test suite Modal component renders successfully",
+          "status": "passed",
+          "title": "Modal component renders successfully",
+          "duration": 12,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Mapbox view test suite"
+          ],
+          "fullName": " Mapbox view test suite Modal component dynamic class set correctly",
+          "status": "passed",
+          "title": "Modal component dynamic class set correctly",
+          "duration": 20,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239714464,
+      "endTime": 1662239714714,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/views/Mapbox/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "router test suite"
+          ],
+          "fullName": " router test suite set baseUrl route",
+          "status": "passed",
+          "title": "set baseUrl route",
+          "duration": 280,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "router test suite"
+          ],
+          "fullName": " router test suite set deckgl route",
+          "status": "passed",
+          "title": "set deckgl route",
+          "duration": 60,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "router test suite"
+          ],
+          "fullName": " router test suite set redirect route",
+          "status": "passed",
+          "title": "set redirect route",
+          "duration": 32,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239714588,
+      "endTime": 1662239714960,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/router/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "Deck view test suite"
+          ],
+          "fullName": " Deck view test suite should render successfully",
+          "status": "passed",
+          "title": "should render successfully",
+          "duration": 178,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Deck view test suite"
+          ],
+          "fullName": " Deck view test suite Deckgl component renders successfully",
+          "status": "passed",
+          "title": "Deckgl component renders successfully",
+          "duration": 32,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Deck view test suite"
+          ],
+          "fullName": " Deck view test suite HexagonUI component renders successfully",
+          "status": "passed",
+          "title": "HexagonUI component renders successfully",
+          "duration": 27,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Deck view test suite"
+          ],
+          "fullName": " Deck view test suite Footer component renders successfully",
+          "status": "passed",
+          "title": "Footer component renders successfully",
+          "duration": 19,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Deck view test suite"
+          ],
+          "fullName": " Deck view test suite Modal component renders successfully",
+          "status": "passed",
+          "title": "Modal component renders successfully",
+          "duration": 10,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Deck view test suite"
+          ],
+          "fullName": " Deck view test suite Modal component dynamic class set correctly",
+          "status": "passed",
+          "title": "Modal component dynamic class set correctly",
+          "duration": 10,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239715140,
+      "endTime": 1662239715416,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/views/Deck/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "Footer component test suite"
+          ],
+          "fullName": " Footer component test suite should render successfully",
+          "status": "passed",
+          "title": "should render successfully",
+          "duration": 93,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Footer component test suite"
+          ],
+          "fullName": " Footer component test suite class set correctly to \"active\"",
+          "status": "passed",
+          "title": "class set correctly to \"active\"",
+          "duration": 19,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Footer component test suite"
+          ],
+          "fullName": " Footer component test suite text displays correctly",
+          "status": "passed",
+          "title": "text displays correctly",
+          "duration": 16,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239716736,
+      "endTime": 1662239716864,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/Footer/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "Deckgl component test suite"
+          ],
+          "fullName": " Deckgl component test suite container attributes set correctly",
+          "status": "passed",
+          "title": "container attributes set correctly",
+          "duration": 115,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Deckgl component test suite"
+          ],
+          "fullName": " Deckgl component test suite canvas attributes set correctly",
+          "status": "passed",
+          "title": "canvas attributes set correctly",
+          "duration": 27,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239716894,
+      "endTime": 1662239717036,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/Deckgl/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "App component test suite"
+          ],
+          "fullName": " App component test suite App should render successfully",
+          "status": "passed",
+          "title": "App should render successfully",
+          "duration": 112,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "App component test suite"
+          ],
+          "fullName": " App component test suite Header should render successfully",
+          "status": "passed",
+          "title": "Header should render successfully",
+          "duration": 25,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239717394,
+      "endTime": 1662239717531,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/App/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "Header component test suite"
+          ],
+          "fullName": " Header component test suite should render logo & text",
+          "status": "passed",
+          "title": "should render logo & text",
+          "duration": 123,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Header component test suite"
+          ],
+          "fullName": " Header component test suite repo link works correctly",
+          "status": "passed",
+          "title": "repo link works correctly",
+          "duration": 16,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239718914,
+      "endTime": 1662239719053,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/Header/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "Mapbox component test suite"
+          ],
+          "fullName": " Mapbox component test suite attributes set correctly",
+          "status": "passed",
+          "title": "attributes set correctly",
+          "duration": 93,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239719096,
+      "endTime": 1662239719189,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/Mapbox/index.test.ts"
     },
     {
       "assertionResults": [
@@ -580,7 +668,7 @@
             "DataService test suite"
           ],
           "fullName": " DataService test suite loadData method should be called",
-          "status": "skipped",
+          "status": "todo",
           "title": "loadData method should be called",
           "failureMessages": []
         },
@@ -592,12 +680,12 @@
           "fullName": " DataService test suite getMapboxAccessToken method should be called with a return",
           "status": "passed",
           "title": "getMapboxAccessToken method should be called with a return",
-          "duration": 49,
+          "duration": 45,
           "failureMessages": []
         }
       ],
-      "startTime": 1651374461659,
-      "endTime": 1651374461708,
+      "startTime": 1662239719390,
+      "endTime": 1662239719435,
       "status": "failed",
       "message": "",
       "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/data/index.test.ts"
@@ -607,189 +695,10 @@
         {
           "ancestorTitles": [
             "",
-            "DeckglService test suite"
-          ],
-          "fullName": " DeckglService test suite loadDeckgl method should be called",
-          "status": "passed",
-          "title": "loadDeckgl method should be called",
-          "duration": 6,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "DeckglService test suite"
-          ],
-          "fullName": " DeckglService test suite removeDeckInstance method should be called",
-          "status": "passed",
-          "title": "removeDeckInstance method should be called",
-          "duration": 1,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "DeckglService test suite"
-          ],
-          "fullName": " DeckglService test suite loadMapbox method should be called",
-          "status": "passed",
-          "title": "loadMapbox method should be called",
-          "duration": 0,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "DeckglService test suite"
-          ],
-          "fullName": " DeckglService test suite removeMapInstance method should be called",
-          "status": "passed",
-          "title": "removeMapInstance method should be called",
-          "duration": 0,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374463132,
-      "endTime": 1651374463139,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/deckgl/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "GeoJsonLayerService test suite"
-          ],
-          "fullName": " GeoJsonLayerService test suite setLayer method should be called",
-          "status": "passed",
-          "title": "setLayer method should be called",
-          "duration": 6,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374463540,
-      "endTime": 1651374463546,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/geojson-layer/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "HexagonLayerService test suite"
-          ],
-          "fullName": " HexagonLayerService test suite state getter should equal HexagonLayer reactiveProps configuration object ",
-          "status": "passed",
-          "title": "state getter should equal HexagonLayer reactiveProps configuration object ",
-          "duration": 9,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "HexagonLayerService test suite"
-          ],
-          "fullName": " HexagonLayerService test suite state getter should return StoreService HEXAGON_LAYER_PROPS initial reactive state",
-          "status": "passed",
-          "title": "state getter should return StoreService HEXAGON_LAYER_PROPS initial reactive state",
-          "duration": 3,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "HexagonLayerService test suite"
-          ],
-          "fullName": " HexagonLayerService test suite loadHexagonLayer method should be called",
-          "status": "passed",
-          "title": "loadHexagonLayer method should be called",
-          "duration": 0,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "HexagonLayerService test suite"
-          ],
-          "fullName": " HexagonLayerService test suite resetHexagonLayerPropsState method should be called",
-          "status": "passed",
-          "title": "resetHexagonLayerPropsState method should be called",
-          "duration": 1,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "HexagonLayerService test suite"
-          ],
-          "fullName": " HexagonLayerService test suite setHexagonLayerPropsState method should be called",
-          "status": "passed",
-          "title": "setHexagonLayerPropsState method should be called",
-          "duration": 0,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374463733,
-      "endTime": 1651374463746,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/hexagon-layer/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "HexagonUIService test suite"
-          ],
-          "fullName": " HexagonUIService test suite state getter should equal hexagonUILabelElement configuration object ",
-          "status": "passed",
-          "title": "state getter should equal hexagonUILabelElement configuration object ",
-          "duration": 6,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "HexagonUIService test suite"
-          ],
-          "fullName": " HexagonUIService test suite state getter should return StoreService HEXAGON_UI_LABEL_ELEMENT initial reactive state",
-          "status": "passed",
-          "title": "state getter should return StoreService HEXAGON_UI_LABEL_ELEMENT initial reactive state",
-          "duration": 3,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "HexagonUIService test suite"
-          ],
-          "fullName": " HexagonUIService test suite setHexagonUILabelElementState method should be called",
-          "status": "passed",
-          "title": "setHexagonUILabelElementState method should be called",
-          "duration": 6,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374464952,
-      "endTime": 1651374464967,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/hexagon-ui/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
             "HttpService test suite"
           ],
           "fullName": " HttpService test suite csv method should be called",
-          "status": "skipped",
+          "status": "todo",
           "title": "csv method should be called",
           "failureMessages": []
         },
@@ -801,12 +710,12 @@
           "fullName": " HttpService test suite get method should be called",
           "status": "passed",
           "title": "get method should be called",
-          "duration": 41,
+          "duration": 30,
           "failureMessages": []
         }
       ],
-      "startTime": 1651374465289,
-      "endTime": 1651374465330,
+      "startTime": 1662239720905,
+      "endTime": 1662239720935,
       "status": "failed",
       "message": "",
       "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/http/index.test.ts"
@@ -821,7 +730,7 @@
           "fullName": " LayerElementService test suite state getter should equal layerElements configuration object ",
           "status": "passed",
           "title": "state getter should equal layerElements configuration object ",
-          "duration": 15,
+          "duration": 14,
           "failureMessages": []
         },
         {
@@ -843,7 +752,7 @@
           "fullName": " LayerElementService test suite pass 'satellite' id to displayLayerElement method",
           "status": "passed",
           "title": "pass 'satellite' id to displayLayerElement method",
-          "duration": 0,
+          "duration": 1,
           "failureMessages": []
         },
         {
@@ -854,7 +763,7 @@
           "fullName": " LayerElementService test suite pass 'biosphere' id to displayLayerElement method",
           "status": "passed",
           "title": "pass 'biosphere' id to displayLayerElement method",
-          "duration": 1,
+          "duration": 0,
           "failureMessages": []
         },
         {
@@ -865,7 +774,7 @@
           "fullName": " LayerElementService test suite pass 'office' id to displayLayerElement method",
           "status": "passed",
           "title": "pass 'office' id to displayLayerElement method",
-          "duration": 0,
+          "duration": 1,
           "failureMessages": []
         },
         {
@@ -876,7 +785,7 @@
           "fullName": " LayerElementService test suite pass 'places' id to displayLayerElement method",
           "status": "passed",
           "title": "pass 'places' id to displayLayerElement method",
-          "duration": 1,
+          "duration": 0,
           "failureMessages": []
         },
         {
@@ -887,7 +796,7 @@
           "fullName": " LayerElementService test suite pass 'trails' id to displayLayerElement method",
           "status": "passed",
           "title": "pass 'trails' id to displayLayerElement method",
-          "duration": 0,
+          "duration": 1,
           "failureMessages": []
         },
         {
@@ -902,8 +811,8 @@
           "failureMessages": []
         }
       ],
-      "startTime": 1651374465468,
-      "endTime": 1651374465488,
+      "startTime": 1662239720986,
+      "endTime": 1662239721006,
       "status": "passed",
       "message": "",
       "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/layer-element/index.test.ts"
@@ -913,62 +822,135 @@
         {
           "ancestorTitles": [
             "",
-            "LayerVisibilityService test suite"
+            "AppService test suite"
           ],
-          "fullName": " LayerVisibilityService test suite state getter should equal layerVisibility configuration object ",
+          "fullName": " AppService test suite state getter should equal app configuration object ",
           "status": "passed",
-          "title": "state getter should equal layerVisibility configuration object ",
-          "duration": 5,
+          "title": "state getter should equal app configuration object ",
+          "duration": 14,
           "failureMessages": []
         },
         {
           "ancestorTitles": [
             "",
-            "LayerVisibilityService test suite"
+            "AppService test suite"
           ],
-          "fullName": " LayerVisibilityService test suite state getter should return StoreService LAYER_VISIBILITY initial static state",
+          "fullName": " AppService test suite state getter should return StoreService APP initial static state",
           "status": "passed",
-          "title": "state getter should return StoreService LAYER_VISIBILITY initial static state",
+          "title": "state getter should return StoreService APP initial static state",
           "duration": 3,
           "failureMessages": []
         },
         {
           "ancestorTitles": [
             "",
-            "LayerVisibilityService test suite"
+            "AppService test suite"
           ],
-          "fullName": " LayerVisibilityService test suite setHexagonUILabelElementState method should be called",
+          "fullName": " AppService test suite setInitialZoom method should be called",
           "status": "passed",
-          "title": "setHexagonUILabelElementState method should be called",
-          "duration": 4,
+          "title": "setInitialZoom method should be called",
+          "duration": 5,
           "failureMessages": []
         }
       ],
-      "startTime": 1651374466785,
-      "endTime": 1651374466797,
+      "startTime": 1662239721283,
+      "endTime": 1662239721305,
       "status": "passed",
       "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/layer-visibility/index.test.ts"
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/app/index.test.ts"
     },
     {
       "assertionResults": [
         {
           "ancestorTitles": [
             "",
-            "logService test suite"
+            "MapStyleService test suite"
           ],
-          "fullName": " logService test suite consoleError method should be called",
+          "fullName": " MapStyleService test suite setMapStyle method should be called",
           "status": "passed",
-          "title": "consoleError method should be called",
-          "duration": 4,
+          "title": "setMapStyle method should be called",
+          "duration": 9,
           "failureMessages": []
         },
         {
           "ancestorTitles": [
             "",
-            "logService test suite"
+            "MapStyleService test suite"
           ],
-          "fullName": " logService test suite consoleLog method should be called",
+          "fullName": " MapStyleService test suite setMapStyleState method should be called",
+          "status": "passed",
+          "title": "setMapStyleState method should be called",
+          "duration": 6,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239722932,
+      "endTime": 1662239722947,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/map-style/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "MarkerService test suite"
+          ],
+          "fullName": " MarkerService test suite setMarkers method should be called",
+          "status": "passed",
+          "title": "setMarkers method should be called",
+          "duration": 13,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "MarkerService test suite"
+          ],
+          "fullName": " MarkerService test suite setHiddenMarkersVisibility method should be called",
+          "status": "passed",
+          "title": "setHiddenMarkersVisibility method should be called",
+          "duration": 1,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "MarkerService test suite"
+          ],
+          "fullName": " MarkerService test suite toggleMarkerVisibility method should be called",
+          "status": "passed",
+          "title": "toggleMarkerVisibility method should be called",
+          "duration": 10,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239723012,
+      "endTime": 1662239723036,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/marker/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "LogService test suite"
+          ],
+          "fullName": " LogService test suite consoleError method should be called",
+          "status": "passed",
+          "title": "consoleError method should be called",
+          "duration": 13,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "LogService test suite"
+          ],
+          "fullName": " LogService test suite consoleLog method should be called",
           "status": "passed",
           "title": "consoleLog method should be called",
           "duration": 3,
@@ -977,17 +959,17 @@
         {
           "ancestorTitles": [
             "",
-            "logService test suite"
+            "LogService test suite"
           ],
-          "fullName": " logService test suite consoleWarning method should be called",
+          "fullName": " LogService test suite consoleWarning method should be called",
           "status": "passed",
           "title": "consoleWarning method should be called",
-          "duration": 0,
+          "duration": 1,
           "failureMessages": []
         }
       ],
-      "startTime": 1651374467121,
-      "endTime": 1651374467128,
+      "startTime": 1662239723463,
+      "endTime": 1662239723480,
       "status": "passed",
       "message": "",
       "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/log/index.test.ts"
@@ -1002,7 +984,7 @@
           "fullName": " MapService test suite loadMapLayer method should be called",
           "status": "passed",
           "title": "loadMapLayer method should be called",
-          "duration": 13,
+          "duration": 18,
           "failureMessages": []
         },
         {
@@ -1028,42 +1010,11 @@
           "failureMessages": []
         }
       ],
-      "startTime": 1651374467244,
-      "endTime": 1651374467258,
+      "startTime": 1662239725371,
+      "endTime": 1662239725390,
       "status": "passed",
       "message": "",
       "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/map/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "MapStyleService test suite"
-          ],
-          "fullName": " MapStyleService test suite setMapStyle method should be called",
-          "status": "passed",
-          "title": "setMapStyle method should be called",
-          "duration": 6,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "MapStyleService test suite"
-          ],
-          "fullName": " MapStyleService test suite setMapStyleState method should be called",
-          "status": "passed",
-          "title": "setMapStyleState method should be called",
-          "duration": 4,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374468751,
-      "endTime": 1651374468761,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/map-style/index.test.ts"
     },
     {
       "assertionResults": [
@@ -1075,7 +1026,7 @@
           "fullName": " MapboxService test suite loadMapbox method should be called",
           "status": "passed",
           "title": "loadMapbox method should be called",
-          "duration": 13,
+          "duration": 19,
           "failureMessages": []
         },
         {
@@ -1097,7 +1048,7 @@
           "fullName": " MapboxService test suite setInitialZoomState method should be called",
           "status": "passed",
           "title": "setInitialZoomState method should be called",
-          "duration": 0,
+          "duration": 1,
           "failureMessages": []
         },
         {
@@ -1112,168 +1063,11 @@
           "failureMessages": []
         }
       ],
-      "startTime": 1651374469085,
-      "endTime": 1651374469099,
+      "startTime": 1662239725392,
+      "endTime": 1662239725413,
       "status": "passed",
       "message": "",
       "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/mapbox/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "Marker test suite"
-          ],
-          "fullName": " Marker test suite setMarkers method should be called",
-          "status": "passed",
-          "title": "setMarkers method should be called",
-          "duration": 14,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Marker test suite"
-          ],
-          "fullName": " Marker test suite setHiddenMarkersVisibility method should be called",
-          "status": "passed",
-          "title": "setHiddenMarkersVisibility method should be called",
-          "duration": 1,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Marker test suite"
-          ],
-          "fullName": " Marker test suite toggleMarkerVisibility method should be called",
-          "status": "passed",
-          "title": "toggleMarkerVisibility method should be called",
-          "duration": 7,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374469213,
-      "endTime": 1651374469235,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/marker/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "Modal test suite"
-          ],
-          "fullName": " Modal test suite state getter should equal modal configuration object ",
-          "status": "passed",
-          "title": "state getter should equal modal configuration object ",
-          "duration": 6,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Modal test suite"
-          ],
-          "fullName": " Modal test suite state getter should return StoreService MODAL initial reactive state",
-          "status": "passed",
-          "title": "state getter should return StoreService MODAL initial reactive state",
-          "duration": 3,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Modal test suite"
-          ],
-          "fullName": " Modal test suite hideModal method should be called",
-          "status": "passed",
-          "title": "hideModal method should be called",
-          "duration": 0,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Modal test suite"
-          ],
-          "fullName": " Modal test suite showModal method should be called",
-          "status": "passed",
-          "title": "showModal method should be called",
-          "duration": 4,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374470508,
-      "endTime": 1651374470521,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/modal/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "PopupService test suite"
-          ],
-          "fullName": " PopupService test suite addLayerPopup method should be called",
-          "status": "passed",
-          "title": "addLayerPopup method should be called",
-          "duration": 20,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "PopupService test suite"
-          ],
-          "fullName": " PopupService test suite addMarkerPopup method should be called",
-          "status": "passed",
-          "title": "addMarkerPopup method should be called",
-          "duration": 1,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "PopupService test suite"
-          ],
-          "fullName": " PopupService test suite removePopup method should be called",
-          "status": "passed",
-          "title": "removePopup method should be called",
-          "duration": 1,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374470916,
-      "endTime": 1651374470938,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/popup/index.test.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "RouterService test suite"
-          ],
-          "fullName": " RouterService test suite setRoute method should be called",
-          "status": "passed",
-          "title": "setRoute method should be called",
-          "duration": 7,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1651374471041,
-      "endTime": 1651374471048,
-      "status": "passed",
-      "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/router/index.test.ts"
     },
     {
       "assertionResults": [
@@ -1285,7 +1079,7 @@
           "fullName": " StoreService test suite getReactiveState method should be called with a return",
           "status": "passed",
           "title": "getReactiveState method should be called with a return",
-          "duration": 11,
+          "duration": 8,
           "failureMessages": []
         },
         {
@@ -1318,12 +1112,12 @@
           "fullName": " StoreService test suite setStaticState method should be called",
           "status": "passed",
           "title": "setStaticState method should be called",
-          "duration": 1,
+          "duration": 2,
           "failureMessages": []
         }
       ],
-      "startTime": 1651374472263,
-      "endTime": 1651374472281,
+      "startTime": 1662239725715,
+      "endTime": 1662239725731,
       "status": "passed",
       "message": "",
       "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/store/index.test.ts"
@@ -1353,8 +1147,8 @@
           "failureMessages": []
         }
       ],
-      "startTime": 1651374472684,
-      "endTime": 1651374472698,
+      "startTime": 1662239727213,
+      "endTime": 1662239727227,
       "status": "passed",
       "message": "",
       "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/trail/index.test.ts"
@@ -1364,150 +1158,355 @@
         {
           "ancestorTitles": [
             "",
-            "Deck view test suite"
+            "PopupService test suite"
           ],
-          "fullName": " Deck view test suite should render successfully",
+          "fullName": " PopupService test suite addLayerPopup method should be called",
           "status": "passed",
-          "title": "should render successfully",
-          "duration": 151,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Deck view test suite"
-          ],
-          "fullName": " Deck view test suite Deckgl component renders successfully",
-          "status": "passed",
-          "title": "Deckgl component renders successfully",
-          "duration": 27,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Deck view test suite"
-          ],
-          "fullName": " Deck view test suite HexagonUI component renders successfully",
-          "status": "passed",
-          "title": "HexagonUI component renders successfully",
+          "title": "addLayerPopup method should be called",
           "duration": 14,
           "failureMessages": []
         },
         {
           "ancestorTitles": [
             "",
-            "Deck view test suite"
+            "PopupService test suite"
           ],
-          "fullName": " Deck view test suite Footer component renders successfully",
+          "fullName": " PopupService test suite addMarkerPopup method should be called",
           "status": "passed",
-          "title": "Footer component renders successfully",
-          "duration": 21,
+          "title": "addMarkerPopup method should be called",
+          "duration": 3,
           "failureMessages": []
         },
         {
           "ancestorTitles": [
             "",
-            "Deck view test suite"
+            "PopupService test suite"
           ],
-          "fullName": " Deck view test suite Modal component renders successfully",
+          "fullName": " PopupService test suite removePopup method should be called",
           "status": "passed",
-          "title": "Modal component renders successfully",
-          "duration": 11,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Deck view test suite"
-          ],
-          "fullName": " Deck view test suite Modal component dynamic class set correctly",
-          "status": "passed",
-          "title": "Modal component dynamic class set correctly",
-          "duration": 7,
+          "title": "removePopup method should be called",
+          "duration": 3,
           "failureMessages": []
         }
       ],
-      "startTime": 1651374472934,
-      "endTime": 1651374473165,
+      "startTime": 1662239727220,
+      "endTime": 1662239727240,
       "status": "passed",
       "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/views/Deck/index.test.ts"
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/popup/index.test.ts"
     },
     {
       "assertionResults": [
         {
           "ancestorTitles": [
             "",
-            "Mapbox view test suite"
+            "HexagonLayerService test suite"
           ],
-          "fullName": " Mapbox view test suite should render successfully",
+          "fullName": " HexagonLayerService test suite state getter should equal HexagonLayer reactiveProps configuration object ",
           "status": "passed",
-          "title": "should render successfully",
-          "duration": 128,
+          "title": "state getter should equal HexagonLayer reactiveProps configuration object ",
+          "duration": 10,
           "failureMessages": []
         },
         {
           "ancestorTitles": [
             "",
-            "Mapbox view test suite"
+            "HexagonLayerService test suite"
           ],
-          "fullName": " Mapbox view test suite Mapbox component renders successfully",
+          "fullName": " HexagonLayerService test suite state getter should return StoreService HEXAGON_LAYER_PROPS initial reactive state",
           "status": "passed",
-          "title": "Mapbox component renders successfully",
-          "duration": 20,
+          "title": "state getter should return StoreService HEXAGON_LAYER_PROPS initial reactive state",
+          "duration": 3,
           "failureMessages": []
         },
         {
           "ancestorTitles": [
             "",
-            "Mapbox view test suite"
+            "HexagonLayerService test suite"
           ],
-          "fullName": " Mapbox view test suite LayerElements component renders successfully",
+          "fullName": " HexagonLayerService test suite loadHexagonLayer method should be called",
           "status": "passed",
-          "title": "LayerElements component renders successfully",
-          "duration": 12,
+          "title": "loadHexagonLayer method should be called",
+          "duration": 1,
           "failureMessages": []
         },
         {
           "ancestorTitles": [
             "",
-            "Mapbox view test suite"
+            "HexagonLayerService test suite"
           ],
-          "fullName": " Mapbox view test suite Trails component renders successfully",
+          "fullName": " HexagonLayerService test suite resetHexagonLayerPropsState method should be called",
           "status": "passed",
-          "title": "Trails component renders successfully",
-          "duration": 8,
+          "title": "resetHexagonLayerPropsState method should be called",
+          "duration": 0,
           "failureMessages": []
         },
         {
           "ancestorTitles": [
             "",
-            "Mapbox view test suite"
+            "HexagonLayerService test suite"
           ],
-          "fullName": " Mapbox view test suite Modal component renders successfully",
+          "fullName": " HexagonLayerService test suite setHexagonLayerPropsState method should be called",
           "status": "passed",
-          "title": "Modal component renders successfully",
-          "duration": 9,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Mapbox view test suite"
-          ],
-          "fullName": " Mapbox view test suite Modal component dynamic class set correctly",
-          "status": "passed",
-          "title": "Modal component dynamic class set correctly",
-          "duration": 9,
+          "title": "setHexagonLayerPropsState method should be called",
+          "duration": 1,
           "failureMessages": []
         }
       ],
-      "startTime": 1651374474014,
-      "endTime": 1651374474200,
+      "startTime": 1662239727545,
+      "endTime": 1662239727560,
       "status": "passed",
       "message": "",
-      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/views/Mapbox/index.test.ts"
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/hexagon-layer/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "HexagonUIService test suite"
+          ],
+          "fullName": " HexagonUIService test suite state getter should equal hexagonUILabelElement configuration object ",
+          "status": "passed",
+          "title": "state getter should equal hexagonUILabelElement configuration object ",
+          "duration": 7,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "HexagonUIService test suite"
+          ],
+          "fullName": " HexagonUIService test suite state getter should return StoreService HEXAGON_UI_LABEL_ELEMENT initial reactive state",
+          "status": "passed",
+          "title": "state getter should return StoreService HEXAGON_UI_LABEL_ELEMENT initial reactive state",
+          "duration": 3,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "HexagonUIService test suite"
+          ],
+          "fullName": " HexagonUIService test suite setHexagonUILabelElementState method should be called",
+          "status": "passed",
+          "title": "setHexagonUILabelElementState method should be called",
+          "duration": 4,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239729296,
+      "endTime": 1662239729310,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/hexagon-ui/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "LayerVisibilityService test suite"
+          ],
+          "fullName": " LayerVisibilityService test suite state getter should equal layerVisibility configuration object ",
+          "status": "passed",
+          "title": "state getter should equal layerVisibility configuration object ",
+          "duration": 14,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "LayerVisibilityService test suite"
+          ],
+          "fullName": " LayerVisibilityService test suite state getter should return StoreService LAYER_VISIBILITY initial static state",
+          "status": "passed",
+          "title": "state getter should return StoreService LAYER_VISIBILITY initial static state",
+          "duration": 3,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "LayerVisibilityService test suite"
+          ],
+          "fullName": " LayerVisibilityService test suite setHexagonUILabelElementState method should be called",
+          "status": "passed",
+          "title": "setHexagonUILabelElementState method should be called",
+          "duration": 4,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239729317,
+      "endTime": 1662239729338,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/layer-visibility/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "ModalService test suite"
+          ],
+          "fullName": " ModalService test suite state getter should equal modal configuration object ",
+          "status": "passed",
+          "title": "state getter should equal modal configuration object ",
+          "duration": 6,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "ModalService test suite"
+          ],
+          "fullName": " ModalService test suite state getter should return StoreService MODAL initial reactive state",
+          "status": "passed",
+          "title": "state getter should return StoreService MODAL initial reactive state",
+          "duration": 3,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "ModalService test suite"
+          ],
+          "fullName": " ModalService test suite hideModal method should be called",
+          "status": "passed",
+          "title": "hideModal method should be called",
+          "duration": 1,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "ModalService test suite"
+          ],
+          "fullName": " ModalService test suite showModal method should be called",
+          "status": "passed",
+          "title": "showModal method should be called",
+          "duration": 11,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239729528,
+      "endTime": 1662239729549,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/modal/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "DeckglService test suite"
+          ],
+          "fullName": " DeckglService test suite loadDeckgl method should be called",
+          "status": "passed",
+          "title": "loadDeckgl method should be called",
+          "duration": 9,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "DeckglService test suite"
+          ],
+          "fullName": " DeckglService test suite removeDeckInstance method should be called",
+          "status": "passed",
+          "title": "removeDeckInstance method should be called",
+          "duration": 0,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "DeckglService test suite"
+          ],
+          "fullName": " DeckglService test suite loadMapbox method should be called",
+          "status": "passed",
+          "title": "loadMapbox method should be called",
+          "duration": 1,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "DeckglService test suite"
+          ],
+          "fullName": " DeckglService test suite removeMapInstance method should be called",
+          "status": "passed",
+          "title": "removeMapInstance method should be called",
+          "duration": 0,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239731230,
+      "endTime": 1662239731240,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/deckgl/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "RouterService test suite"
+          ],
+          "fullName": " RouterService test suite setRoute method should be called",
+          "status": "passed",
+          "title": "setRoute method should be called",
+          "duration": 7,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239731260,
+      "endTime": 1662239731267,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/router/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "GeoJsonLayerService test suite"
+          ],
+          "fullName": " GeoJsonLayerService test suite setLayer method should be called",
+          "status": "passed",
+          "title": "setLayer method should be called",
+          "duration": 13,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239731496,
+      "endTime": 1662239731509,
+      "status": "passed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/services/geojson-layer/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "Modal component test suite"
+          ],
+          "fullName": " Modal component test suite dynamic class set correctly",
+          "status": "todo",
+          "title": "dynamic class set correctly",
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1662239708501,
+      "endTime": 1662239708501,
+      "status": "failed",
+      "message": "",
+      "name": "/home/geospatialweb/express-vue3-tsx/vue/src/components/Modal/index.test.ts"
     }
   ]
 }
