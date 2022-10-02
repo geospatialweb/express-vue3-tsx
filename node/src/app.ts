@@ -40,7 +40,7 @@ const startServer = (): void => {
 //     .listen(Number(process.env.PORT), (): void => {
 //       const blue = '\x1b[34m%s\x1b[0m'
 //       const logService = Container.get(LogService)
-//       logService.consoleLog(`HTTP server listening at ${<string>process.env.HOST}:${<string>process.env.PORT}`, blue)
+//       logService.consoleLog(`HTTPS server listening at ${<string>process.env.HOST}:${<string>process.env.PORT}`, blue)
 //     })
 // }
 setPoolConnection()
