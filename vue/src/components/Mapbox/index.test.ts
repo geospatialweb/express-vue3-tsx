@@ -14,7 +14,6 @@ describe('Mapbox component test suite', () => {
     })
     const el = screen.getByRole('presentation')
     expect(el.id).toBe(container)
-    expect(el.className).toMatch(new RegExp(container))
     expect(el.className).toMatch(/outdoors/)
   })
 })
