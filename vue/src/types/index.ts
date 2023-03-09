@@ -17,13 +17,6 @@ import {
 export type HttpCsvResponse = DSVRowArray<string> | void
 export type HttpGetResponse = FeatureCollection | string | void
 export type LayerElement = 'biosphere' | 'biosphere-border' | 'deckgl' | 'office' | 'places' | 'satellite' | 'trails'
-export type LayerIcon =
-  | 'biosphere-icon'
-  | 'deckgl-icon'
-  | 'office-icon'
-  | 'places-icon'
-  | 'satellite-icon'
-  | 'trails-icon'
 export type LogData = ReactiveState | StaticState | string
 export type NavigationControlPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
 export type ReactiveState = IHexagonLayerProp | IHexagonUILabelElement | ILayerElement[] | IModal
