@@ -6,7 +6,7 @@ import { HexagonLayerService, RouterService } from '@/services'
 
 export default defineComponent({
   setup() {
-    const onClickController = (evt: MouseEvent): void => {
+    const onClickHandler = (evt: MouseEvent): void => {
       evt.stopPropagation()
       const { id } = evt.target as HTMLButtonElement
       const hexagonLayerService = Container.get(HexagonLayerService)
@@ -16,7 +16,7 @@ export default defineComponent({
     return (): JSX.Element => (
       <>
         {buttons.map(({ id, text }) => (
-          <button id={id} onClick={(evt): void => onClickController(evt)}>
+          <button id={id} onClick={(evt): void => onClickHandler(evt)}>
             {text}
           </button>
         ))}

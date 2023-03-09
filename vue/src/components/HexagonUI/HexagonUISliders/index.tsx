@@ -19,13 +19,13 @@ export default defineComponent({
   },
   setup(props: IHexagonUIProp) {
     const { mouseover, mouseout } = styles
-    const onInputController = (evt: Event): void => {
+    const onInputHandler = (evt: Event): void => {
       evt.stopPropagation()
       const { id, value } = evt.target as HTMLInputElement
       const hexagonLayerService = Container.get(HexagonLayerService)
       hexagonLayerService.setHexagonLayerPropsState(id, Number(value))
     }
-    const onMouseover_onMouseoutController = (evt: MouseEvent): void => {
+    const onMouseover_onMouseoutHandler = (evt: MouseEvent): void => {
       evt.stopPropagation()
       const { id } = evt.target as HTMLInputElement
       const hexagonUIService = Container.get(HexagonUIService)
@@ -51,9 +51,9 @@ export default defineComponent({
                 aria-valuemin={sliders[i].min}
                 aria-valuemax={sliders[i].max}
                 aria-valuenow={value}
-                onInput={(evt): void => onInputController(evt)}
-                onMouseover={(evt): void => onMouseover_onMouseoutController(evt)}
-                onMouseout={(evt): void => onMouseover_onMouseoutController(evt)}
+                onInput={(evt): void => onInputHandler(evt)}
+                onMouseover={(evt): void => onMouseover_onMouseoutHandler(evt)}
+                onMouseout={(evt): void => onMouseover_onMouseoutHandler(evt)}
               />
             </label>
             <output for={sliders[i].id}>{value}</output>

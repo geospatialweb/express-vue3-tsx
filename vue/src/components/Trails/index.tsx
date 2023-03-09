@@ -9,7 +9,7 @@ import styles from './index.module.css'
 export default defineComponent({
   setup() {
     const { trail } = styles
-    const onChangeController = (evt: Event): void => {
+    const onChangeHandler = (evt: Event): void => {
       evt.stopPropagation()
       const { value: name } = evt.target as HTMLSelectElement
       const trailService = Container.get(TrailService)
@@ -18,7 +18,7 @@ export default defineComponent({
     return (): JSX.Element => (
       <label>
         Select Trail
-        <select id="trail" class={trail} onChange={(evt): void => onChangeController(evt)}>
+        <select class={trail} onChange={(evt): void => onChangeHandler(evt)}>
           <option>Select Trail</option>
           {trails.map(({ name }: ITrail) => (
             <option key={name}>{name}</option>

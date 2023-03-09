@@ -2,7 +2,7 @@ import { Container } from 'typedi'
 import { ComputedRef, computed, defineComponent } from 'vue'
 
 import { LayerElement, LayerIcon } from '@/components'
-import { layerIcons as icons } from '@/configuration'
+import { layerIcons } from '@/configuration'
 import { ILayerElement } from '@/interfaces'
 import { LayerElementService } from '@/services'
 import styles from './index.module.css'
@@ -14,7 +14,7 @@ export default defineComponent({
       const { state } = Container.get(LayerElementService)
       return computed((): ILayerElement[] => state)
     }
-    const onClickController = (evt: MouseEvent): void => {
+    const onClickHandler = (evt: MouseEvent): void => {
       evt.stopPropagation()
       const { id } = evt.target as HTMLDivElement
       const layerElementService = Container.get(LayerElementService)
@@ -26,15 +26,15 @@ export default defineComponent({
           id={`${id}-icon`}
           key={id}
           name={name}
-          src={icons[i].src}
-          height={icons[i].height}
-          width={icons[i].width}
+          src={layerIcons[i].src}
+          height={layerIcons[i].height}
+          width={layerIcons[i].width}
         />
         <LayerElement id={id} key={id} name={name} isActive={isActive} />
       </li>
     )
     const jsx = (layerElements: ILayerElement[]): JSX.Element => (
-      <ul class={layerElement} title="layers" onClick={(evt): void => onClickController(evt)}>
+      <ul class={layerElement} title="layers" onClick={(evt): void => onClickHandler(evt)}>
         {layerElements.map(listItem)}
       </ul>
     )
