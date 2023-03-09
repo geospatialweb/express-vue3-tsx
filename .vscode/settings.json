@@ -1,9 +1,6 @@
 {
+  "css.validate": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.run": "onSave",
   "eslint.validate": ["typescript", "typescriptreact"],
-  // this is the typescript version in package.json - not the current vscode version internally
-  // does not overwrite default & user settings - manually add to settings.json
-  // Ctrl+Shift+P | Open Settings (JSON)
-  "typescript.tsdk": "vue/node_modules/typescript/lib"
+  "stylelint.enable": true
 }
