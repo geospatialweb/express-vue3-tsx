@@ -7,11 +7,11 @@ export default defineComponent({
     const { header, name, title } = styles
     return (): JSX.Element => (
       <header class={header}>
-        <img src="/icons/logo.png" alt="Geospatial Web Logo" />
-        <div id="name" class={name}>
+        <img src="/assets/icons/logo.png" alt="Geospatial Web Logo" />
+        <div id="header-name" class={name} aria-labelledby="header-name">
           Geospatial Web
         </div>
-        <div id="title" class={title}>
+        <div id="header-title" class={title} aria-labelledby="header-title">
           Express&ensp;API&ensp;&#45;&ensp;Vue 3&ensp;Composition&ensp;API&ensp;&#45;&ensp;TSX
         </div>
         <a

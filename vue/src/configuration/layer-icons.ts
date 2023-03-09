@@ -1,31 +1,31 @@
 export default [
   {
-    src: '/icons/satellite.png',
+    src: '/assets/icons/satellite.png',
     height: '20',
     width: '20'
   },
   {
-    src: '/icons/biosphere.png',
+    src: '/assets/icons/biosphere.png',
     height: '16',
     width: '16'
   },
   {
-    src: '/icons/office.png',
+    src: '/assets/icons/office.png',
     height: '20',
     width: '18'
   },
   {
-    src: '/icons/places.png',
+    src: '/assets/icons/places.png',
     height: '20',
     width: '18'
   },
   {
-    src: '/icons/trails.png',
+    src: '/assets/icons/trails.png',
     height: '20',
     width: '18'
   },
   {
-    src: '/icons/deckgl.png',
+    src: '/assets/icons/deckgl.png',
     height: '18',
     width: '18'
   }

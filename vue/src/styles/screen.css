@@ -84,19 +84,19 @@ ul {
 }
 
 .mapboxgl-marker.office {
-  background-image: url('/icons/office.png');
+  background-image: url('/assets/icons/office.png');
   height: 2.5rem;
   width: 2rem;
 }
 
 .mapboxgl-marker.places {
-  background-image: url('/icons/places.png');
+  background-image: url('/assets/icons/places.png');
   height: 2.5rem;
   width: 2rem;
 }
 
 .mapboxgl-marker.trails {
-  background-image: url('/icons/trails.png');
+  background-image: url('/assets/icons/trails.png');
   height: 2.5rem;
   width: 2rem;
 }
