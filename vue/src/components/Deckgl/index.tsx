@@ -2,7 +2,7 @@ import { Container } from 'typedi'
 import { defineComponent, onMounted, onUnmounted } from 'vue'
 
 import { IDeckglProp } from '@/interfaces'
-import { DataService, DeckglService, HexagonLayerService, ModalService } from '@/services'
+import { AuthorizationService, DeckglService, HexagonLayerService, ModalService } from '@/services'
 import styles from './index.module.css'
 
 export default defineComponent({
@@ -23,9 +23,9 @@ export default defineComponent({
       modalService.showModal()
     }
     const getMapboxAccessToken = async (): Promise<void> => {
-      const dataService = Container.get(DataService)
-      const { mapboxAccessToken } = dataService
-      mapboxAccessToken ?? (await dataService.getMapboxAccessToken())
+      const authorizationService = Container.get(AuthorizationService)
+      const { mapboxAccessToken } = authorizationService
+      mapboxAccessToken ?? (await authorizationService.getMapboxAccessToken())
     }
     const loadHexagonLayer = (): void => {
       const hexagonLayerService = Container.get(HexagonLayerService)

@@ -2,7 +2,14 @@ import { Container } from 'typedi'
 import { defineComponent, onMounted, onUnmounted } from 'vue'
 
 import { IMapboxProp } from '@/interfaces'
-import { DataService, MapService, MapStyleService, MapboxService, MarkerService, ModalService } from '@/services'
+import {
+  AuthorizationService,
+  MapService,
+  MapStyleService,
+  MapboxService,
+  MarkerService,
+  ModalService
+} from '@/services'
 import styles from './index.module.css'
 
 export default defineComponent({
@@ -26,9 +33,9 @@ export default defineComponent({
         : setTimeout((): void => markerService.setHiddenMarkersVisibility(), 250)
     }
     const getMapboxAccessToken = async (): Promise<void> => {
-      const dataService = Container.get(DataService)
-      const { mapboxAccessToken } = dataService
-      mapboxAccessToken ?? (await dataService.getMapboxAccessToken())
+      const authorizationService = Container.get(AuthorizationService)
+      const { mapboxAccessToken } = authorizationService
+      mapboxAccessToken ?? (await authorizationService.getMapboxAccessToken())
     }
     const loadMapLayer = (): void => {
       const mapService = Container.get(MapService)
