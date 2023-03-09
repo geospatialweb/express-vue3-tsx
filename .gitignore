@@ -1,5 +1,6 @@
 .env
 .eslintcache
 node_modules
+output.json
 build
 static
