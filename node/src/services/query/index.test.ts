@@ -12,13 +12,13 @@ describe('QueryService test suite', () => {
     queryService = Container.get(QueryService)
   })
 
-  test('getGeoJsonFeatureCollection method should be called with a return', async () => {
+  test('getGeoJSONFeatureCollection method should be called with a return', async () => {
     const queryParams: IQueryParam = {
-      fields: 'name,description,geom',
+      columns: 'name,description,geom',
       table: 'office'
     }
-    const spy = jest.spyOn(queryService, 'getGeoJsonFeatureCollection')
-    await queryService.getGeoJsonFeatureCollection(queryParams)
+    const spy = jest.spyOn(queryService, 'getGeoJSONFeatureCollection')
+    await queryService.getGeoJSONFeatureCollection(queryParams)
     expect(spy).toHaveBeenCalledTimes(1)
     expect(spy).toHaveBeenCalledWith(queryParams)
     expect(spy).toHaveReturnedTimes(1)

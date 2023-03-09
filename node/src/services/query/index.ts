@@ -3,33 +3,33 @@ import { QueryResultRow } from 'pg'
 import { Container, Service } from 'typedi'
 
 import { IQueryParam } from '../../interfaces'
-import { GeoJsonService, LogService, PostgresService } from '../'
+import { GeoJSONService, LogService, PostgresService } from '../'
 
 @Service()
 export default class QueryService {
-  private _geoJsonService: GeoJsonService
+  private _geoJSONService: GeoJSONService
   private _logService: LogService
   private _postgresService: PostgresService
 
   constructor() {
-    this._geoJsonService = Container.get(GeoJsonService)
+    this._geoJSONService = Container.get(GeoJSONService)
     this._logService = Container.get(LogService)
     this._postgresService = Container.get(PostgresService)
   }
 
-  async getGeoJsonFeatureCollection({ fields, table }: IQueryParam): Promise<FeatureCollection | void> {
+  async getGeoJSONFeatureCollection({ columns, table }: IQueryParam): Promise<FeatureCollection | void> {
     const { pool } = this._postgresService
     const query = `
       SELECT ST_AsGeoJSON(feature.*) AS geojson
       FROM (
-        SELECT ${fields}
+        SELECT ${columns}
         FROM ${table}
       ) AS feature`
     return await pool
       .query(query)
       .then(({ rows: features }) => {
         this._logQuerySuccess('GeoJSON SQL')
-        return this._geoJsonService.createGeoJsonFeatureCollection(<QueryResultRow[]>features)
+        return this._geoJSONService.createGeoJSONFeatureCollection(<QueryResultRow[]>features)
       })
       .catch(({ message }) => this._logService.consoleError(<string>message))
   }

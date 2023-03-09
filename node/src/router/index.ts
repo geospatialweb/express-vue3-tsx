@@ -1,7 +1,7 @@
 import { celebrate, Joi } from 'celebrate'
 import { Router } from 'express'
 
-import { getGeoJsonFeatureCollection, getMapboxAccessToken } from '../controllers'
+import { getGeoJSONFeatureCollection, getMapboxAccessToken } from '../handlers'
 
 export function router(): Router {
   const router = Router()
@@ -11,11 +11,12 @@ export function router(): Router {
       '/geojson',
       celebrate({
         query: {
-          fields: Joi.string().required(),
+          columns: Joi.string().required(),
           table: Joi.string().required()
         }
       }),
-      getGeoJsonFeatureCollection
+      /*eslint-disable-next-line @typescript-eslint/no-misused-promises */
+      getGeoJSONFeatureCollection
     )
     .get('/mapbox-access-token', getMapboxAccessToken)
 }

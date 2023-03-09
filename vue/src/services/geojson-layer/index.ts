@@ -5,7 +5,7 @@ import { Service } from 'typedi'
 import { ILayer } from '@/interfaces'
 
 @Service()
-export default class GeoJsonLayerService {
+export default class GeoJSONLayerService {
   private _layers: ILayer[]
 
   constructor() {

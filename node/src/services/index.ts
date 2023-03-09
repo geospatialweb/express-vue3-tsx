@@ -1,4 +1,4 @@
-export { default as GeoJsonService } from './geojson'
+export { default as GeoJSONService } from './geojson'
 export { default as LogService } from './log'
 export { default as PostgresService } from './postgres'
 export { default as QueryService } from './query'

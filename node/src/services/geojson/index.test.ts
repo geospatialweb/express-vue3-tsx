@@ -2,27 +2,27 @@ import { FeatureCollection } from 'geojson'
 import { QueryResultRow } from 'pg'
 import { Container } from 'typedi'
 
-import { GeoJsonService } from '../'
+import { GeoJSONService } from '../'
 
-describe('GeoJsonService test suite', () => {
-  let geoJsonService: GeoJsonService
+describe('GeoJSONService test suite', () => {
+  let geoJSONService: GeoJSONService
   let spy: jest.SpyInstance
 
   beforeEach(() => {
-    geoJsonService = Container.get(GeoJsonService)
-    spy = jest.spyOn(geoJsonService, 'createGeoJsonFeatureCollection')
+    geoJSONService = Container.get(GeoJSONService)
+    spy = jest.spyOn(geoJSONService, 'createGeoJSONFeatureCollection')
   })
 
   afterEach(() => spy.mockRestore())
 
-  test('createGeoJsonFeatureCollection returns valid GeoJSON FeatureCollection object with features', () => {
+  test('createGeoJSONFeatureCollection returns valid GeoJSON FeatureCollection object with features', () => {
     const features: QueryResultRow[] = [
       {
         geojson:
           '{"type": "Feature", "geometry": {"type":"Point","coordinates":[-76.011422,44.384362]}, "properties": {"name": "Frontenac Arch Biosphere Office", "description": "19 Reynolds Road, Lansdowne, ON. Open Monday to Friday 8:30am - 4:30pm"}}'
       }
     ]
-    const expectedGeoJsonFeatureCollection: FeatureCollection = {
+    const expectedGeoJSONFeatureCollection: FeatureCollection = {
       type: 'FeatureCollection',
       features: [
         {
@@ -38,23 +38,23 @@ describe('GeoJsonService test suite', () => {
         }
       ]
     }
-    geoJsonService.createGeoJsonFeatureCollection(features)
+    geoJSONService.createGeoJSONFeatureCollection(features)
     expect(spy).toHaveBeenCalledTimes(1)
     expect(spy).toHaveBeenCalledWith(features)
     expect(spy).toHaveReturnedTimes(1)
-    expect(spy).toHaveReturnedWith(expectedGeoJsonFeatureCollection)
+    expect(spy).toHaveReturnedWith(expectedGeoJSONFeatureCollection)
   })
 
-  test('createGeoJsonFeatureCollection returns valid GeoJSON FeatureCollection object with no features', () => {
+  test('createGeoJSONFeatureCollection returns valid GeoJSON FeatureCollection object with no features', () => {
     const features: QueryResultRow[] = []
-    const expectedGeoJsonFeatureCollection: FeatureCollection = {
+    const expectedGeoJSONFeatureCollection: FeatureCollection = {
       type: 'FeatureCollection',
       features: []
     }
-    geoJsonService.createGeoJsonFeatureCollection(features)
+    geoJSONService.createGeoJSONFeatureCollection(features)
     expect(spy).toHaveBeenCalledTimes(1)
     expect(spy).toHaveBeenCalledWith(features)
     expect(spy).toHaveReturnedTimes(1)
-    expect(spy).toHaveReturnedWith(expectedGeoJsonFeatureCollection)
+    expect(spy).toHaveReturnedWith(expectedGeoJSONFeatureCollection)
   })
 })

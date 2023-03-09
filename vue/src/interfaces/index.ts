@@ -34,7 +34,7 @@ export interface IEndpoint {
   MAPBOX_ACCESS_TOKEN_ENDPOINT: string
 }
 
-export interface IGeoJsonProperties {
+export interface IGeoJSONProperties {
   description: string
   name: string
 }
@@ -77,7 +77,7 @@ export interface IHexagonUIProp {
 }
 
 export interface IHttpParam {
-  fields: string
+  columns: string
   table: string
 }
 
@@ -190,7 +190,7 @@ export interface IModal {
 }
 
 export interface IQueryParam {
-  fields: string
+  columns: string
   id: string
 }
 

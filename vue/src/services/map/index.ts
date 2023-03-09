@@ -6,7 +6,7 @@ import { LayerElement } from '@/enums'
 import { ILayerElements, ILayerVisibility } from '@/interfaces'
 import {
   AppService,
-  GeoJsonLayerService,
+  GeoJSONLayerService,
   LayerVisibilityService,
   MapStyleService,
   MapboxService,
@@ -20,7 +20,7 @@ export default class MapService {
   private _layerElements: ILayerElements
   private _skyLayer: SkyLayer
   private _appService: AppService
-  private _geoJsonLayerService: GeoJsonLayerService
+  private _geoJSONLayerService: GeoJSONLayerService
   private _layerVisibilityService: LayerVisibilityService
   private _mapStyleService: MapStyleService
   private _mapboxService: MapboxService
@@ -32,7 +32,7 @@ export default class MapService {
     this._layerElements = LayerElement
     this._skyLayer = <SkyLayer>mapbox.skyLayer
     this._appService = Container.get(AppService)
-    this._geoJsonLayerService = Container.get(GeoJsonLayerService)
+    this._geoJSONLayerService = Container.get(GeoJSONLayerService)
     this._layerVisibilityService = Container.get(LayerVisibilityService)
     this._mapStyleService = Container.get(MapStyleService)
     this._mapboxService = Container.get(MapboxService)
@@ -73,7 +73,7 @@ export default class MapService {
 
   private _onMapLoadHandler(): void {
     this._addSkyLayer()
-    this._addGeoJsonLayers()
+    this._addGeoJSONLayers()
     this._hideModal()
   }
 
@@ -81,8 +81,8 @@ export default class MapService {
     this._map.getLayer(this._skyLayer.id) ?? this._map.addLayer(this._skyLayer)
   }
 
-  private _addGeoJsonLayers(): void {
-    const { layers } = this._geoJsonLayerService
+  private _addGeoJSONLayers(): void {
+    const { layers } = this._geoJSONLayerService
     for (const layer of layers) {
       const { id } = layer
       this._map.getLayer(id) ?? this._map.addLayer(<FillLayer | LineLayer>layer)
@@ -97,7 +97,7 @@ export default class MapService {
   /* reset layers & marker visibility after delay to set mapStyle (basemap) */
   private _resetMapFeatures(): void {
     this._resetSkyLayer()
-    this._resetGeoJsonLayers()
+    this._resetGeoJSONLayers()
     this._resetHiddenMarkersVisibility()
   }
 
@@ -105,8 +105,8 @@ export default class MapService {
     setTimeout((): void => this._addSkyLayer(), 100)
   }
 
-  private _resetGeoJsonLayers(): void {
-    setTimeout((): void => this._addGeoJsonLayers(), 200)
+  private _resetGeoJSONLayers(): void {
+    setTimeout((): void => this._addGeoJSONLayers(), 200)
   }
 
   private _resetHiddenMarkersVisibility(): void {

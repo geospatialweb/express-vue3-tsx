@@ -3,8 +3,8 @@ import { QueryResultRow } from 'pg'
 import { Service } from 'typedi'
 
 @Service()
-export default class GeoJsonService {
-  createGeoJsonFeatureCollection(features: QueryResultRow[]): FeatureCollection {
+export default class GeoJSONService {
+  createGeoJSONFeatureCollection(features: QueryResultRow[]): FeatureCollection {
     const fc: FeatureCollection = {
       type: 'FeatureCollection',
       features: []

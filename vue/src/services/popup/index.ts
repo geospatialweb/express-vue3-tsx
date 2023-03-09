@@ -2,7 +2,7 @@ import { Feature, Point } from 'geojson'
 import { LngLat, LngLatLike, Popup } from 'mapbox-gl'
 import { Container, Service } from 'typedi'
 
-import { IGeoJsonProperties } from '@/interfaces'
+import { IGeoJSONProperties } from '@/interfaces'
 import { MapboxService } from '@/services'
 
 @Service()
@@ -18,7 +18,7 @@ export default class PopupService {
   addLayerPopup(feature: Feature, lngLat: LngLatLike): void {
     const { properties } = feature
     this._setLayerPopupLngLat(lngLat)
-    this._setHTML(<IGeoJsonProperties>properties)
+    this._setHTML(<IGeoJSONProperties>properties)
     this._setOffset(4)
     this._addToMap()
   }
@@ -26,7 +26,7 @@ export default class PopupService {
   addMarkerPopup(feature: Feature): void {
     const { properties } = feature
     this._setMarkerPopupLngLat(feature)
-    this._setHTML(<IGeoJsonProperties>properties)
+    this._setHTML(<IGeoJSONProperties>properties)
     this._setOffset(14)
     this._addToMap()
   }
@@ -45,13 +45,13 @@ export default class PopupService {
   }
 
   private _setMarkerPopupLngLat({ geometry, properties }: Feature): void {
-    if (Object.keys(<IGeoJsonProperties>properties).length) {
+    if (Object.keys(<IGeoJSONProperties>properties).length) {
       const { lat, lng } = <LngLat>properties
       lat && lng ? this._popup.setLngLat([lng, lat]) : this._popup.setLngLat(<LngLatLike>(<Point>geometry).coordinates)
     }
   }
 
-  private _setHTML(properties: IGeoJsonProperties): void {
+  private _setHTML(properties: IGeoJSONProperties): void {
     if (Object.keys(properties).length) {
       const { description, name } = properties
       this._popup.setHTML(
