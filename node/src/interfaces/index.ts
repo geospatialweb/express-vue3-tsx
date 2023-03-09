@@ -3,6 +3,6 @@ export interface IHttpCode {
 }
 
 export interface IQueryParam {
-  fields: string
+  columns: string
   table: string
 }

@@ -50,7 +50,7 @@ export default {
     }
   },
   queryParams: {
-    fields: 'name,description,geom',
+    columns: 'name,description,geom',
     table: 'office'
   },
   trailParams: {

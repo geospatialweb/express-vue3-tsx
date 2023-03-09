@@ -1,14 +1,14 @@
 export default [
   {
     id: 'biosphere',
-    fields: 'name,description,geom'
+    columns: 'name,description,geom'
   },
   {
     id: 'biosphere-border',
-    fields: 'name,description,geom'
+    columns: 'name,description,geom'
   },
   {
     id: 'trails',
-    fields: 'name,description,lat,lng,geom'
+    columns: 'name,description,lat,lng,geom'
   }
 ]

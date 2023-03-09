@@ -1,15 +1,15 @@
 GET http://localhost:8000/api/mapbox-access-token
 Content-Type: application/json
 ###
-GET http://localhost:8000/api/geojson?fields=name,description,geom&table=biosphere
+GET http://localhost:8000/api/geojson?columns=name,description,geom&table=biosphere
 Content-Type: application/json
 ###
-GET http://localhost:8000/api/geojson?fields=name,description,geom&table=office
+GET http://localhost:8000/api/geojson?columns=name,description,geom&table=office
 Content-Type: application/json
 ###
-GET http://localhost:8000/api/geojson?fields=name,description,geom&table=places
+GET http://localhost:8000/api/geojson?columns=name,description,geom&table=places
 Content-Type: application/json
 ###
-GET http://localhost:8000/api/geojson?fields=name,description,geom&table=trails
+GET http://localhost:8000/api/geojson?columns=name,description,geom&table=trails
 Content-Type: application/json
 ###
