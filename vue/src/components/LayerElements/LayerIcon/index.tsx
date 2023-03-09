@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue'
 
 import { ILayerIcon } from '@/interfaces'
-import { LayerIcon } from '@/types'
 import styles from '../index.module.css'
 
 export default defineComponent({
@@ -28,8 +27,6 @@ export default defineComponent({
     }
   },
   setup({ height, id, name, src, width }: ILayerIcon) {
-    return (): JSX.Element => (
-      <img id={id} class={styles[id as LayerIcon]} alt={name} height={height} src={src} width={width} />
-    )
+    return (): JSX.Element => <img id={id} class={styles[id]} alt={name} height={height} src={src} width={width} />
   }
 })

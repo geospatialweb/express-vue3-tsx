@@ -25,15 +25,16 @@ export default class ModalService {
   }
 
   hideModal(): void {
-    this.state.isActive && this._setModalState()
+    const state = this.state
+    state.isActive && this._setModalState(state)
   }
 
   showModal(): void {
-    !this.state.isActive && this._setModalState()
+    const state = this.state
+    !state.isActive && this._setModalState(state)
   }
 
-  private _setModalState(): void {
-    const state = this.state
+  private _setModalState(state: IModal): void {
     state.isActive = !state.isActive
     this._state = state
   }

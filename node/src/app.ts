@@ -32,8 +32,8 @@ const startServer = (): void => {
 //   https
 //     .createServer(
 //       {
-//         key: fs.readFileSync((<string>process.env.SSL_KEY), utf8),
-//         cert: fs.readFileSync((<string>process.env.SSL_CERT), utf8)
+//         key: fs.readFileSync(<string>process.env.SSL_KEY, { encoding: 'utf8', flag: 'r' }),
+//         cert: fs.readFileSync(<string>process.env.SSL_CERT, { encoding: 'utf8', flag: 'r' })
 //       },
 //       app.set('env', <string>process.env.NODE_ENV).use(<string>process.env.API_PREFIX, router())
 //     )

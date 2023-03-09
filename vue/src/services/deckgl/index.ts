@@ -1,6 +1,5 @@
 /* eslint-disable */
-/* @ts-ignore */
-import { Deck, DeckglOptions, ViewState } from '@deck.gl/core'
+import { Deck } from '@deck.gl/core'
 import { LngLatLike, Map, MapboxOptions } from 'mapbox-gl'
 import { Container, Service } from 'typedi'
 
@@ -15,13 +14,13 @@ export default class DeckglService {
   private _staticStates: IStaticState
   private _storeService: StoreService
 
-  constructor(private _deck: Deck, private _map: Map) {
+  constructor(private _deck: any, private _map: Map) {
     this._options = deckgl.options
     this._staticStates = StaticState
     this._storeService = Container.get(StoreService)
   }
 
-  get deck(): Deck {
+  get deck(): any {
     return this._deck
   }
 
@@ -41,7 +40,7 @@ export default class DeckglService {
 
   loadDeckgl(): void {
     const { canvas, controller, id, maxPitch, maxZoom, minZoom } = this._options
-    const options: DeckglOptions = {
+    const options = {
       canvas,
       controller,
       id,
@@ -49,7 +48,7 @@ export default class DeckglService {
     }
     this._deck = new Deck({
       ...options,
-      onViewStateChange: ({ viewState: { bearing, latitude, longitude, pitch, zoom } }: ViewState): void => {
+      onViewStateChange: ({ viewState: { bearing, latitude, longitude, pitch, zoom } }: any): void => {
         const center: LngLatLike = { lng: longitude, lat: latitude }
         const state: IDeckglViewSetting = { bearing, center, latitude, longitude, pitch, zoom }
         this._setDeckglViewSettingsState(state)
@@ -70,11 +69,11 @@ export default class DeckglService {
   }
 
   removeDeckInstance(): void {
-    () => this._deck.finalize()
+    ;(): void => this._deck.finalize()
   }
 
   removeMapInstance(): void {
-    () => this._map.remove()
+    ;(): void => this._map.remove()
   }
 
   setInitialZoomState(zoom: number) {

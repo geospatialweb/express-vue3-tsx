@@ -1,13 +1,12 @@
 import { DSVRowArray } from 'd3-dsv'
-import { Feature, FeatureCollection } from 'geojson'
+import { FeatureCollection } from 'geojson'
 import cloneDeep from 'lodash.clonedeep'
-import mapboxgl from 'mapbox-gl'
 import { Container, Service } from 'typedi'
 
 import { layers, layerParams, markerParams } from '@/configuration'
 import { Endpoint, Url } from '@/enums'
 import { IEndpoint, IHttpParam, ILayer, IQueryParam, IUrl } from '@/interfaces'
-import { GeoJsonLayerService, HttpService, LogService, MarkerService } from '@/services'
+import { GeoJSONLayerService, HttpService, LogService, MarkerService } from '@/services'
 import { HttpCsvResponse, HttpGetResponse } from '@/types'
 
 @Service()
@@ -18,7 +17,7 @@ export default class DataService {
   private _layerParams: IQueryParam[]
   private _markerParams: IQueryParam[]
   private _urls: IUrl
-  private _geoJsonLayerService: GeoJsonLayerService
+  private _geoJSONLayerService: GeoJSONLayerService
   private _httpService: HttpService
   private _logService: LogService
   private _markerService: MarkerService
@@ -30,7 +29,7 @@ export default class DataService {
     this._layerParams = layerParams
     this._markerParams = markerParams
     this._urls = Url
-    this._geoJsonLayerService = Container.get(GeoJsonLayerService)
+    this._geoJSONLayerService = Container.get(GeoJSONLayerService)
     this._httpService = Container.get(HttpService)
     this._logService = Container.get(LogService)
     this._markerService = Container.get(MarkerService)
@@ -40,31 +39,10 @@ export default class DataService {
     return this._hexagonLayerData
   }
 
-  get mapboxAccessToken(): string {
-    const { accessToken } = mapboxgl
-    return accessToken
-  }
-
-  private set _mapboxAccessToken(token: string) {
-    mapboxgl.accessToken = token
-  }
-
   async loadData(): Promise<void> {
-    await this._getGeoJsonLayerData()
-    await this._getGeoJsonMarkerData()
+    await this._getGeoJSONLayerData()
+    await this._getGeoJSONMarkerData()
     await this._getHexagonLayerData()
-  }
-
-  async getMapboxAccessToken(): Promise<void> {
-    const { MAPBOX_ACCESS_TOKEN_ENDPOINT } = this._endpoints
-    const token = await this._httpGetRequest(MAPBOX_ACCESS_TOKEN_ENDPOINT)
-    this._setMapboxAccessToken(<string>token)
-  }
-
-  private _setMapboxAccessToken(token: string): void {
-    token
-      ? (this._mapboxAccessToken = token)
-      : this._consoleWarning(`No ${this.getMapboxAccessToken.name.slice(3)} Found`)
   }
 
   private async _getHexagonLayerData(): Promise<void> {
@@ -79,49 +57,49 @@ export default class DataService {
       : this._consoleWarning(`No ${this._getHexagonLayerData.name.slice(4)} Found`)
   }
 
-  private async _getGeoJsonLayerData(): Promise<void> {
+  private async _getGeoJSONLayerData(): Promise<void> {
     for (const [i, layer] of this._layers.entries()) {
-      const fc = await this._getGeoJsonFeatureCollection(this._layerParams[i])
-      this._setGeoJsonLayer(layer, fc)
+      const fc = await this._getGeoJSONFeatureCollection(this._layerParams[i])
+      this._setGeoJSONLayer(layer, fc)
     }
   }
 
-  private _setGeoJsonLayer(layer: ILayer, fc: FeatureCollection): void {
+  private _setGeoJSONLayer(layer: ILayer, fc: FeatureCollection): void {
     fc?.features?.length
-      ? this._geoJsonLayerService.setLayer(layer, cloneDeep(fc))
-      : this._consoleWarning(`No ${this._getGeoJsonLayerData.name.slice(4)} Features Found`)
+      ? this._geoJSONLayerService.setLayer(layer, cloneDeep(fc))
+      : this._consoleWarning(`No ${this._getGeoJSONLayerData.name.slice(4)} Features Found`)
   }
 
-  private async _getGeoJsonMarkerData(): Promise<void> {
+  private async _getGeoJSONMarkerData(): Promise<void> {
     for (const params of this._markerParams) {
       const { id } = params
-      const { features } = await this._getGeoJsonFeatureCollection(params)
-      this._setGeoJsonMarkers(id, features)
+      const fc = await this._getGeoJSONFeatureCollection(params)
+      this._setGeoJSONMarkers(id, fc)
     }
   }
 
-  private _setGeoJsonMarkers(id: string, features: Feature[]): void {
-    features?.length
-      ? this._markerService.setMarkers(id, cloneDeep(features))
-      : this._consoleWarning(`No ${this._getGeoJsonMarkerData.name.slice(4)} Features Found`)
+  private _setGeoJSONMarkers(id: string, fc: FeatureCollection): void {
+    fc?.features?.length
+      ? this._markerService.setMarkers(id, cloneDeep(fc.features))
+      : this._consoleWarning(`No ${this._getGeoJSONMarkerData.name.slice(4)} Features Found`)
   }
 
-  private async _getGeoJsonFeatureCollection({ id, fields }: IQueryParam): Promise<FeatureCollection> {
+  private async _getGeoJSONFeatureCollection({ columns, id }: IQueryParam): Promise<FeatureCollection> {
     const { GEOJSON_ENDPOINT } = this._endpoints
-    const params: IHttpParam = { fields, table: (id.includes('-') && id.split('-')[0]) || id }
-    const fc = await this._httpGetRequest(GEOJSON_ENDPOINT, params)
-    return <FeatureCollection>fc
+    const params: IHttpParam = { columns, table: (id.includes('-') && id.split('-')[0]) || id }
+    const data = await this._httpGetRequest(GEOJSON_ENDPOINT, params)
+    return <FeatureCollection>data
   }
 
-  private async _httpGetRequest(endpoint: string, params?: IHttpParam): Promise<HttpGetResponse> {
-    return await this._httpService.get(endpoint, { params })
+  private async _httpGetRequest(endpoint: string, params: IHttpParam): Promise<HttpGetResponse> {
+    return this._httpService.get(endpoint, { params })
   }
 
   private async _httpCsvRequest(url: string): Promise<HttpCsvResponse> {
-    return await this._httpService.csv(url)
+    return this._httpService.csv(url)
   }
 
-  private _consoleWarning(message: string): void {
-    this._logService.consoleWarning(message)
+  private _consoleWarning(msg: string): void {
+    this._logService.consoleWarning(msg)
   }
 }

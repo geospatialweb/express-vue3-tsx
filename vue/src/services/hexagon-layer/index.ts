@@ -3,8 +3,6 @@
  * Data URL: https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/3d-heatmap/heatmap-data.csv
  * Data Source: https://data.gov.uk
  */
-/* eslint-disable */
-/* @ts-ignore */
 import { HexagonLayer } from '@deck.gl/aggregation-layers'
 import { Map, SkyLayer } from 'mapbox-gl'
 import { Container, Service } from 'typedi'
@@ -84,11 +82,11 @@ export default class HexagonLayerService {
   private _hideModal(): void {
     setTimeout((): void => this._modalService.hideModal(), 400)
   }
-
+  /* eslint-disable */
   private _renderHexagonLayer(): void {
     !this._hexagonLayerData.length && this._setHexagonLayerData()
     const { deck } = this._deckglService
-    const hexagonLayer: HexagonLayer = new HexagonLayer({
+    const hexagonLayer = new HexagonLayer({
       data: this._hexagonLayerData,
       getPosition: (d: number[]): number[] => d,
       ...this._staticProps,
@@ -96,7 +94,7 @@ export default class HexagonLayerService {
     })
     deck.setProps({ layers: [hexagonLayer] })
   }
-
+  /* eslint-enable */
   private _setHexagonLayerData(): void {
     const { hexagonLayerData } = this._dataService
     this._hexagonLayerData = hexagonLayerData

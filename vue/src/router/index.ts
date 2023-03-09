@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: `${baseUrl}:catchAll(.*)`,
-    redirect: baseUrl
+    redirect: 'mapbox'
   }
 ]
 

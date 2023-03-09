@@ -4,15 +4,15 @@ import { LogData } from '@/types'
 
 @Service()
 export default class LogService {
-  consoleError(message: string): void {
-    console.error(message)
+  consoleError(msg: string): void {
+    console.error(msg)
   }
 
-  consoleLog(message: string, data: LogData): void {
-    console.log(message, data)
+  consoleLog(msg: string, data: LogData): void {
+    console.log(msg, data)
   }
 
-  consoleWarning(message: string): void {
-    console.warn(message)
+  consoleWarning(msg: string): void {
+    console.warn(msg)
   }
 }
