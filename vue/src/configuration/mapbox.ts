@@ -13,7 +13,7 @@ export default {
     bearing: 0,
     center: { lng: -76.25, lat: 44.5 },
     pitch: 0,
-    style: 'mapbox://styles/mapbox/outdoors-v11',
+    style: 'mapbox://styles/mapbox/outdoors-v12',
     zoom: 10
   },
   skyLayer: {
@@ -28,7 +28,7 @@ export default {
   styles: [
     {
       isActive: true,
-      url: 'mapbox://styles/mapbox/outdoors-v11'
+      url: 'mapbox://styles/mapbox/outdoors-v12'
     },
     {
       isActive: false,
