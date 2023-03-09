@@ -29,7 +29,6 @@ export default defineConfig({
     include: ['src/**/index.test.ts'],
     outputFile: 'src/test/output.json',
     reporters: 'json',
-     // reporters: 'verbose',
     setupFiles: 'src/test/setup.ts',
     transformMode: {
       web: [/\.tsx$/]
